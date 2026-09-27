@@ -1,6 +1,6 @@
 import React from 'react';
 import { Page } from '../types';
-import { MapPin, MessageSquare, ShieldCheck } from 'lucide-react';
+import { MapPin, MessageSquare, ShieldCheck, Instagram, Facebook } from 'lucide-react';
 
 interface FooterProps {
   onNavigate: (page: Page) => void;
@@ -46,6 +46,30 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onScrollToProducts }
                 <ShieldCheck className="w-3.5 h-3.5 text-white" />
                 Pengawasan Dewan Pengawas Syariah (DPS)
               </span>
+            </div>
+
+            <div className="pt-2 flex items-center gap-2.5">
+              <a
+                href="https://www.instagram.com/bmtalmuhajirin_official/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram BMT Al-Muhajirin Official"
+                className="group inline-flex items-center gap-2 border border-white/15 bg-white/5 px-3 py-2 text-[11px] text-white/80 hover:bg-white/10 hover:text-white hover:border-white/30 transition-all"
+              >
+                <Instagram className="w-4 h-4" />
+                <span>Instagram</span>
+              </a>
+
+              <a
+                href="https://web.facebook.com/profile.php?id=61573199156163"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook BMT Al-Muhajirin"
+                className="group inline-flex items-center gap-2 border border-white/15 bg-white/5 px-3 py-2 text-[11px] text-white/80 hover:bg-white/10 hover:text-white hover:border-white/30 transition-all"
+              >
+                <Facebook className="w-4 h-4" />
+                <span>Facebook</span>
+              </a>
             </div>
           </div>
 
