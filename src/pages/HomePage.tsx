@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { ArrowRight, ChevronRight, Calculator, MessageSquare, ShieldCheck, CheckCircle2, Quote } from 'lucide-react';
 import { ARTICLES_DATA, PRODUCTS_DATA, TESTIMONIALS_DATA } from '../data/content';
+import { articlePath, SITE_BASE_PATH } from '../utils/seo';
 import { SimulationState } from '../types';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 
@@ -538,22 +539,20 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenRegister, productsRef,
                 Informasi seputar kegiatan operasional dan layanan anggota di wilayah Toili.
               </p>
             </div>
-            {onNavigateToNews && (
-              <button
-                onClick={onNavigateToNews}
-                className="self-start sm:self-auto text-xs font-semibold uppercase tracking-wider text-[#0F4D2E] hover:text-[#083B24] transition-colors flex items-center gap-1.5 cursor-pointer group"
-              >
-                <span>LIHAT SEMUA BERITA</span>
-                <ArrowRight className="w-3.5 h-3.5 btn-arrow-icon" />
-              </button>
-            )}
+            <a
+              href={`${SITE_BASE_PATH}/berita/`}
+              className="self-start sm:self-auto text-xs font-semibold uppercase tracking-wider text-[#0F4D2E] hover:text-[#083B24] transition-colors flex items-center gap-1.5 group"
+            >
+              <span>LIHAT SEMUA BERITA</span>
+              <ArrowRight className="w-3.5 h-3.5 btn-arrow-icon" />
+            </a>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             {/* FEATURED ARTICLE (Col Span 7) */}
-            <div
-              onClick={onNavigateToNews}
-              className="lg:col-span-7 bg-white border border-[#DDE5DF] card-shadow card-hover-subtle flex flex-col justify-between group transition-all hover:border-[#0F4D2E] cursor-pointer"
+            <a
+              href={articlePath(ARTICLES_DATA[0].title)}
+              className="lg:col-span-7 bg-white border border-[#DDE5DF] card-shadow card-hover-subtle flex flex-col justify-between group transition-all hover:border-[#0F4D2E]"
             >
               <div>
                 <div className="relative aspect-[16/10] overflow-hidden border-b border-[#DDE5DF] bg-gray-100">
@@ -594,15 +593,15 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenRegister, productsRef,
                 <span>BACA SELENGKAPNYA</span>
                 <ArrowRight className="w-4 h-4 btn-arrow-icon" />
               </div>
-            </div>
+            </a>
 
             {/* 3 STACKED ARTICLES (Col Span 5) */}
             <div className="lg:col-span-5 space-y-4">
               {ARTICLES_DATA.slice(1, 4).map((art) => (
-                <div
+                <a
                   key={art.id}
-                  onClick={onNavigateToNews}
-                  className="bg-white border border-[#DDE5DF] card-shadow-sm p-4 sm:p-5 flex flex-col sm:flex-row gap-4 group hover:border-[#0F4D2E] hover:bg-[#F8F9F6] transition-all cursor-pointer"
+                  href={articlePath(art.title)}
+                  className="bg-white border border-[#DDE5DF] card-shadow-sm p-4 sm:p-5 flex flex-col sm:flex-row gap-4 group hover:border-[#0F4D2E] hover:bg-[#F8F9F6] transition-all"
                 >
                   <div className="w-full sm:w-36 h-28 shrink-0 border border-[#DDE5DF] overflow-hidden bg-gray-100">
                     <img
@@ -631,7 +630,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenRegister, productsRef,
                       <ChevronRight className="w-3.5 h-3.5" />
                     </div>
                   </div>
-                </div>
+                </a>
               ))}
             </div>
           </div>
