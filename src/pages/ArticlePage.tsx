@@ -80,8 +80,8 @@ export const ArticlePage: React.FC<ArticlePageProps> = ({ article }) => {
   }, [article, canonical, description, image]);
 
   return (
-    <article className="w-full bg-[#F8F9F6]">
-      <header className="border-b border-[#DDE5DF] bg-white">
+    <article className="w-full bg-[#F8F9F6] article-shell">
+      <header className="border-b border-[#DDE5DF] bg-white article-header-reveal">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
           <a
             href={`${SITE_BASE_PATH}/berita/`}
@@ -118,14 +118,14 @@ export const ArticlePage: React.FC<ArticlePageProps> = ({ article }) => {
           <img
             src={article.image}
             alt={article.imageAlt}
-            className="w-full aspect-[16/9] object-cover border border-[#DDE5DF]"
+            className="w-full aspect-[16/9] object-cover border border-[#DDE5DF] article-image-reveal"
           />
           <figcaption className="mt-3 text-xs text-[#66736A]">
             {article.imageAlt}
           </figcaption>
         </figure>
 
-        <div className="max-w-3xl mx-auto mt-10">
+        <div className="max-w-3xl mx-auto mt-10 article-content-reveal">
           <div className="space-y-6 text-base sm:text-lg text-[#17201B] leading-[1.9]">
             {(article.contentParagraphs ?? [article.excerpt]).map((paragraph, index) => (
               <p key={index}>{paragraph}</p>
