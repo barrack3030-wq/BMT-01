@@ -9,6 +9,7 @@ import { NewsPage } from './pages/NewsPage';
 import { ArticlePage } from './pages/ArticlePage';
 import { LocationPage } from './pages/LocationPage';
 import { FaqPage } from './pages/FaqPage';
+import { FloatingChatAdmin } from './components/FloatingChatAdmin';
 import { ARTICLES_DATA } from './data/content';
 import { SITE_BASE_PATH, SITE_URL, slugify } from './utils/seo';
 
@@ -192,6 +193,8 @@ export default function App() {
         defaultService={modalDefaultService}
         defaultAmount={modalDefaultAmount}
       />
+
+      <FloatingChatAdmin />
     </div>
   );
 }
