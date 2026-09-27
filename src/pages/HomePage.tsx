@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { ArrowRight, ChevronRight, Calculator, MessageSquare, ShieldCheck, CheckCircle2, Quote } from 'lucide-react';
 import { ARTICLES_DATA, PRODUCTS_DATA, TESTIMONIALS_DATA } from '../data/content';
 import { articlePath, SITE_BASE_PATH } from '../utils/seo';
@@ -16,6 +16,36 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenRegister, productsRef,
   const section2Observer = useIntersectionObserver(0.06);
   const testimonialsObserver = useIntersectionObserver(0.06);
   const section3Observer = useIntersectionObserver(0.06);
+
+  // Hero image slider — four images with a calm institutional crossfade.
+  const heroImages = [
+    {
+      src: 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=2000&q=85',
+      alt: 'Hamparan lahan pertanian',
+    },
+    {
+      src: 'https://images.unsplash.com/photo-1595974482597-4b8da8879bc5?auto=format&fit=crop&w=2000&q=85',
+      alt: 'Aktivitas petani di persawahan',
+    },
+    {
+      src: 'https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=2000&q=85',
+      alt: 'Aktivitas perdagangan dan usaha masyarakat',
+    },
+    {
+      src: 'https://images.unsplash.com/photo-1541888946425-d0fbb186c5f9?auto=format&fit=crop&w=2000&q=85',
+      alt: 'Bangunan dan lingkungan layanan',
+    },
+  ];
+
+  const [heroSlide, setHeroSlide] = useState(0);
+
+  useEffect(() => {
+    const timer = window.setInterval(() => {
+      setHeroSlide((current) => (current + 1) % heroImages.length);
+    }, 6500);
+
+    return () => window.clearInterval(timer);
+  }, [heroImages.length]);
 
   // Simulator state
   const [simulation, setSimulation] = useState<SimulationState>({
@@ -56,14 +86,18 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenRegister, productsRef,
           SECTION 1 — HERO FULL-WIDTH BACKGROUND FOTO TOILI
           ======================================================== */}
       <section className="relative w-full min-h-[500px] sm:min-h-[560px] lg:min-h-[620px] flex items-center bg-[#083B24] overflow-hidden border-b border-[#0F4D2E]">
-        {/* Full-width Photographic Background with Subtle Fade and Slow Cinematic Movement */}
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat hero-cinematic-bg animate-hero-bg"
-          style={{
-            backgroundImage: `url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=2000&q=85')`,
-          }}
-          aria-hidden="true"
-        />
+        {/* Four-image background slider */}
+        <div className="absolute inset-0" aria-hidden="true">
+          {heroImages.map((image, index) => (
+            <div
+              key={image.src}
+              className={`absolute inset-0 bg-cover bg-center bg-no-repeat hero-cinematic-bg transition-opacity duration-1000 ease-in-out ${
+                heroSlide === index ? 'opacity-100' : 'opacity-0'
+              }`}
+              style={{ backgroundImage: `url('${image.src}')` }}
+            />
+          ))}
+        </div>
 
         {/* Elegant Dark Green Institutional Overlay with Subtle Fade */}
         <div
@@ -76,6 +110,24 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenRegister, productsRef,
           className="absolute inset-0 pointer-events-none islamic-pattern-dark pattern-mask-radial"
           aria-hidden="true"
         />
+
+        {/* Slider indicators */}
+        <div className="absolute z-10 bottom-6 right-5 sm:bottom-8 sm:right-8 flex items-center gap-1.5" aria-label="Pilihan foto hero">
+          {heroImages.map((image, index) => (
+            <button
+              key={image.src}
+              type="button"
+              onClick={() => setHeroSlide(index)}
+              aria-label={`Tampilkan foto hero ${index + 1}`}
+              aria-current={heroSlide === index ? 'true' : undefined}
+              className={`h-1.5 transition-all duration-300 cursor-pointer ${
+                heroSlide === index
+                  ? 'w-8 bg-white'
+                  : 'w-4 bg-white/40 hover:bg-white/70'
+              }`}
+            />
+          ))}
+        </div>
 
         {/* Content Container (Left-aligned, max 1200px / 7xl) */}
         <div className="relative z-10 w-full max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-14 sm:py-20 lg:py-24">
