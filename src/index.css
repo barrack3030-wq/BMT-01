@@ -416,18 +416,18 @@ input[type=range].square-slider::-moz-range-thumb {
 }
 
 .floating-chat-admin .chat-pulse-ring {
-  background: rgba(52, 190, 87, 0.18);
-  transform: scale(1.42);
+  background: rgba(52, 190, 87, 0.20);
+  transform: scale(1.16);
 }
 
 .floating-chat-admin .chat-pulse-ring::before {
-  background: rgba(52, 190, 87, 0.22);
-  transform: scale(1.25);
+  background: rgba(52, 190, 87, 0.24);
+  transform: scale(1.08);
 }
 
 .floating-chat-admin .chat-pulse-ring::after {
   background: rgba(52, 190, 87, 0.28);
-  transform: scale(1.08);
+  transform: scale(1);
 }
 
 .floating-chat-admin .chat-core {
