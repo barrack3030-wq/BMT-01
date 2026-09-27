@@ -5,7 +5,7 @@ import { defineConfig } from 'vite';
 export default defineConfig({
   // Use relative asset URLs so the production build works on GitHub Pages
   // project sites (/BMT-01/) as well as a custom domain.
-  base: './',
+  base: '/BMT-01/',
   plugins: [react(), tailwindcss()],
   server: {
     hmr: process.env.DISABLE_HMR !== 'true',
