@@ -1,5 +1,5 @@
 import React from 'react';
-import { MessageCircle } from 'lucide-react';
+import { MessageCircle, Phone } from 'lucide-react';
 
 export const FloatingChatAdmin: React.FC = () => {
   return (
@@ -8,14 +8,25 @@ export const FloatingChatAdmin: React.FC = () => {
         type="button"
         aria-label="Chat Admin"
         title="Chat Admin"
-        className="floating-chat-admin group flex items-center gap-2.5 bg-[#0F4D2E] text-white border border-white/20 px-4 py-3 shadow-[0_10px_28px_rgba(8,59,36,0.28)] hover:bg-[#083B24] transition-all duration-200"
+        className="floating-chat-admin group cursor-pointer"
       >
-        <span className="w-9 h-9 bg-white/10 border border-white/15 flex items-center justify-center shrink-0">
-          <MessageCircle className="w-5 h-5" />
+        <span className="chat-pulse-ring" aria-hidden="true" />
+
+        <span className="chat-core">
+          <MessageCircle
+            className="absolute w-9 h-9 sm:w-10 sm:h-10 text-white"
+            strokeWidth={2.8}
+            fill="white"
+          />
+          <Phone
+            className="relative z-10 w-4.5 h-4.5 sm:w-5 sm:h-5 text-[#139A3B]"
+            strokeWidth={3}
+            fill="#139A3B"
+            aria-hidden="true"
+          />
         </span>
-        <span className="text-[11px] sm:text-xs font-semibold uppercase tracking-[0.12em] whitespace-nowrap">
-          Chat Admin
-        </span>
+
+        <span className="chat-label">Chat Admin</span>
       </button>
     </div>
   );
