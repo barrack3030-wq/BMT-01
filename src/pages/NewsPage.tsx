@@ -65,7 +65,8 @@ export const NewsPage: React.FC<NewsPageProps> = ({ onBackToHome }) => {
           return (
             <article
               key={article.id}
-              className="bg-white border border-[#DDE5DF] card-shadow card-hover-subtle flex flex-col justify-between group hover:border-[#0F4D2E] transition-all"
+              style={{ animationDelay: `${filteredArticles.indexOf(article) * 70}ms` }}
+              className="bg-white border border-[#DDE5DF] card-shadow card-hover-subtle flex flex-col justify-between group hover:border-[#0F4D2E] transition-all news-card-reveal"
             >
               <div>
                 <a href={href} aria-label={`Baca: ${article.title}`} className="block">
