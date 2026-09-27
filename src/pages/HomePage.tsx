@@ -128,268 +128,312 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenRegister, productsRef,
             (section2Observer.ref as React.MutableRefObject<any>).current = el;
           }
         }}
-        className={`relative bg-[#083B24] text-white py-14 sm:py-20 border-b border-[#0F4D2E] overflow-hidden section-reveal ${
+        className={`relative bg-[#F4F6F3] text-[#17201B] py-14 sm:py-20 lg:py-24 border-b border-[#DDE5DF] overflow-hidden section-reveal ${
           section2Observer.isVisible ? 'is-visible' : ''
         }`}
       >
+        {/* Subtle institutional background treatment */}
         <div
-          className="absolute inset-0 bg-cover bg-center opacity-10 mix-blend-luminosity pointer-events-none"
-          style={{
-            backgroundImage: `url('https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=1600&q=80')`,
-          }}
+          className="absolute inset-0 pointer-events-none islamic-pattern-light opacity-60"
           aria-hidden="true"
         />
-
-        {/* Islamic Geometric Tessellation Texture on Dark Green */}
         <div
-          className="absolute inset-0 pointer-events-none islamic-pattern-dark pattern-mask-radial"
+          className="absolute -top-24 right-[-8rem] w-80 h-80 rounded-full bg-[#0F4D2E]/[0.045] blur-3xl"
+          aria-hidden="true"
+        />
+        <div
+          className="absolute bottom-0 left-[-7rem] w-72 h-72 rounded-full bg-[#C9A45C]/[0.06] blur-3xl"
           aria-hidden="true"
         />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-12">
-            <h2 className="font-headline font-bold text-3xl sm:text-4xl lg:text-5xl text-white tracking-tight">
-              Produk & Layanan
-            </h2>
-            <p className="text-sm sm:text-base text-white/80 mt-2 max-w-xl font-normal leading-relaxed">
-              Pilihan simpanan dan pembiayaan syariah sesuai kebutuhan usaha, pertanian, dan keluarga.
-            </p>
+          {/* Section heading */}
+          <div className="max-w-3xl mb-10 sm:mb-12">
+            <div className="inline-flex items-center gap-2 text-[10px] sm:text-[11px] font-semibold tracking-[0.18em] uppercase text-[#0F4D2E] mb-3">
+              <span className="w-8 h-px bg-[#0F4D2E]" />
+              <span>Layanan Keuangan Syariah</span>
+            </div>
+            <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4">
+              <div>
+                <h2 className="font-headline font-bold text-3xl sm:text-4xl lg:text-[44px] text-[#17201B] tracking-tight leading-[1.08]">
+                  Produk & Layanan
+                </h2>
+                <p className="text-sm sm:text-base text-[#66736A] mt-3 max-w-2xl leading-relaxed">
+                  Pilihan layanan untuk kebutuhan simpanan, modal usaha, pertanian, dan perencanaan ibadah anggota.
+                </p>
+              </div>
+
+              <div className="hidden lg:flex items-center gap-3 px-4 py-3 bg-white border border-[#DDE5DF] card-shadow-sm shrink-0">
+                <ShieldCheck className="w-5 h-5 text-[#0F4D2E]" />
+                <div>
+                  <p className="text-[10px] font-semibold uppercase tracking-wider text-[#0F4D2E]">
+                    Prinsip Syariah
+                  </p>
+                  <p className="text-[11px] text-[#66736A] mt-0.5">
+                    Transparan & sesuai akad
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-            {/* LEFT: 3 FORMAL FINANCIAL PRODUCT CARDS (Col Span 7) */}
-            <div className="lg:col-span-7 space-y-5">
-              {PRODUCTS_DATA.map((product) => (
-                <div
-                  key={product.id}
-                  className="bg-white text-[#17201B] border border-[#DDE5DF] card-shadow card-hover-subtle p-6 sm:p-7 grid grid-cols-1 sm:grid-cols-12 gap-6 items-center hover:border-[#0F4D2E] transition-all group"
-                >
-                  <div className="sm:col-span-5 h-44 sm:h-full min-h-[160px] border border-[#DDE5DF] overflow-hidden bg-gray-100">
-                    <img
-                      src={product.image}
-                      alt={product.imageAlt}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-103"
-                      loading="lazy"
-                    />
+          {/* Product cards */}
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5 lg:gap-6">
+            {PRODUCTS_DATA.map((product, index) => (
+              <article
+                key={product.id}
+                className="group bg-white border border-[#DDE5DF] card-shadow card-hover-subtle overflow-hidden flex flex-col"
+              >
+                <div className="relative h-52 sm:h-56 overflow-hidden bg-[#E9EEEA] border-b border-[#DDE5DF]">
+                  <img
+                    src={product.image}
+                    alt={product.imageAlt}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.035]"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#083B24]/55 via-transparent to-transparent" />
+
+                  <div className="absolute top-4 left-4 flex items-center gap-2">
+                    <span className="w-8 h-8 bg-[#0F4D2E] text-white border border-white/25 flex items-center justify-center text-[11px] font-bold">
+                      {String(index + 1).padStart(2, '0')}
+                    </span>
+                    <span className="bg-white/95 text-[#0F4D2E] text-[10px] font-semibold uppercase tracking-wider px-2.5 py-1 border border-white">
+                      {product.badge}
+                    </span>
                   </div>
 
-                  <div className="sm:col-span-7 flex flex-col justify-between h-full">
-                    <div>
-                      <div className="inline-block bg-[#EAF4EC] text-[#0F4D2E] text-[10px] font-semibold uppercase tracking-wider px-2.5 py-0.5 border border-[#DDE5DF] mb-2">
-                        {product.badge}
-                      </div>
-
-                      <h3 className="font-headline font-bold text-xl sm:text-2xl text-[#17201B] leading-tight group-hover:text-[#0F4D2E] transition-colors">
-                        {product.title}
-                      </h3>
-
-                      <p className="text-xs text-[#66736A] mt-2 leading-relaxed">
-                        {product.description}
-                      </p>
-
-                      <ul className="mt-3 space-y-1.5 text-xs text-[#17201B]">
-                        {product.features.map((feat, fIdx) => (
-                          <li key={fIdx} className="flex items-center gap-2">
-                            <span className="w-1.5 h-1.5 bg-[#0F4D2E] shrink-0" />
-                            <span>{feat}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    <div className="mt-5 pt-3 border-t border-[#DDE5DF] flex items-center justify-between">
-                      <span className="text-[11px] font-semibold text-[#0F4D2E]">
-                        {product.akad}
-                      </span>
-                      <button
-                        onClick={() =>
-                          onOpenRegister(
-                            product.id === 'simpanan-mudharabah'
-                              ? 'simpanan'
-                              : product.id === 'pembiayaan-syariah'
-                              ? 'pembiayaan'
-                              : 'qurban'
-                          )
-                        }
-                        className="btn-institutional bg-[#0F4D2E] text-white text-[11px] font-semibold uppercase tracking-wider px-3.5 py-1.5 border border-[#083B24] hover:bg-[#083B24] flex items-center gap-1 cursor-pointer"
-                      >
-                        <span>PILIH</span>
-                        <ArrowRight className="w-3 h-3 btn-arrow-icon" />
-                      </button>
-                    </div>
+                  <div className="absolute bottom-4 left-5 right-5">
+                    <span className="inline-block text-[10px] font-medium uppercase tracking-wider text-white/80 mb-1">
+                      {product.akad}
+                    </span>
+                    <h3 className="font-headline font-bold text-[22px] sm:text-2xl text-white leading-tight">
+                      {product.title}
+                    </h3>
                   </div>
                 </div>
-              ))}
-            </div>
 
-            {/* RIGHT: REFINED FINANCIAL CALCULATOR (Col Span 5) */}
-            <div className="lg:col-span-5">
-              <div className="bg-[#F8F9F6] text-[#17201B] border border-[#DDE5DF] card-shadow p-6 sm:p-8 relative overflow-hidden">
-                {/* Micro Islamic Geometric Texture */}
-                <div
-                  className="absolute inset-0 pointer-events-none islamic-pattern-light pattern-mask-corner"
-                  aria-hidden="true"
-                />
+                <div className="p-5 sm:p-6 flex flex-col flex-1">
+                  <p className="text-sm text-[#66736A] leading-relaxed">
+                    {product.description}
+                  </p>
 
-                <div className="relative z-10">
-                  <div className="flex items-center justify-between border-b border-[#DDE5DF] pb-4 mb-5">
-                    <div>
-                      <h3 className="font-headline font-bold text-2xl text-[#17201B] tracking-tight">
-                        Simulasi
-                      </h3>
-                      <p className="text-xs text-[#66736A] mt-0.5">
-                        Perhitungan estimasi bagi hasil atau angsuran.
-                      </p>
-                    </div>
-                    <div className="p-2.5 bg-white border border-[#DDE5DF] card-shadow-sm">
-                      <Calculator className="w-5 h-5 text-[#0F4D2E]" />
-                    </div>
+                  <div className="mt-5 pt-4 border-t border-[#E6EBE7]">
+                    <p className="text-[10px] font-semibold uppercase tracking-[0.15em] text-[#0F4D2E] mb-3">
+                      Yang Anda Dapatkan
+                    </p>
+                    <ul className="space-y-2.5">
+                      {product.features.map((feat, fIdx) => (
+                        <li key={fIdx} className="flex items-start gap-2.5 text-xs text-[#17201B] leading-relaxed">
+                          <CheckCircle2 className="w-4 h-4 text-[#0F4D2E] shrink-0 mt-0.5" />
+                          <span>{feat}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
 
-                  {/* Toggle Buttons */}
-                  <div className="grid grid-cols-2 gap-2 mb-5">
+                  <div className="mt-6 pt-4 border-t border-[#E6EBE7] flex items-center justify-between gap-3">
+                    <span className="text-[11px] text-[#66736A]">
+                      Layanan anggota
+                    </span>
+                    <button
+                      onClick={() =>
+                        onOpenRegister(
+                          product.id === 'simpanan-mudharabah'
+                            ? 'simpanan'
+                            : product.id === 'pembiayaan-syariah'
+                            ? 'pembiayaan'
+                            : 'qurban'
+                        )
+                      }
+                      className="btn-institutional bg-[#0F4D2E] text-white text-[11px] font-semibold uppercase tracking-wider px-4 py-2.5 border border-[#083B24] hover:bg-[#083B24] flex items-center gap-1.5 cursor-pointer"
+                    >
+                      <span>Pilih Layanan</span>
+                      <ArrowRight className="w-3.5 h-3.5 btn-arrow-icon" />
+                    </button>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+
+          {/* Simulator */}
+          <div className="mt-8 lg:mt-10">
+            <div className="bg-[#083B24] text-white border border-[#0F4D2E] card-shadow overflow-hidden relative">
+              <div
+                className="absolute inset-0 pointer-events-none islamic-pattern-dark opacity-70"
+                aria-hidden="true"
+              />
+
+              <div className="relative z-10 grid grid-cols-1 xl:grid-cols-12">
+                {/* Simulator introduction */}
+                <div className="xl:col-span-4 p-6 sm:p-8 lg:p-10 border-b xl:border-b-0 xl:border-r border-white/10">
+                  <div className="w-11 h-11 border border-white/15 bg-white/10 flex items-center justify-center mb-5">
+                    <Calculator className="w-5 h-5 text-white" />
+                  </div>
+                  <span className="text-[10px] font-semibold uppercase tracking-[0.18em] text-[#CFE5D5]">
+                    Kalkulator Perencanaan
+                  </span>
+                  <h3 className="font-headline font-bold text-2xl sm:text-3xl mt-2 leading-tight">
+                    Simulasi Layanan
+                  </h3>
+                  <p className="text-sm text-white/70 mt-3 leading-relaxed max-w-md">
+                    Gunakan simulasi sederhana untuk mendapatkan gambaran estimasi bagi hasil atau angsuran sebelum berkonsultasi dengan petugas.
+                  </p>
+
+                  <div className="mt-6 grid grid-cols-2 gap-2">
                     <button
                       type="button"
                       onClick={() => setSimulation({ ...simulation, type: 'simpanan' })}
-                      className={`text-xs font-semibold uppercase tracking-wider py-2.5 px-2 border transition-colors cursor-pointer ${
+                      className={`py-3 px-3 text-xs font-semibold uppercase tracking-wider border transition-colors cursor-pointer ${
                         simulation.type === 'simpanan'
-                          ? 'bg-[#0F4D2E] text-white border-[#083B24]'
-                          : 'bg-white text-[#17201B] border-[#DDE5DF] hover:bg-[#EAF4EC]'
+                          ? 'bg-white text-[#083B24] border-white'
+                          : 'bg-transparent text-white/75 border-white/20 hover:bg-white/10 hover:text-white'
                       }`}
                     >
                       Simpanan
                     </button>
-
                     <button
                       type="button"
                       onClick={() => setSimulation({ ...simulation, type: 'pembiayaan' })}
-                      className={`text-xs font-semibold uppercase tracking-wider py-2.5 px-2 border transition-colors cursor-pointer ${
+                      className={`py-3 px-3 text-xs font-semibold uppercase tracking-wider border transition-colors cursor-pointer ${
                         simulation.type === 'pembiayaan'
-                          ? 'bg-[#0F4D2E] text-white border-[#083B24]'
-                          : 'bg-white text-[#17201B] border-[#DDE5DF] hover:bg-[#EAF4EC]'
+                          ? 'bg-white text-[#083B24] border-white'
+                          : 'bg-transparent text-white/75 border-white/20 hover:bg-white/10 hover:text-white'
                       }`}
                     >
                       Pembiayaan
                     </button>
                   </div>
+                </div>
 
-                  {/* Nominal Display & Slider */}
-                  <div className="space-y-4 bg-white p-5 border border-[#DDE5DF] card-shadow-sm">
-                    <div className="flex items-baseline justify-between">
-                      <label className="text-xs font-semibold uppercase tracking-wider text-[#66736A]">
+                {/* Inputs */}
+                <div className="xl:col-span-4 p-6 sm:p-8 lg:p-10 bg-white/5">
+                  <div className="flex items-center justify-between gap-3">
+                    <div>
+                      <p className="text-[10px] font-semibold uppercase tracking-[0.15em] text-[#CFE5D5]">
                         Nominal
-                      </label>
-                      <span className="font-headline font-bold text-2xl text-[#0F4D2E]">
+                      </p>
+                      <p className="font-headline font-bold text-2xl sm:text-3xl text-white mt-1">
                         {formatRupiah(simulation.amount)}
-                      </span>
+                      </p>
                     </div>
-
-                    <div className="pt-1">
-                      <input
-                        type="range"
-                        min={3000000}
-                        max={50000000}
-                        step={500000}
-                        value={simulation.amount}
-                        onChange={(e) =>
-                          setSimulation({ ...simulation, amount: Number(e.target.value) })
-                        }
-                        className="square-slider w-full cursor-pointer"
-                        aria-label="Pilih nominal simulasi"
-                      />
-                      <div className="flex justify-between text-[11px] font-medium text-[#66736A] mt-2">
-                        <span>Rp 3 juta</span>
-                        <span>Rp 50 juta</span>
-                      </div>
+                    <div className="text-right text-[10px] text-white/55 leading-relaxed">
+                      <div>Minimum</div>
+                      <div className="text-white/80 font-medium">Rp 3 juta</div>
                     </div>
-
-                    <div className="pt-3 border-t border-[#DDE5DF]">
-                      <label className="block text-xs font-semibold uppercase tracking-wider text-[#66736A] mb-2">
-                        Jangka Waktu
-                      </label>
-                      <div className="grid grid-cols-4 gap-1.5">
-                        {[6, 12, 24, 36].map((months) => (
-                          <button
-                            type="button"
-                            key={months}
-                            onClick={() => setSimulation({ ...simulation, tenorMonths: months })}
-                            className={`py-1.5 text-xs font-semibold border transition-colors cursor-pointer ${
-                              simulation.tenorMonths === months
-                                ? 'bg-[#0F4D2E] text-white border-[#083B24]'
-                                : 'bg-[#F8F9F6] text-[#17201B] border-[#DDE5DF] hover:border-[#0F4D2E]'
-                            }`}
-                          >
-                            {months} Bln
-                          </button>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Calculation Output Box */}
-                  <div className="mt-5 p-4 bg-[#EAF4EC] border border-[#DDE5DF] text-xs space-y-2">
-                    {simulation.type === 'simpanan' ? (
-                      <>
-                        <div className="flex justify-between items-center text-[#17201B]">
-                          <span>Nisbah Bagi Hasil Anggota:</span>
-                          <span className="font-semibold text-[#0F4D2E]">65%</span>
-                        </div>
-                        <div className="flex justify-between items-center text-[#17201B]">
-                          <span>Estimasi Bagi Hasil / Bulan:</span>
-                          <span className="font-semibold text-[#17201B]">
-                            ± {formatRupiah(projectedProfitPerMonth)}
-                          </span>
-                        </div>
-                        <div className="flex justify-between items-center text-[#17201B]">
-                          <span>Total Bagi Hasil ({simulation.tenorMonths} Bulan):</span>
-                          <span className="font-semibold text-[#0F4D2E]">
-                            ± {formatRupiah(totalProjectedProfit)}
-                          </span>
-                        </div>
-                        <div className="pt-2 border-t border-[#DDE5DF] flex justify-between items-center text-[11px] text-[#66736A]">
-                          <span>Biaya Administrasi:</span>
-                          <span className="font-semibold text-[#0F4D2E]">Rp 0</span>
-                        </div>
-                      </>
-                    ) : (
-                      <>
-                        <div className="flex justify-between items-center text-[#17201B]">
-                          <span>Akad:</span>
-                          <span className="font-semibold text-[#0F4D2E]">Murabahah (Jual Beli)</span>
-                        </div>
-                        <div className="flex justify-between items-center text-[#17201B]">
-                          <span>Estimasi Angsuran / Bulan:</span>
-                          <span className="font-semibold text-[#0F4D2E] text-sm">
-                            {formatRupiah(monthlyFinancingInstallment)}
-                          </span>
-                        </div>
-                        <div className="flex justify-between items-center text-[#17201B]">
-                          <span>Total Angsuran ({simulation.tenorMonths} Bulan):</span>
-                          <span className="font-semibold text-[#17201B]">
-                            {formatRupiah(totalFinancingRepayment)}
-                          </span>
-                        </div>
-                        <div className="pt-2 border-t border-[#DDE5DF] flex justify-between items-center text-[11px] text-[#66736A]">
-                          <span>Denda Keterlambatan:</span>
-                          <span className="font-semibold text-[#0F4D2E]">Tidak Ada</span>
-                        </div>
-                      </>
-                    )}
                   </div>
 
                   <div className="mt-5">
-                    <button
-                      onClick={() =>
-                        onOpenRegister(simulation.type, simulation.amount)
+                    <input
+                      type="range"
+                      min={3000000}
+                      max={50000000}
+                      step={500000}
+                      value={simulation.amount}
+                      onChange={(e) =>
+                        setSimulation({ ...simulation, amount: Number(e.target.value) })
                       }
-                      className="btn-institutional w-full bg-[#0F4D2E] text-white text-xs font-semibold uppercase tracking-wider py-3.5 px-4 border border-[#083B24] hover:bg-[#083B24] flex items-center justify-center gap-2 card-shadow-sm cursor-pointer"
-                    >
-                      <span>AJUKAN SESUAI SIMULASI</span>
-                      <ArrowRight className="w-4 h-4 btn-arrow-icon" />
-                    </button>
-                    <p className="text-[10px] text-[#66736A] text-center mt-2">
-                      *Estimasi ilustratif berdasar nisbah atau margin yang berlaku.
+                      className="square-slider w-full cursor-pointer"
+                      aria-label="Pilih nominal simulasi"
+                    />
+                    <div className="flex justify-between text-[10px] text-white/50 mt-2">
+                      <span>Rp 3 juta</span>
+                      <span>Rp 50 juta</span>
+                    </div>
+                  </div>
+
+                  <div className="mt-6 pt-5 border-t border-white/10">
+                    <p className="text-[10px] font-semibold uppercase tracking-[0.15em] text-[#CFE5D5] mb-3">
+                      Jangka Waktu
                     </p>
+                    <div className="grid grid-cols-4 gap-1.5">
+                      {[6, 12, 24, 36].map((months) => (
+                        <button
+                          type="button"
+                          key={months}
+                          onClick={() => setSimulation({ ...simulation, tenorMonths: months })}
+                          className={`py-2 text-xs font-semibold border transition-colors cursor-pointer ${
+                            simulation.tenorMonths === months
+                              ? 'bg-white text-[#083B24] border-white'
+                              : 'bg-transparent text-white/75 border-white/15 hover:bg-white/10 hover:text-white'
+                          }`}
+                        >
+                          {months} Bln
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Result */}
+                <div className="xl:col-span-4 p-6 sm:p-8 lg:p-10">
+                  <div className="bg-white text-[#17201B] border border-white/10 p-5 sm:p-6 h-full flex flex-col justify-between">
+                    <div>
+                      <p className="text-[10px] font-semibold uppercase tracking-[0.15em] text-[#0F4D2E]">
+                        Hasil Estimasi
+                      </p>
+
+                      {simulation.type === 'simpanan' ? (
+                        <div className="mt-4 space-y-3 text-xs">
+                          <div className="flex justify-between gap-4">
+                            <span className="text-[#66736A]">Nisbah Bagi Hasil</span>
+                            <span className="font-semibold text-[#0F4D2E]">65%</span>
+                          </div>
+                          <div className="flex justify-between gap-4">
+                            <span className="text-[#66736A]">Estimasi / Bulan</span>
+                            <span className="font-semibold text-[#17201B]">
+                              ± {formatRupiah(projectedProfitPerMonth)}
+                            </span>
+                          </div>
+                          <div className="flex justify-between gap-4">
+                            <span className="text-[#66736A]">Total {simulation.tenorMonths} Bulan</span>
+                            <span className="font-semibold text-[#0F4D2E]">
+                              ± {formatRupiah(totalProjectedProfit)}
+                            </span>
+                          </div>
+                          <div className="pt-3 border-t border-[#E6EBE7] flex justify-between gap-4 text-[11px]">
+                            <span className="text-[#66736A]">Administrasi</span>
+                            <span className="font-semibold text-[#0F4D2E]">Rp 0</span>
+                          </div>
+                        </div>
+                      ) : (
+                        <div className="mt-4 space-y-3 text-xs">
+                          <div className="flex justify-between gap-4">
+                            <span className="text-[#66736A]">Akad</span>
+                            <span className="font-semibold text-[#0F4D2E] text-right">Murabahah</span>
+                          </div>
+                          <div className="flex justify-between gap-4">
+                            <span className="text-[#66736A]">Estimasi / Bulan</span>
+                            <span className="font-semibold text-[#0F4D2E]">
+                              {formatRupiah(monthlyFinancingInstallment)}
+                            </span>
+                          </div>
+                          <div className="flex justify-between gap-4">
+                            <span className="text-[#66736A]">Total {simulation.tenorMonths} Bulan</span>
+                            <span className="font-semibold text-[#17201B]">
+                              {formatRupiah(totalFinancingRepayment)}
+                            </span>
+                          </div>
+                          <div className="pt-3 border-t border-[#E6EBE7] flex justify-between gap-4 text-[11px]">
+                            <span className="text-[#66736A]">Denda keterlambatan</span>
+                            <span className="font-semibold text-[#0F4D2E]">Tidak Ada</span>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+
+                    <div className="mt-6">
+                      <button
+                        onClick={() => onOpenRegister(simulation.type, simulation.amount)}
+                        className="btn-institutional w-full bg-[#0F4D2E] text-white text-xs font-semibold uppercase tracking-wider py-3.5 px-4 border border-[#083B24] hover:bg-[#083B24] flex items-center justify-center gap-2 cursor-pointer"
+                      >
+                        <span>AJUKAN SESUAI SIMULASI</span>
+                        <ArrowRight className="w-4 h-4 btn-arrow-icon" />
+                      </button>
+                      <p className="text-[10px] text-[#66736A] text-center mt-2 leading-relaxed">
+                        *Hasil simulasi bersifat ilustratif dan perlu dikonfirmasi kembali sesuai ketentuan layanan.
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
