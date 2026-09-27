@@ -1,0 +1,314 @@
+@import "tailwindcss";
+
+* {
+  border-radius: 0 !important;
+}
+
+html {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  scroll-behavior: smooth;
+  color: #17201B;
+  background-color: #F8F9F6;
+}
+
+h1, h2, h3, h4, h5, h6, .font-headline {
+  font-family: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, sans-serif;
+  letter-spacing: -0.02em;
+}
+
+/* Institutional Soft Elevation Shadows */
+.card-shadow {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.03);
+  transition: transform 220ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 220ms cubic-bezier(0.16, 1, 0.3, 1), border-color 220ms ease;
+}
+
+.card-shadow-sm {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  transition: transform 200ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 200ms cubic-bezier(0.16, 1, 0.3, 1), border-color 200ms ease;
+}
+
+.card-hover-subtle:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(15, 77, 46, 0.08), 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+.elevation-green {
+  box-shadow: 0 12px 36px rgba(15, 77, 46, 0.12);
+}
+
+/* Button Micro-Interactions */
+.btn-institutional {
+  transition: transform 180ms cubic-bezier(0.16, 1, 0.3, 1), background-color 180ms ease, box-shadow 180ms ease, border-color 180ms ease, color 180ms ease;
+}
+.btn-institutional:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(15, 77, 46, 0.15);
+}
+.btn-institutional:active {
+  transform: translateY(1px);
+}
+
+.btn-arrow-icon {
+  transition: transform 200ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+.btn-institutional:hover .btn-arrow-icon,
+button:hover .btn-arrow-icon,
+a:hover .btn-arrow-icon {
+  transform: translateX(3px);
+}
+
+/* Navbar Animated Underline */
+.nav-link-anim {
+  position: relative;
+  transition: color 200ms ease;
+  display: inline-flex;
+  align-items: center;
+}
+.nav-link-anim::after {
+  content: '';
+  position: absolute;
+  bottom: 0px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #0F4D2E;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 220ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+.nav-link-anim:hover::after {
+  transform: scaleX(1);
+}
+.nav-link-anim.active::after {
+  transform: scaleX(1);
+}
+
+/* Refined Rectangular Slider */
+input[type=range].square-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  background: #E2E8E4;
+  height: 6px;
+  outline: none;
+  border: 1px solid #DDE5DF;
+  transition: background-color 180ms ease;
+}
+
+input[type=range].square-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background: #0F4D2E;
+  border: 2px solid #FFFFFF;
+  cursor: pointer;
+  border-radius: 0 !important;
+  box-shadow: 0 2px 6px rgba(15, 77, 46, 0.25);
+  transition: transform 140ms ease, background-color 140ms ease;
+}
+
+input[type=range].square-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.08);
+  background: #083B24;
+}
+
+input[type=range].square-slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background: #0F4D2E;
+  border: 2px solid #FFFFFF;
+  cursor: pointer;
+  border-radius: 0 !important;
+  box-shadow: 0 2px 6px rgba(15, 77, 46, 0.25);
+  transition: transform 140ms ease;
+}
+
+/* Islamic Geometric Pattern System (8-Pointed Star / Girih Tessellation) */
+/* Dark Backgrounds: Subtle white vector lines (3.8% opacity) */
+.islamic-pattern-dark {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Cg fill='none' stroke='%23ffffff' stroke-width='0.75' stroke-opacity='0.038' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='17.5' y='17.5' width='25' height='25'/%3E%3Cpolygon points='30,5 55,30 30,55 5,30'/%3E%3Cline x1='0' y1='30' x2='60' y2='30'/%3E%3Cline x1='30' y1='0' x2='30' y2='60'/%3E%3Cline x1='0' y1='0' x2='60' y2='60'/%3E%3Cline x1='60' y1='0' x2='0' y2='60'/%3E%3Crect x='-12.5' y='-12.5' width='25' height='25'/%3E%3Cpolygon points='0,-25 25,0 0,25 -25,0'/%3E%3Crect x='47.5' y='-12.5' width='25' height='25'/%3E%3Cpolygon points='60,-25 85,0 60,25 35,0'/%3E%3Crect x='-12.5' y='47.5' width='25' height='25'/%3E%3Cpolygon points='0,35 25,60 0,85 -25,60'/%3E%3Crect x='47.5' y='47.5' width='25' height='25'/%3E%3Cpolygon points='60,35 85,60 60,85 35,60'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 60px 60px;
+}
+
+/* Light / Warm White Backgrounds: Subtle dark green vector lines (3.8% opacity) */
+.islamic-pattern-light {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Cg fill='none' stroke='%230F4D2E' stroke-width='0.75' stroke-opacity='0.038' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='17.5' y='17.5' width='25' height='25'/%3E%3Cpolygon points='30,5 55,30 30,55 5,30'/%3E%3Cline x1='0' y1='30' x2='60' y2='30'/%3E%3Cline x1='30' y1='0' x2='30' y2='60'/%3E%3Cline x1='0' y1='0' x2='60' y2='60'/%3E%3Cline x1='60' y1='0' x2='0' y2='60'/%3E%3Crect x='-12.5' y='-12.5' width='25' height='25'/%3E%3Cpolygon points='0,-25 25,0 0,25 -25,0'/%3E%3Crect x='47.5' y='-12.5' width='25' height='25'/%3E%3Cpolygon points='60,-25 85,0 60,25 35,0'/%3E%3Crect x='-12.5' y='47.5' width='25' height='25'/%3E%3Cpolygon points='0,35 25,60 0,85 -25,60'/%3E%3Crect x='47.5' y='47.5' width='25' height='25'/%3E%3Cpolygon points='60,35 85,60 60,85 35,60'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 60px 60px;
+}
+
+/* Footer: Slightly richer contrast for institutional foundation (5.5% opacity) */
+.islamic-pattern-footer {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Cg fill='none' stroke='%23ffffff' stroke-width='0.8' stroke-opacity='0.055' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='17.5' y='17.5' width='25' height='25'/%3E%3Cpolygon points='30,5 55,30 30,55 5,30'/%3E%3Cline x1='0' y1='30' x2='60' y2='30'/%3E%3Cline x1='30' y1='0' x2='30' y2='60'/%3E%3Cline x1='0' y1='0' x2='60' y2='60'/%3E%3Cline x1='60' y1='0' x2='0' y2='60'/%3E%3Crect x='-12.5' y='-12.5' width='25' height='25'/%3E%3Cpolygon points='0,-25 25,0 0,25 -25,0'/%3E%3Crect x='47.5' y='-12.5' width='25' height='25'/%3E%3Cpolygon points='60,-25 85,0 60,25 35,0'/%3E%3Crect x='-12.5' y='47.5' width='25' height='25'/%3E%3Cpolygon points='0,35 25,60 0,85 -25,60'/%3E%3Crect x='47.5' y='47.5' width='25' height='25'/%3E%3Cpolygon points='60,35 85,60 60,85 35,60'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 60px 60px;
+}
+
+/* Masked Accents for sections: Elegant corner or radial fade */
+.pattern-mask-corner {
+  -webkit-mask-image: radial-gradient(circle at 100% 0%, black 20%, transparent 70%);
+  mask-image: radial-gradient(circle at 100% 0%, black 20%, transparent 70%);
+}
+
+.pattern-mask-corner-left {
+  -webkit-mask-image: radial-gradient(circle at 0% 0%, black 20%, transparent 70%);
+  mask-image: radial-gradient(circle at 0% 0%, black 20%, transparent 70%);
+}
+
+.pattern-mask-radial {
+  -webkit-mask-image: radial-gradient(circle at 50% 50%, black 35%, transparent 85%);
+  mask-image: radial-gradient(circle at 50% 50%, black 35%, transparent 85%);
+}
+
+.pattern-mask-fade-bottom {
+  -webkit-mask-image: linear-gradient(to bottom, black 35%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 35%, transparent 100%);
+}
+
+/* Legacy alias for compatibility */
+.bg-islamic-pattern {
+  background-color: #0F4D2E;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Cg fill='none' stroke='%23ffffff' stroke-width='0.75' stroke-opacity='0.045' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='17.5' y='17.5' width='25' height='25'/%3E%3Cpolygon points='30,5 55,30 30,55 5,30'/%3E%3Cline x1='0' y1='30' x2='60' y2='30'/%3E%3Cline x1='30' y1='0' x2='30' y2='60'/%3E%3Cline x1='0' y1='0' x2='60' y2='60'/%3E%3Cline x1='60' y1='0' x2='0' y2='60'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 60px 60px;
+}
+
+/* Subtle Cinematic Movement for Hero Background */
+@keyframes cinematicSlowZoom {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.03);
+  }
+}
+
+.hero-cinematic-bg {
+  animation: cinematicSlowZoom 14s cubic-bezier(0.25, 1, 0.5, 1) infinite alternate;
+  will-change: transform;
+}
+
+/* Hero Background and Overlay Subtle Fade-In */
+@keyframes heroBgFadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.animate-hero-bg {
+  animation: heroBgFadeIn 1100ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes heroOverlayFadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.animate-hero-overlay {
+  animation: heroOverlayFadeIn 1300ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Hero Staggered Fade Up Animations */
+@keyframes heroFadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-hero-fade {
+  opacity: 0;
+  animation: heroFadeUp 750ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.delay-eyebrow {
+  animation-delay: 100ms;
+}
+
+.delay-headline {
+  animation-delay: 240ms;
+}
+
+.delay-desc {
+  animation-delay: 380ms;
+}
+
+.delay-cta {
+  animation-delay: 520ms;
+}
+
+.delay-footer {
+  animation-delay: 660ms;
+}
+
+/* Gentle Scroll Indicator */
+@keyframes subtleScrollBounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(4px);
+  }
+}
+
+.animate-scroll-glide {
+  animation: subtleScrollBounce 2.2s ease-in-out infinite;
+}
+
+/* Viewport Section Fade-in Transition */
+.section-reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 600ms cubic-bezier(0.22, 1, 0.36, 1), transform 600ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.section-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Page Transition for SPA (Smooth Institutional Feel) */
+@keyframes spaPageFade {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.spa-page-enter {
+  animation: spaPageFade 300ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* Accessibility: Support prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .hero-cinematic-bg {
+    animation: none !important;
+    transform: scale(1) !important;
+  }
+  .section-reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "name": "BMT AL-MUHAJIRIN TOILI – KSPPS Syariah Toili",
+  "description": "Website resmi Kantor Pusat BMT Al-Muhajirin Toili - KSPPS Syariah Toili. Solusi simpanan dan pembiayaan syariah untuk masyarakat, petani, pedagang, dan UMKM Toili.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
