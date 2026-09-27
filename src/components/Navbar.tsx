@@ -43,9 +43,12 @@ export const Navbar: React.FC<NavbarProps> = ({
           className="flex items-center gap-3.5 text-left focus:outline-none focus-visible:ring-1 focus-visible:ring-[#0F4D2E] group"
           aria-label="Kembali ke Beranda BMT Al-Muhajirin Toili"
         >
-          <div className="w-9 h-9 bg-[#0F4D2E] flex items-center justify-center text-white font-bold text-lg select-none border border-[#083B24]">
-            B
-          </div>
+          <img
+            src="https://www.bmtalmuhajirin.id/img/icons/res/mipmap-xxhdpi/ic_launcher.png"
+            alt="Logo BMT Al-Muhajirin"
+            className="w-11 h-11 rounded-full object-contain bg-[#FFF9C4] border border-[#D8D6A1]"
+            loading="eager"
+          />
           <div>
             <span className="block font-headline font-bold text-base sm:text-lg tracking-tight text-[#17201B] leading-none group-hover:text-[#0F4D2E] transition-colors">
               BMT AL-MUHAJIRIN TOILI
