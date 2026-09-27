@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { ArrowLeft, Calendar, ChevronRight } from 'lucide-react';
 import { Article } from '../data/content';
-import { articlePath, SITE_URL } from '../utils/seo';
+import { articlePath, SITE_URL, SITE_BASE_PATH } from '../utils/seo';
 
 interface ArticlePageProps {
   article: Article;
