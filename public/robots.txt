@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://barrack3030-wq.github.io/BMT-01/sitemap.xml
