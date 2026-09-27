@@ -45,6 +45,7 @@ export const ArticlePage: React.FC<ArticlePageProps> = ({ article }) => {
     document.title = `${article.title} | BMT Al-Muhajirin Toili`;
 
     upsertMeta('name', 'description', description);
+    upsertMeta('name', 'robots', 'index, follow');
     upsertMeta('property', 'og:title', article.title);
     upsertMeta('property', 'og:description', description);
     upsertMeta('property', 'og:type', 'article');
@@ -59,6 +60,7 @@ export const ArticlePage: React.FC<ArticlePageProps> = ({ article }) => {
 
     const jsonLdId = 'article-jsonld';
     document.getElementById(jsonLdId)?.remove();
+
     const script = document.createElement('script');
     script.id = jsonLdId;
     script.type = 'application/ld+json';
@@ -81,6 +83,7 @@ export const ArticlePage: React.FC<ArticlePageProps> = ({ article }) => {
         url: SITE_URL,
       },
     });
+
     document.head.appendChild(script);
 
     return () => {
@@ -91,9 +94,40 @@ export const ArticlePage: React.FC<ArticlePageProps> = ({ article }) => {
   return (
     <article className="w-full bg-[#F8F9F6] article-shell">
       <header className="border-b border-[#DDE5DF] bg-white article-header-reveal">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+          <a
+            href={SITE_BASE_PATH + '/berita/'}
+            className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#0F4D2E] hover:text-[#083B24] transition-colors"
+          >
+            <ArrowLeft className="w-4 h-4" />
+            Kembali ke Berita
+          </a>
+
+          <div className="mt-8">
+            <div className="flex flex-wrap items-center gap-3 text-xs text-[#66736A]">
+              <span className="bg-[#EAF4EC] text-[#0F4D2E] px-2.5 py-1 font-semibold uppercase tracking-wider">
+                {article.category}
+              </span>
+              <span className="inline-flex items-center gap-1.5">
+                <Calendar className="w-3.5 h-3.5 text-[#0F4D2E]" />
+                {article.date}
+              </span>
+            </div>
+
+            <h1 className="mt-4 max-w-4xl font-headline font-bold text-3xl sm:text-5xl text-[#17201B] leading-tight tracking-tight">
+              {article.title}
+            </h1>
+
+            <p className="mt-5 max-w-3xl text-base sm:text-lg text-[#66736A] leading-relaxed">
+              {article.excerpt}
+            </p>
+          </div>
+        </div>
+      </header>
+
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
-          <div className="lg:col-span-8">
+          <main className="lg:col-span-8">
             <figure>
               <img
                 src={article.image}
@@ -144,9 +178,12 @@ export const ArticlePage: React.FC<ArticlePageProps> = ({ article }) => {
                 </a>
               </div>
             </div>
-          </div>
+          </main>
 
-          <aside className="lg:col-span-4 lg:sticky lg:top-28 article-related-reveal" aria-label="Artikel terkait">
+          <aside
+            className="lg:col-span-4 lg:sticky lg:top-28 article-related-reveal"
+            aria-label="Artikel terkait"
+          >
             <div className="bg-white border border-[#DDE5DF] card-shadow p-5 sm:p-6">
               <div className="pb-4 border-b border-[#DDE5DF]">
                 <span className="text-[10px] font-semibold uppercase tracking-[0.18em] text-[#0F4D2E]">
