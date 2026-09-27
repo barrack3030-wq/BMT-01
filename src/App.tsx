@@ -10,6 +10,7 @@ import { ArticlePage } from './pages/ArticlePage';
 import { LocationPage } from './pages/LocationPage';
 import { FaqPage } from './pages/FaqPage';
 import { FloatingChatAdmin } from './components/FloatingChatAdmin';
+import { FloatingPromo } from './components/FloatingPromo';
 import { ARTICLES_DATA } from './data/content';
 import { SITE_BASE_PATH, SITE_URL, slugify } from './utils/seo';
 
@@ -69,6 +70,7 @@ export default function App() {
   const [registerModalOpen, setRegisterModalOpen] = useState(false);
   const [modalDefaultService, setModalDefaultService] = useState<'simpanan' | 'pembiayaan' | 'qurban'>('simpanan');
   const [modalDefaultAmount, setModalDefaultAmount] = useState<number | undefined>(11000000);
+  const [showFloatingPromo, setShowFloatingPromo] = useState(() => readRoute().page === 'home');
   const productsRef = useRef<HTMLDivElement>(null);
 
   const article = route.articleSlug
@@ -192,6 +194,11 @@ export default function App() {
         onClose={() => setRegisterModalOpen(false)}
         defaultService={modalDefaultService}
         defaultAmount={modalDefaultAmount}
+      />
+
+      <FloatingPromo
+        visible={showFloatingPromo && route.page === 'home' && !route.articleSlug}
+        onClose={() => setShowFloatingPromo(false)}
       />
 
       <FloatingChatAdmin />
