@@ -32,7 +32,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenRegister, productsRef,
       alt: 'Aktivitas perdagangan dan usaha masyarakat',
     },
     {
-      src: 'https://images.unsplash.com/photo-1541888946425-d0fbb186c5f9?auto=format&fit=crop&w=2000&q=85',
+      src: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=2000&q=85',
       alt: 'Bangunan dan lingkungan layanan',
     },
   ];
