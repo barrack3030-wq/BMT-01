@@ -497,23 +497,16 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenRegister, productsRef,
         />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10 pb-5 border-b border-[#DDE5DF]">
-            <div>
-              <span className="text-xs font-semibold text-[#0F4D2E] uppercase tracking-wider">
-                PENGALAMAN & AMANAH
-              </span>
-              <h2 className="font-headline font-bold text-3xl sm:text-4xl text-[#17201B] tracking-tight mt-1">
-                Testimoni Anggota
-              </h2>
-              <p className="text-xs sm:text-sm text-[#66736A] mt-1 max-w-lg leading-relaxed">
-                Cerita nyata para petani, pedagang pasar, dan pelaku usaha di wilayah Toili yang merasakan kemudahan layanan syariah.
-              </p>
-            </div>
-
-            <div className="hidden md:flex items-center gap-2 px-3 py-1.5 bg-white border border-[#DDE5DF] text-xs text-[#0F4D2E] font-medium card-shadow-sm">
-              <ShieldCheck className="w-4 h-4 text-[#0F4D2E]" />
-              <span>Dikelola Amanah Sesuai Syariah</span>
-            </div>
+          <div className="max-w-3xl mx-auto mb-10 sm:mb-12 pb-5 border-b border-[#DDE5DF] text-center">
+            <span className="text-xs font-semibold text-[#0F4D2E] uppercase tracking-[0.18em]">
+              PENGALAMAN & AMANAH
+            </span>
+            <h2 className="font-headline font-bold text-3xl sm:text-4xl text-[#17201B] tracking-tight mt-2">
+              Testimoni Anggota
+            </h2>
+            <p className="text-xs sm:text-sm text-[#66736A] mt-2 max-w-2xl mx-auto leading-relaxed">
+              Cerita nyata para petani, pedagang pasar, dan pelaku usaha di wilayah Toili yang merasakan kemudahan layanan syariah.
+            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
