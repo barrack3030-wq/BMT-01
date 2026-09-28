@@ -77,7 +77,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenRegister, productsRef,
           ======================================================== */}
       <section className="relative w-full min-h-[500px] sm:min-h-[560px] lg:min-h-[620px] flex items-center bg-[#083B24] overflow-hidden border-b border-[#0F4D2E]">
         {/* Four-image background slider */}
-        <div className="absolute inset-0" aria-hidden="true">
+        <div className="absolute inset-0 animate-hero-bg" aria-hidden="true">
           {heroImages.map((image, index) => (
             <div
               key={image.src}
@@ -122,9 +122,10 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenRegister, productsRef,
         {/* Content Container (Left-aligned, max 1200px / 7xl) */}
         <div className="relative z-10 w-full max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-14 sm:py-20 lg:py-24">
           <div className="max-w-3xl space-y-6">
-            <h1 className="font-headline font-bold text-3xl sm:text-5xl lg:text-[54px] text-white leading-[1.15] tracking-tight animate-hero-fade">
-              Berjuang Bersama Ummat <br />
-              <span className="text-[#EAF4EC]">Keluar Dari Riba</span>
+            <h1 className="font-headline font-bold text-3xl sm:text-5xl lg:text-[54px] text-white leading-[1.15] tracking-tight hero-title-premium">
+              <span className="hero-title-line hero-title-line-1">Berjuang Bersama Ummat</span>
+              <span className="hero-title-line hero-title-line-2 text-[#EAF4EC]">Keluar Dari Riba</span>
+              <span className="hero-title-accent" aria-hidden="true" />
             </h1>
 
             <p className="text-base sm:text-lg text-white/90 leading-relaxed font-normal max-w-2xl pt-1 animate-hero-fade delay-desc">
