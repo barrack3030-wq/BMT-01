@@ -37,7 +37,12 @@ export async function loadStaticCms(): Promise<StaticCmsPayload | null> {
       settings,
       pages: { about },
       products,
-      articles,
+      articles: articles.map((article: any) => ({
+        ...article,
+        contentParagraphs: Array.isArray(article.contentParagraphs)
+          ? article.contentParagraphs
+          : String(article.body || '').split(/\n\s*\n/g).map((x) => x.trim()).filter(Boolean),
+      })),
       board,
       testimonials,
       branches,
