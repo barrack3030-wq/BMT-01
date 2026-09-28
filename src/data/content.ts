@@ -350,3 +350,84 @@ export const TESTIMONIALS_DATA: TestimonialItem[] = [
     rating: 5,
   },
 ];
+
+
+export interface SiteSettings {
+  logoUrl: string;
+  logoWidth: number;
+  heroImages: string[];
+  backgroundImage: string;
+  promoImage: string;
+  promoTitle: string;
+  promoDescription: string;
+  chatLabel: string;
+  chatUrl: string;
+  instagramUrl: string;
+  facebookUrl: string;
+  topbarText: string;
+  operatingHours: string;
+}
+
+export interface AboutContent {
+  title: string;
+  heading: string;
+  paragraphs: string[];
+  vision: string;
+  mission: string[];
+  legality: string;
+}
+
+export const SITE_SETTINGS: SiteSettings = {
+  logoUrl: '/BMT-01/images/logo/logo%20BMT.png',
+  logoWidth: 160,
+  heroImages: [
+    'https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=2000&q=85',
+    'https://images.unsplash.com/photo-1595974482597-4b8da8879bc5?auto=format&fit=crop&w=2000&q=85',
+    'https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=2000&q=85',
+    'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=2000&q=85',
+  ],
+  backgroundImage: '',
+  promoImage: '',
+  promoTitle: 'Promo & Ucapan Hari Besar',
+  promoDescription: 'Kolom ini dapat digunakan untuk promo produk, pengumuman, atau ucapan hari besar Islam.',
+  chatLabel: 'Chat Admin',
+  chatUrl: '',
+  instagramUrl: 'https://www.instagram.com/bmtalmuhajirin_official/',
+  facebookUrl: 'https://web.facebook.com/profile.php?id=61573199156163',
+  topbarText: 'KANTOR PUSAT TOILI',
+  operatingHours: 'Senin – Jumat 08.00 – 16.00 WITA',
+};
+
+export const ABOUT_CONTENT: AboutContent = {
+  title: 'Tentang Kami',
+  heading: 'KSPPS BMT Al-Muhajirin Toili',
+  paragraphs: [
+    'BMT AL-MUHAJIRIN didirikan dengan niat membebaskan masyarakat Toili dari transaksi ribawi, rentenir desa, serta sistem ijon pertanian melalui semangat ta\'awun.',
+    'Lembaga menjalankan dua fungsi utama: Baitul Maal untuk pengelolaan dana sosial keagamaan (Zakat, Infaq, Sedekah, dan Wakaf), serta Baitul Tamwil untuk layanan simpanan dan pembiayaan modal usaha sektor riil.',
+    'Operasional BMT diawasi secara berkala oleh Dewan Pengawas Syariah (DPS) dengan rujukan fatwa DSN-MUI dan kepatuhan regulasi perkoperasian.',
+  ],
+  vision: 'Menjadi lembaga keuangan syariah yang mandiri, sehat, dan dipercaya dalam menopang perekonomian masyarakat di wilayah Toili.',
+  mission: [
+    'Menghimpun dan menyalurkan dana sesuai prinsip syariat Islam.',
+    'Memperkuat permodalan usaha petani, pedagang, dan peternak Toili.',
+    'Menyalurkan dana ZISWAF bagi kebutuhan mustahik.',
+  ],
+  legality: 'Berbadan hukum Koperasi Simpan Pinjam dan Pembiayaan Syariah (KSPPS) resmi, dengan pengawasan syariah oleh Dewan Pengawas Syariah (DPS).',
+};
+
+export function applyCmsContent(payload: any) {
+  if (!payload) return;
+  if (payload.settings) Object.assign(SITE_SETTINGS, payload.settings);
+  if (payload.pages?.about) Object.assign(ABOUT_CONTENT, payload.pages.about);
+
+  const replaceArray = (target: any[], source: any[]) => {
+    if (!Array.isArray(source) || source.length === 0) return;
+    target.splice(0, target.length, ...source);
+  };
+  replaceArray(PRODUCTS_DATA, payload.products);
+  replaceArray(ARTICLES_DATA, payload.articles);
+  replaceArray(BOARD_MEMBERS as any[], payload.board);
+  replaceArray(BRANCHES_DATA, payload.branches);
+  replaceArray(FAQ_DATA, payload.faq);
+  replaceArray(TESTIMONIALS_DATA, payload.testimonials);
+}
