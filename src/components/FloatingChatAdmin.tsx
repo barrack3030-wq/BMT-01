@@ -3,16 +3,18 @@ import { MessageCircle, Phone } from 'lucide-react';
 import { SITE_SETTINGS } from '../data/content';
 
 export const FloatingChatAdmin: React.FC = () => {
+  const href = SITE_SETTINGS.chatUrl || '#';
   return (
     <div className="fixed z-[60] bottom-5 right-5 sm:bottom-7 sm:right-7">
-      <button
-        type="button"
-        aria-label="Chat Admin"
-        title="Chat Admin"
+      <a
+        href={href}
+        target={SITE_SETTINGS.chatUrl ? '_blank' : undefined}
+        rel={SITE_SETTINGS.chatUrl ? 'noopener noreferrer' : undefined}
+        aria-label={SITE_SETTINGS.chatLabel || 'Chat Admin'}
+        title={SITE_SETTINGS.chatLabel || 'Chat Admin'}
         className="floating-chat-admin group cursor-pointer"
       >
         <span className="chat-pulse-ring" aria-hidden="true" />
-
         <span className="chat-core">
           <MessageCircle
             className="absolute w-9 h-9 sm:w-10 sm:h-10 text-white"
@@ -26,8 +28,7 @@ export const FloatingChatAdmin: React.FC = () => {
             aria-hidden="true"
           />
         </span>
-
-        <span className="chat-label">{SITE_SETTINGS.chatLabel || "Chat Admin"}</span>
+        <span className="chat-label">{SITE_SETTINGS.chatLabel || 'Chat Admin'}</span>
       </a>
     </div>
   );
