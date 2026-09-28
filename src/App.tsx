@@ -5,6 +5,7 @@ import { Footer } from './components/Footer';
 import { RegistrationModal } from './components/RegistrationModal';
 import { HomePage } from './pages/HomePage';
 import { ProfilePage } from './pages/ProfilePage';
+import { ProductsPage } from './pages/ProductsPage';
 import { NewsPage } from './pages/NewsPage';
 import { ArticlePage } from './pages/ArticlePage';
 import { LocationPage } from './pages/LocationPage';
@@ -28,6 +29,7 @@ function readRoute(): RouteState {
     return { page: 'news', articleSlug: decodeURIComponent(articleMatch[1]) };
   }
 
+  if (path === '/produk') return { page: 'products' };
   if (path === '/profil') return { page: 'profile' };
   if (path === '/berita') return { page: 'news' };
   if (path === '/lokasi') return { page: 'location' };
@@ -38,6 +40,7 @@ function readRoute(): RouteState {
 function pagePath(page: Page): string {
   const map: Record<Page, string> = {
     home: '/',
+    products: '/produk/',
     profile: '/profil/',
     news: '/berita/',
     location: '/lokasi/',
@@ -193,7 +196,11 @@ export default function App() {
                   onOpenRegister={handleOpenRegister}
                   productsRef={productsRef}
                   onNavigateToNews={() => navigateToPage('news')}
+                  onNavigateToProducts={() => navigateToPage('products')}
                 />
+              )}
+              {activePage === 'products' && (
+                <ProductsPage onBackToHome={() => navigateToPage('home')} onOpenRegister={handleOpenRegister} />
               )}
               {activePage === 'profile' && (
                 <ProfilePage onBackToHome={() => navigateToPage('home')} onOpenRegister={() => handleOpenRegister('simpanan')} />
