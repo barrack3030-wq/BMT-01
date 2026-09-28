@@ -32,7 +32,6 @@ content:
             label: Logo
             type: image
             options:
-              media: default
               path: logo
           - name: logoWidth
             label: Lebar logo (px)
