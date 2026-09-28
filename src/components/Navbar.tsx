@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Page } from '../types';
+import { SITE_SETTINGS } from '../data/content';
 import { Menu, X, ArrowRight } from 'lucide-react';
 
 interface NavbarProps {
@@ -44,9 +45,10 @@ export const Navbar: React.FC<NavbarProps> = ({
           aria-label="Kembali ke Beranda BMT Al-Muhajirin Toili"
         >
           <img
-            src="/BMT-01/images/logo/logo%20BMT.png"
+            src={SITE_SETTINGS.logoUrl}
             alt="Logo BMT Al-Muhajirin"
-            className="w-32 sm:w-40 h-auto object-contain"
+            style={{ width: `${Math.max(96, SITE_SETTINGS.logoWidth || 160)}px` }}
+            className="h-auto max-w-[42vw] sm:max-w-[220px] object-contain"
             loading="eager"
           />
           
