@@ -44,7 +44,14 @@ function uploadImage(token,base64,fileName,mime){
 function exportData(token){assertSession_(token);return getBootstrapData_();}
 function importData(token,payload){
   assertSession_(token);const sh=ensureHeaders_(getDb_()),r=sh.getDataRange().getValues();if(r.length>1)sh.deleteRows(2,r.length-1);
-  const out=[];Object.keys(payload||{}).forEach(s=>{if(s==='meta')return;const v=payload[s];if(Array.isArray(v))v.forEach(x=>x?.id&&out.push([s,String(x.id),JSON.stringify(x),new Date()]));else if(v&&typeof v==='object')out.push([s,'global',JSON.stringify(v),new Date()]);});
+  const out=[];
+  Object.keys(payload||{}).forEach(s=>{
+    if(s==='meta')return;
+    const v=payload[s];
+    if(s==='settings' && v && typeof v==='object') out.push(['settings','global',JSON.stringify(v),new Date()]);
+    else if(s==='pages' && v?.about) out.push(['pages','about',JSON.stringify(v.about),new Date()]);
+    else if(Array.isArray(v)) v.forEach(x=>x?.id&&out.push([s,String(x.id),JSON.stringify(x),new Date()]));
+  });
   if(out.length)sh.getRange(2,1,out.length,4).setValues(out);return getBootstrapData_();
 }
 function publicApi_(e){
@@ -68,7 +75,12 @@ function readRecords_(db){
 function ensureDefaults_(db){
   const all=readRecords_(db);if(Object.keys(all).some(k=>all[k]?.length))return;
   const d=getDefaultData_(),sh=ensureHeaders_(db),rows=[];
-  Object.keys(d).forEach(s=>{const v=d[s];if(Array.isArray(v))v.forEach(x=>rows.push([s,String(x.id),JSON.stringify(x),new Date()]));else if(v&&typeof v==='object')rows.push(['settings','global',JSON.stringify(v),new Date()]);});
+  Object.keys(d).forEach(s=>{
+    const v=d[s];
+    if(s==='settings' && v && typeof v==='object') rows.push(['settings','global',JSON.stringify(v),new Date()]);
+    else if(s==='pages' && v && typeof v==='object') rows.push(['pages','about',JSON.stringify(v),new Date()]);
+    else if(Array.isArray(v)) v.forEach(x=>rows.push([s,String(x.id),JSON.stringify(x),new Date()]));
+  });
   if(rows.length)sh.getRange(2,1,rows.length,4).setValues(rows);
 }
 function getDefaultData_(){
