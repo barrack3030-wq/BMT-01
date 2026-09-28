@@ -10,7 +10,7 @@ function setupCms(){
   return {ok:true,spreadsheetUrl:db.getUrl(),webAppUrl:ScriptApp.getService().getUrl()||''};
 }
 function setAdminPassword(password){
-  if(!password||String(password).length<8) throw new Error('Password minimal 8 karakter.');
+  if(!password||String(password).length<5) throw new Error('Password minimal 5 karakter.');
   PropertiesService.getScriptProperties().setProperty(PW_KEY,hash_(String(password))); return {ok:true};
 }
 function login(password){
