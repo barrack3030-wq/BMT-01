@@ -1,0 +1,125 @@
+[
+  {
+    "id": "art-01",
+    "category": "Pemberdayaan",
+    "date": "24 Sep 2026",
+    "meta": "24 Sep 2026",
+    "title": "Kiprah Pemberdayaan Ekonomi Petani dan Pedagang di Toili",
+    "excerpt": "Penyaluran pembiayaan produktif dan pendampingan usaha bagi kelompok tani serta pedagang pasar di wilayah Toili.",
+    "image": "https://images.unsplash.com/photo-1595974482597-4b8da8879bc5?auto=format&fit=crop&w=1200&q=80",
+    "imageAlt": "Petani di persawahan Toili",
+    "tags": [
+      "Pertanian",
+      "Toili"
+    ],
+    "featured": true,
+    "contentParagraphs": [
+      "BMT Al-Muhajirin Toili terus memperkuat peran ta’awun dalam menggerakkan ekonomi riil masyarakat. Melalui penyaluran pembiayaan musyarakah dan murabahah untuk kebutuhan bibit padi, pupuk, serta modal kerja dagang, ratusan anggota di sentra pertanian Toili mendapatkan akses pendanaan yang halal dan adil.",
+      "Selain pembiayaan modal, pendampingan tata kelola keuangan keluarga dan kelompok tani terus diadakan secara rutin. Hal ini memastikan petani terbebas dari sistem ijon yang merugikan serta memiliki pencatatan hasil panen yang lebih tertib.",
+      "Sinergi antara Baitul Maal dan Baitul Tamwil membuktikan bahwa permodalan syariah dapat berakar kokoh pada sektor riil masyarakat pedesaan."
+    ],
+    "published": true
+  },
+  {
+    "id": "art-02",
+    "category": "Laporan",
+    "date": "19 Sep 2026",
+    "meta": "19 Sep 2026",
+    "title": "RAT: Aset Koperasi Tumbuh 24%",
+    "excerpt": "Laporan pertanggungjawaban tahunan mencatat pertumbuhan modal dan kelancaran perputaran pembiayaan anggota.",
+    "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80",
+    "imageAlt": "Kantor BMT Al-Muhajirin",
+    "tags": [
+      "RAT",
+      "Koperasi"
+    ],
+    "featured": false,
+    "contentParagraphs": [
+      "Rapat Anggota Tahunan (RAT) KSPPS BMT Al-Muhajirin Toili mencatatkan kenaikan total aset sebesar 24% pada periode buku terakhir.",
+      "Pengurus menegaskan bahwa seluruh indikator kesehatan keuangan koperasi berada pada batas aman sesuai regulasi kementerian koperasi dan pengawasan syariah oleh DPS.",
+      "Transparansi neraca keuangan dan pembagian Sisa Hasil Usaha (SHU) diserahkan secara terbuka kepada perwakilan anggota dari seluruh unit layanan."
+    ],
+    "published": true
+  },
+  {
+    "id": "art-03",
+    "category": "Layanan",
+    "date": "10 Sep 2026",
+    "meta": "10 Sep 2026",
+    "title": "Armada Kas Keliling Layani Transaksi di Pasar Sentral Toili",
+    "excerpt": "Fasilitas setoran simpanan dan pembayaran angsuran langsung di kios pedagang untuk efisiensi waktu usaha.",
+    "image": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80",
+    "imageAlt": "Petugas layanan BMT melayani anggota",
+    "tags": [
+      "Layanan"
+    ],
+    "featured": false,
+    "contentParagraphs": [
+      "Untuk mempermudah transaksi para pedagang pasar basah dan toko kelontong di Sentra Niaga Toili, armada kas keliling BMT Al-Muhajirin beroperasi setiap pagi.",
+      "Layanan jemput bola ini memungkinkan anggota menyetor simpanan harian atau membayar angsuran pembiayaan tanpa harus meninggalkan kios dagangan mereka.",
+      "Petugas dilengkapi perangkat pencatatan digital portabel sehingga bukti transaksi langsung tercetak secara real-time di tempat."
+    ],
+    "published": true
+  },
+  {
+    "id": "art-04",
+    "category": "Pembiayaan",
+    "date": "5 Sep 2026",
+    "meta": "5 Sep 2026",
+    "title": "Penyaluran Pembiayaan Musim Tanam Rp 4,5 Miliar",
+    "excerpt": "Penyediaan modal sarana produksi padi, benih, dan pupuk bagi kelompok tani menjelang musim tanam.",
+    "image": "https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=800&q=80",
+    "imageAlt": "Pedagang kebutuhan pokok di pasar lokal",
+    "tags": [
+      "Pertanian",
+      "Pembiayaan"
+    ],
+    "featured": false,
+    "contentParagraphs": [
+      "Menyambut musim tanam serempak di Dataran Toili, BMT Al-Muhajirin menyalurkan fasilitas pembiayaan sarana produksi pertanian senilai Rp 4,5 Miliar.",
+      "Pembiayaan menggunakan akad Murabahah pengadaan barang, di mana BMT langsung bekerja sama dengan distributor resmi benih bersertifikat dan pupuk untuk memastikan ketersediaan barang bagi petani anggota.",
+      "Skema pembayaran angsuran diselaraskan dengan waktu panen demi meringankan beban operasional petani selama masa tanam."
+    ],
+    "published": true
+  },
+  {
+    "id": "art-05",
+    "category": "Pemberdayaan",
+    "date": "28 Agu 2026",
+    "meta": "28 Agu 2026",
+    "title": "Pelatihan Pembukuan Keuangan Usaha Mikro bagi Anggota di Toili",
+    "excerpt": "Peningkatan literasi keuangan bagi pelaku UMKM binaan BMT Al-Muhajirin untuk menertibkan arus kas usaha.",
+    "image": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80",
+    "imageAlt": "Sesi pelatihan pembukuan keuangan mikro",
+    "tags": [
+      "UMKM",
+      "Toili"
+    ],
+    "featured": false,
+    "contentParagraphs": [
+      "Sebanyak 45 pelaku usaha mikro dari berbagai desa di Kecamatan Toili mengikuti pelatihan dasar pencatatan buku kas yang diselenggarakan di aula kantor pusat BMT Al-Muhajirin.",
+      "Materi mencakup pemisahan uang usaha dan uang pribadi, penghitungan harga pokok penjualan (HPP), serta perencanaan cadangan perputaran modal."
+    ],
+    "published": true
+  },
+  {
+    "id": "art-06",
+    "category": "Sosial",
+    "date": "15 Agu 2026",
+    "meta": "15 Agu 2026",
+    "title": "Penyaluran Paket Perlengkapan Sekolah bagi Anak Yatim Dhuafa",
+    "excerpt": "Program Baitul Maal BMT Al-Muhajirin menyalurkan bantuan pendidikan dari titipan zakat dan infaq anggota.",
+    "image": "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=800&q=80",
+    "imageAlt": "Pemberian bantuan pendidikan bagi anak sekolah",
+    "tags": [
+      "Sosial",
+      "Baitul Maal"
+    ],
+    "featured": false,
+    "contentParagraphs": [
+      "Melalui dana sosial Baitul Maal, BMT Al-Muhajirin Toili mendistribusikan paket perlengkapan sekolah dan dukungan pendidikan bagi putra-putri yatim dan dhuafa di Dataran Toili.",
+      "Dana bersumber dari optimalisasi penghimpunan Zakat, Infaq, dan Sedekah para anggota dan masyarakat umum."
+    ],
+    "published": true
+  }
+]
