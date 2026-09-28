@@ -1,17 +1,17 @@
 [
   {
-    "badgeTitle": "Kantor Pusat",
-    "image": "https://images.unsplash.com/photo-1541888946425-d0fbb186c5f9?auto=format&fit=crop&w=800&q=80",
-    "name": "Kantor Pusat Toili",
     "address": "Jl. Trans Sulawesi, Toili, Kab. Banggai, Sulawesi Tengah",
     "whatsapp": "0821-9876-5432",
+    "phone": "(0461) 412-880",
     "active": true,
-    "hours": "Senin – Jumat : 08.00 – 16.00 WITA",
-    "id": "toili",
-    "mapsUrl": "https://maps.google.com/?q=Toili,+Kabupaten+Banggai,+Sulawesi+Tengah",
     "mapEmbedQuery": "Toili,+Kabupaten+Banggai,+Sulawesi+Tengah",
+    "id": "toili",
     "order": 1,
-    "phone": "(0461) 412-880"
+    "hours": "Senin – Jumat : 08.00 – 16.00 WITA",
+    "badgeTitle": "Kantor Pusat",
+    "name": "Kantor Pusat Toili",
+    "image": "https://images.unsplash.com/photo-1541888946425-d0fbb186c5f9?auto=format&fit=crop&w=800&q=80",
+    "mapsUrl": "https://maps.google.com/?q=Toili,+Kabupaten+Banggai,+Sulawesi+Tengah"
   },
   {
     "id": "luwuk",
