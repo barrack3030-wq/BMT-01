@@ -212,9 +212,6 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenRegister, productsRef,
                   <p className="text-[10px] font-semibold uppercase tracking-wider text-[#0F4D2E]">
                     Prinsip Syariah
                   </p>
-                  <p className="text-[11px] text-[#66736A] mt-0.5">
-                    Transparan & sesuai akad
-                  </p>
                 </div>
               </div>
             </div>
