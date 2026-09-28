@@ -72,7 +72,6 @@ export default function App() {
   const [modalDefaultService, setModalDefaultService] = useState<'simpanan' | 'pembiayaan' | 'qurban'>('simpanan');
   const [modalDefaultAmount, setModalDefaultAmount] = useState<number | undefined>(11000000);
   const [showFloatingPromo, setShowFloatingPromo] = useState(() => readRoute().page === 'home');
-  const [cmsLoaded, setCmsLoaded] = useState(false);
   const productsRef = useRef<HTMLDivElement>(null);
 
   const article = route.articleSlug
@@ -84,7 +83,6 @@ export default function App() {
     loadRemoteCms().then((payload) => {
       if (cancelled || !payload) return;
       applyCmsContent(payload);
-      setCmsLoaded(true);
     });
     return () => { cancelled = true; };
   }, []);
