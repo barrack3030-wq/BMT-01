@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin CMS — BMT Al-Muhajirin Toili</title>
+<meta name="robots" content="noindex,nofollow">
+<style>
+:root{--g:#0f4d2e;--g2:#083b24;--soft:#eaf4ec;--line:#dce7df;--text:#17301f;--muted:#6b7a70}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;background:#f5f8f5;color:var(--text);font-family:Inter,Arial,sans-serif}
+.wrap{min-height:100vh;display:grid;place-items:center;padding:22px;background:linear-gradient(135deg,#083b24 0%,#0f4d2e 58%,#174f35 100%)}
+.card{width:min(520px,100%);background:#fff;border:1px solid rgba(255,255,255,.35);box-shadow:0 24px 70px rgba(0,0,0,.24);padding:34px}
+.brand{display:flex;gap:16px;align-items:center}.brand img{width:88px;height:88px;object-fit:contain}.brand h1{margin:0;font-size:23px;line-height:1.1}.brand p{margin:6px 0 0;color:var(--muted);font-size:12px}
+.badge{display:inline-block;margin-top:22px;padding:5px 9px;background:var(--soft);border:1px solid #cfe1d4;color:var(--g);font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+.message{margin-top:18px;padding:14px;border:1px solid var(--line);background:#f8fbf8;font-size:13px;line-height:1.7}
+.btn{display:inline-flex;align-items:center;justify-content:center;margin-top:18px;padding:12px 16px;border:1px solid var(--g);background:var(--g);color:#fff;text-decoration:none;font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase}
+.btn.secondary{margin-left:8px;background:#fff;color:var(--g);border-color:var(--line)}
+.small{margin-top:16px;color:var(--muted);font-size:11px;line-height:1.6}
+code{background:#f1f5f2;padding:2px 5px}
+</style>
+</head>
+<body>
+<div class="wrap"><main class="card">
+  <div class="brand">
+    <img src="/BMT-01/images/logo/logo%20BMT.png" alt="Logo BMT Al-Muhajirin">
+    <div><h1>Admin CMS</h1><p>BMT Al-Muhajirin Toili</p></div>
+  </div>
+  <span class="badge">Website Administration</span>
+  <div id="message" class="message">
+    Menyiapkan akses CMS Google Apps Script…
+  </div>
+  <div>
+    <a id="open" class="btn" href="#" target="_blank" rel="noopener noreferrer">BUKA CMS</a>
+    <a class="btn secondary" href="/BMT-01/">WEBSITE</a>
+  </div>
+  <div class="small">
+    Halaman admin ini sengaja diberi <code>noindex,nofollow</code>. Password tetap diproses oleh Google Apps Script, bukan GitHub Pages.
+  </div>
+</main></div>
+<script src="/BMT-01/cms-config.js"></script>
+<script>
+(function(){
+  var url=(window.BMT_CMS_ADMIN_URL||window.BMT_CMS_API_URL||'').trim();
+  var msg=document.getElementById('message');
+  var open=document.getElementById('open');
+  if(url){
+    open.href=url;
+    msg.innerHTML='CMS siap digunakan. Tekan <strong>BUKA CMS</strong> untuk masuk ke dashboard administrasi.';
+  }else{
+    open.removeAttribute('href');
+    open.onclick=function(e){e.preventDefault();alert('URL Web App Google Apps Script belum diatur di public/cms-config.js.');};
+    msg.innerHTML='CMS sudah dipasang di alamat <strong>/admin/</strong>, tetapi URL Web App Google Apps Script belum dihubungkan. Setelah Apps Script di-deploy, masukkan URL-nya ke <strong>window.BMT_CMS_ADMIN_URL</strong>.';
+  }
+})();
+</script>
+</body>
+</html>
