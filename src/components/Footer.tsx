@@ -87,8 +87,8 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onScrollToProducts }
               <li>
                 <button
                   onClick={() => {
-                    onNavigate('home');
-                    setTimeout(onScrollToProducts, 100);
+                    onNavigate('products');
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
                   }}
                   className="hover:text-white transition-colors"
                 >
