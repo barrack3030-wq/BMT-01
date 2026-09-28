@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { ArrowRight, ChevronRight, Calculator, MessageSquare, ShieldCheck, CheckCircle2, Quote } from 'lucide-react';
-import { ARTICLES_DATA, PRODUCTS_DATA, TESTIMONIALS_DATA } from '../data/content';
+import { ARTICLES_DATA, PRODUCTS_DATA, TESTIMONIALS_DATA, SITE_SETTINGS } from '../data/content';
 import { articlePath, SITE_BASE_PATH } from '../utils/seo';
 import { SimulationState } from '../types';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
@@ -17,25 +17,11 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenRegister, productsRef,
   const testimonialsObserver = useIntersectionObserver(0.06);
   const section3Observer = useIntersectionObserver(0.06);
 
-  // Hero image slider — four images with a calm institutional crossfade.
-  const heroImages = [
-    {
-      src: 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=2000&q=85',
-      alt: 'Hamparan lahan pertanian',
-    },
-    {
-      src: 'https://images.unsplash.com/photo-1595974482597-4b8da8879bc5?auto=format&fit=crop&w=2000&q=85',
-      alt: 'Aktivitas petani di persawahan',
-    },
-    {
-      src: 'https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=2000&q=85',
-      alt: 'Aktivitas perdagangan dan usaha masyarakat',
-    },
-    {
-      src: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=2000&q=85',
-      alt: 'Bangunan dan lingkungan layanan',
-    },
-  ];
+  // Hero image slider — managed from CMS.
+  const heroImages = SITE_SETTINGS.heroImages.filter(Boolean).slice(0, 4).map((src, index) => ({
+    src,
+    alt: `Gambar hero ${index + 1} BMT Al-Muhajirin`,
+  }));
 
   const [heroSlide, setHeroSlide] = useState(0);
 
