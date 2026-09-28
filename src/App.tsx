@@ -12,7 +12,6 @@ import { FaqPage } from './pages/FaqPage';
 import { FloatingChatAdmin } from './components/FloatingChatAdmin';
 import { FloatingPromo } from './components/FloatingPromo';
 import { ARTICLES_DATA, applyCmsContent, SITE_SETTINGS } from './data/content';
-import { loadRemoteCms } from './services/cms';
 import { loadStaticCms } from './services/staticCms';
 import { SITE_BASE_PATH, SITE_URL, slugify } from './utils/seo';
 
@@ -83,19 +82,11 @@ export default function App() {
 
   useEffect(() => {
     let cancelled = false;
-    (async () => {
-      const staticPayload = await loadStaticCms();
-      if (cancelled) return;
-      if (staticPayload) {
-        applyCmsContent(staticPayload);
-        setCmsRevision((value) => value + 1);
-        return;
-      }
-      const legacyPayload = await loadRemoteCms();
-      if (cancelled || !legacyPayload) return;
-      applyCmsContent(legacyPayload);
+    loadStaticCms().then((payload) => {
+      if (cancelled || !payload) return;
+      applyCmsContent(payload);
       setCmsRevision((value) => value + 1);
-    })();
+    });
     return () => { cancelled = true; };
   }, []);
 
