@@ -194,10 +194,14 @@ content:
           - name: featured
             label: Unggulan
             type: boolean
-          - name: contentParagraphs
+          - name: body
             label: Isi Artikel
-            type: text
-            list: true
+            type: rich-text
+            options:
+              format: markdown
+              switcher: true
+              media: default
+              path: public/content/media/blog
           - name: published
             label: Terbit
             type: boolean
