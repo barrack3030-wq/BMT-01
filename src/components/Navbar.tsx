@@ -46,7 +46,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           <img
             src="/BMT-01/images/logo/logo%20BMT.png"
             alt="Logo BMT Al-Muhajirin"
-            className="w-12 h-12 object-contain"
+            className="w-32 sm:w-40 h-auto object-contain"
             loading="eager"
           />
           
