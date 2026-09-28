@@ -2,3 +2,4 @@
 // Contoh:
 // window.BMT_CMS_API_URL = 'https://script.google.com/macros/s/XXXXXXXX/exec';
 window.BMT_CMS_API_URL = '';
+window.BMT_CMS_ADMIN_URL = '';
