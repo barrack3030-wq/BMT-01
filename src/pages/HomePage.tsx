@@ -18,7 +18,10 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenRegister, productsRef,
   const section3Observer = useIntersectionObserver(0.06);
 
   // Hero image slider — managed from CMS.
-  const heroImages = SITE_SETTINGS.heroImages.filter(Boolean).slice(0, 4).map((src, index) => ({
+  const heroSource = SITE_SETTINGS.heroImages.filter(Boolean).slice(0, 4);
+  const heroImages = (heroSource.length ? heroSource : [
+    'https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=2000&q=85',
+  ]).map((src, index) => ({
     src,
     alt: `Gambar hero ${index + 1} BMT Al-Muhajirin`,
   }));
