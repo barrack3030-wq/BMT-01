@@ -10,6 +10,7 @@ const sourceIndex = new URL('index.html', dist);
 copyFileSync(sourceIndex, new URL('404.html', dist));
 
 const routes = [
+  '/produk/',
   '/berita/',
   '/profil/',
   '/lokasi/',
