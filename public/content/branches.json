@@ -14,18 +14,18 @@
     "mapsUrl": "https://maps.google.com/?q=Toili,+Kabupaten+Banggai,+Sulawesi+Tengah"
   },
   {
-    "order": 2,
     "address": "Jl. Trans Sulawesi Luwuk, Kab. Banggai, Sulawesi Tengah",
-    "name": "Cabang Luwuk",
-    "badgeTitle": "Cabang Pelayanan",
-    "image": "/BMT-01/content/media/images-17-20260928113951.jpg",
-    "id": "luwuk",
-    "phone": "(0461) 324-589",
-    "mapsUrl": "https://maps.google.com/?q=Luwuk,+Kabupaten+Banggai,+Sulawesi+Tengah",
-    "whatsapp": "0821-9876-5432",
-    "active": true,
     "hours": "Senin – Jumat : 08.00 – 16.00 WITA",
-    "mapEmbedQuery": "Luwuk,+Kabupaten+Banggai,+Sulawesi+Tengah"
+    "mapEmbedQuery": "Luwuk,+Kabupaten+Banggai,+Sulawesi+Tengah",
+    "image": "/BMT-01/content/media/images-17-20260928113951.jpg",
+    "order": 2,
+    "id": "luwuk",
+    "whatsapp": "0821-9876-5432",
+    "phone": "(0461) 324-589",
+    "active": true,
+    "badgeTitle": "Cabang Pelayanan",
+    "mapsUrl": "https://maps.google.com/?q=Luwuk,+Kabupaten+Banggai,+Sulawesi+Tengah",
+    "name": "Cabang Luwuk"
   },
   {
     "id": "bunta",
