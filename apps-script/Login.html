@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="id">
+<head>
+<base target="_top">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Login — BMT Al-Muhajirin CMS</title>
+<?!= include('Styles'); ?>
+</head>
+<body>
+<div class="page center">
+  <main class="card">
+    <img class="logo" src="https://raw.githubusercontent.com/barrack3030-wq/BMT-01/main/public/images/logo/logo%20BMT.png" alt="BMT Al-Muhajirin">
+    <h1 class="title">BMT Al-Muhajirin CMS</h1>
+    <p class="sub">Silakan masuk menggunakan akun yang terdaftar.</p>
+
+    <div id="bootError" class="error <?= bootError ? '' : 'hidden' ?>"><?= bootError || '' ?></div>
+
+    <form id="loginForm" onsubmit="submitLogin(event)">
+      <div class="field">
+        <label for="email">Email</label>
+        <input id="email" type="email" autocomplete="username" required>
+      </div>
+
+      <div class="field">
+        <label for="password">Password</label>
+        <input id="password" type="password" autocomplete="current-password" required>
+      </div>
+
+      <button id="loginBtn" class="btn" type="submit">MASUK</button>
+      <div id="message" class="error hidden"></div>
+    </form>
+  </main>
+</div>
+
+<script>
+const WEB_APP_URL = '<?= webAppUrl ?>';
+
+function showError(message){
+  const el = document.getElementById('message');
+  el.textContent = message || 'Terjadi kesalahan.';
+  el.classList.remove('hidden');
+}
+
+function clearError(){
+  document.getElementById('message').classList.add('hidden');
+}
+
+function setLoading(loading){
+  const btn = document.getElementById('loginBtn');
+  btn.disabled = loading;
+  btn.textContent = loading ? 'MEMERIKSA…' : 'MASUK';
+}
+
+function submitLogin(event){
+  event.preventDefault();
+  clearError();
+
+  const email = document.getElementById('email').value.trim();
+  const password = document.getElementById('password').value;
+
+  setLoading(true);
+
+  google.script.run
+    .withSuccessHandler(function(result){
+      setLoading(false);
+
+      if (!result || result.success !== true){
+        showError(result && result.message ? result.message : 'Login gagal.');
+        return;
+      }
+
+      const target = WEB_APP_URL + '?page=dashboard';
+      window.top.location.href = target;
+    })
+    .withFailureHandler(function(error){
+      setLoading(false);
+      showError(error && error.message ? error.message : 'Server tidak dapat memproses login.');
+    })
+    .doLogin(email, password);
+}
+
+document.getElementById('email').focus();
+</script>
+</body>
+</html>
