@@ -117,6 +117,10 @@ export default function App() {
         title: 'BMT Al-Muhajirin Toili – KSPPS Syariah Toili',
         description: 'Website resmi BMT Al-Muhajirin Toili. Informasi simpanan, pembiayaan syariah, layanan anggota, kegiatan koperasi, dan pemberdayaan masyarakat di Toili, Banggai.',
       },
+      products: {
+        title: 'Produk & Layanan BMT Al-Muhajirin Toili',
+        description: 'Informasi produk dan layanan simpanan, pembiayaan syariah, usaha, pertanian, dan perencanaan ibadah anggota BMT Al-Muhajirin Toili.',
+      },
       profile: {
         title: 'Profil BMT Al-Muhajirin Toili | KSPPS Syariah',
         description: 'Profil BMT Al-Muhajirin Toili, KSPPS syariah yang melayani masyarakat, petani, pedagang, dan UMKM di Kabupaten Banggai.',
