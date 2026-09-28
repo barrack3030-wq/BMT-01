@@ -12,30 +12,16 @@ export const ProductsPage: React.FC<ProductsPageProps> = ({ onBackToHome, onOpen
 
   return (
     <div className="w-full bg-[#F4F6F3] min-h-screen">
-      <section className="relative bg-[#083B24] text-white overflow-hidden">
-        <div className="absolute inset-0 islamic-pattern-dark opacity-60 pointer-events-none" />
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-20">
+      <section className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+        <div className="mb-8">
           <button
             type="button"
             onClick={onBackToHome}
-            className="text-[11px] font-semibold uppercase tracking-wider text-white/75 hover:text-white flex items-center gap-2 mb-5"
+            className="text-[11px] font-semibold uppercase tracking-wider text-[#0F4D2E] hover:text-[#083B24] flex items-center gap-2"
           >
             ← Kembali ke Beranda
           </button>
-          <div className="inline-flex items-center gap-2 text-[10px] sm:text-[11px] font-semibold tracking-[0.18em] uppercase text-[#CFE5D5] mb-3">
-            <span className="w-8 h-px bg-[#CFE5D5]" />
-            <span>Layanan Keuangan Syariah</span>
-          </div>
-          <h1 className="font-headline font-bold text-3xl sm:text-5xl lg:text-[52px] tracking-tight leading-tight">
-            Produk & Layanan
-          </h1>
-          <p className="text-sm sm:text-base text-white/75 max-w-2xl mt-4 leading-relaxed">
-            Jelajahi seluruh produk dan layanan BMT Al-Muhajirin untuk kebutuhan simpanan, pembiayaan, usaha, pertanian, dan perencanaan ibadah.
-          </p>
         </div>
-      </section>
-
-      <section className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
         <div className="flex items-center gap-3 mb-8">
           <ShieldCheck className="w-5 h-5 text-[#0F4D2E]" />
           <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#0F4D2E]">
