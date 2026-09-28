@@ -1,0 +1,32 @@
+[
+  {
+    "id": "board-01",
+    "name": "H. Achmad Syukron S.E.I., M.E.",
+    "role": "Ketua",
+    "badge": "Pengurus",
+    "photo": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80",
+    "quote": "Pengelolaan dana anggota berpegang teguh pada prinsip kehati-hatian, kepatuhan syariah, dan transparansi laporan keuangan.",
+    "order": 1,
+    "active": true
+  },
+  {
+    "id": "board-02",
+    "name": "Hj. Siti Mutmainnah",
+    "role": "Sekretaris",
+    "badge": "Pengurus",
+    "photo": "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=800&q=80",
+    "quote": "Ketertiban tata kelola administrasi dan pencatatan anggota menjadi prioritas utama layanan operasional.",
+    "order": 2,
+    "active": true
+  },
+  {
+    "id": "board-03",
+    "name": "Ir. M. Ridwan Arifin",
+    "role": "Bendahara",
+    "badge": "Pengurus",
+    "photo": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=800&q=80",
+    "quote": "Manajemen likuiditas diarahkan untuk menjaga keamanan simpanan dan mendukung kelancaran pembiayaan sektor riil.",
+    "order": 3,
+    "active": true
+  }
+]
