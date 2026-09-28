@@ -1,5 +1,6 @@
 import React from 'react';
 import { MessageCircle, Phone } from 'lucide-react';
+import { SITE_SETTINGS } from '../data/content';
 
 export const FloatingChatAdmin: React.FC = () => {
   return (
@@ -26,8 +27,8 @@ export const FloatingChatAdmin: React.FC = () => {
           />
         </span>
 
-        <span className="chat-label">Chat Admin</span>
-      </button>
+        <span className="chat-label">{SITE_SETTINGS.chatLabel || "Chat Admin"}</span>
+      </a>
     </div>
   );
 };
