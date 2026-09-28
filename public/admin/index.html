@@ -27,29 +27,29 @@ code{background:#f1f5f2;padding:2px 5px}
   </div>
   <span class="badge">Website Administration</span>
   <div id="message" class="message">
-    Menyiapkan akses CMS Google Apps Script…
+    Menyiapkan akses CMS Directus…
   </div>
   <div>
     <a id="open" class="btn" href="#" target="_blank" rel="noopener noreferrer">BUKA CMS</a>
     <a class="btn secondary" href="/BMT-01/">WEBSITE</a>
   </div>
   <div class="small">
-    Halaman admin ini sengaja diberi <code>noindex,nofollow</code>. Password tetap diproses oleh Google Apps Script, bukan GitHub Pages.
+    Halaman admin ini sengaja diberi <code>noindex,nofollow</code>. Login dan permission dikelola langsung oleh Directus, bukan GitHub Pages.
   </div>
 </main></div>
 <script src="/BMT-01/cms-config.js"></script>
 <script>
 (function(){
-  var url=(window.BMT_CMS_ADMIN_URL||window.BMT_CMS_API_URL||'').trim();
+  var url=(window.BMT_DIRECTUS_ADMIN_URL||window.BMT_DIRECTUS_URL||window.BMT_CMS_ADMIN_URL||window.BMT_CMS_API_URL||'').trim();
   var msg=document.getElementById('message');
   var open=document.getElementById('open');
   if(url){
     open.href=url;
-    msg.innerHTML='CMS siap digunakan. Tekan <strong>BUKA CMS</strong> untuk masuk ke dashboard administrasi.';
+    msg.innerHTML='CMS siap digunakan. Tekan <strong>BUKA CMS</strong> untuk membuka Directus.';
   }else{
     open.removeAttribute('href');
-    open.onclick=function(e){e.preventDefault();alert('URL Web App Google Apps Script belum diatur di public/cms-config.js.');};
-    msg.innerHTML='CMS sudah dipasang di alamat <strong>/admin/</strong>, tetapi URL Web App Google Apps Script belum dihubungkan. Setelah Apps Script di-deploy, masukkan URL-nya ke <strong>window.BMT_CMS_ADMIN_URL</strong>.';
+    open.onclick=function(e){e.preventDefault();alert('URL Directus belum diatur di public/directus-config.js.');};
+    msg.innerHTML='CMS Directus belum dihubungkan. Setelah project Directus dibuat, masukkan URL project ke <strong>window.BMT_DIRECTUS_URL</strong>.';
   }
 })();
 </script>
