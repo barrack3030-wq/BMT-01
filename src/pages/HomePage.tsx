@@ -9,9 +9,10 @@ interface HomePageProps {
   onOpenRegister: (service?: 'simpanan' | 'pembiayaan' | 'qurban', amount?: number) => void;
   productsRef: React.RefObject<HTMLDivElement | null>;
   onNavigateToNews?: () => void;
+  onNavigateToProducts?: () => void;
 }
 
-export const HomePage: React.FC<HomePageProps> = ({ onOpenRegister, productsRef, onNavigateToNews }) => {
+export const HomePage: React.FC<HomePageProps> = ({ onOpenRegister, productsRef, onNavigateToNews, onNavigateToProducts }) => {
   // Intersection observers for smooth scroll reveal
   const section2Observer = useIntersectionObserver(0.06);
   const testimonialsObserver = useIntersectionObserver(0.06);
@@ -220,7 +221,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenRegister, productsRef,
 
           {/* Product cards */}
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5 lg:gap-6">
-            {PRODUCTS_DATA.map((product, index) => (
+            {PRODUCTS_DATA.filter((product) => product.showOnHome === true).map((product, index) => (
               <article
                 key={product.id}
                 className="group bg-white border border-[#DDE5DF] card-shadow card-hover-subtle overflow-hidden flex flex-col"
@@ -295,6 +296,17 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenRegister, productsRef,
                 </div>
               </article>
             ))}
+          </div>
+
+          <div className="mt-7 flex justify-center">
+            <button
+              type="button"
+              onClick={() => onNavigateToProducts?.()}
+              className="btn-institutional bg-white text-[#0F4D2E] text-xs sm:text-sm font-semibold uppercase tracking-wider px-6 py-3 border border-[#0F4D2E] hover:bg-[#EAF4EC] flex items-center gap-2 card-shadow-sm cursor-pointer"
+            >
+              <span>Lihat Produk Lainnya</span>
+              <ArrowRight className="w-4 h-4 btn-arrow-icon" />
+            </button>
           </div>
 
           {/* Simulator */}
