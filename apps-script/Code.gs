@@ -12,14 +12,40 @@ const FILES={
   faq:'public/content/faq.json'
 };
 
-function doGet(){
-  return jsonResponse_({
+function doGet(e){
+  if(e && e.parameter && e.parameter.api==='health'){
+    return jsonResponse_({
+      ok:true,
+      service:APP_NAME,
+      version:CMS_VERSION,
+      status:'online',
+      timestamp:new Date().toISOString()
+    });
+  }
+  return HtmlService.createHtmlOutputFromFile('Index')
+    .setTitle(APP_NAME);
+}
+
+function cmsHealth(){
+  return {
     ok:true,
     service:APP_NAME,
     version:CMS_VERSION,
     status:'online',
     timestamp:new Date().toISOString()
-  });
+  };
+}
+
+function cmsApi(data){
+  if(!data) throw new Error('Request data tidak ditemukan.');
+  checkAccessKey_(data.accessKey);
+  const action=String(data.action||'');
+  if(action==='getContent') return {ok:true,content:getContent_()};
+  if(action==='saveSection') return {ok:true,content:saveSection_(data.section,data.value)};
+  if(action==='saveItem') return {ok:true,item:saveItem_(data.section,data.item)};
+  if(action==='deleteItem') return {ok:true,deleted:deleteItem_(data.section,data.id)};
+  if(action==='uploadImage') return {ok:true,image:uploadImage_(data)};
+  throw new Error('Action tidak dikenal: '+action);
 }
 
 function doPost(e){
