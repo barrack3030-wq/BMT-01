@@ -44,9 +44,9 @@ export const Navbar: React.FC<NavbarProps> = ({
           aria-label="Kembali ke Beranda BMT Al-Muhajirin Toili"
         >
           <img
-            src="/BMT-01/images/logo/bmt-al-muhajirin.svg"
-            alt="Logo BMT Al-Muhajirin Toili"
-            className="w-12 h-12 rounded-full object-cover"
+            src="/BMT-01/images/logo/logo%20BMT.png"
+            alt="Logo BMT Al-Muhajirin"
+            className="w-12 h-12 object-contain"
             loading="eager"
           />
           
