@@ -21,14 +21,8 @@ export const Navbar: React.FC<NavbarProps> = ({
   const handleNavClick = (page: Page, isProducts = false) => {
     setMobileMenuOpen(false);
     if (isProducts) {
-      if (activePage !== 'home') {
-        onNavigate('home');
-        setTimeout(() => {
-          onScrollToProducts();
-        }, 120);
-      } else {
-        onScrollToProducts();
-      }
+      onNavigate('products');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
       onNavigate(page);
       window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -66,7 +60,9 @@ export const Navbar: React.FC<NavbarProps> = ({
           </button>
           <button
             onClick={() => handleNavClick('home', true)}
-            className="text-xs font-semibold tracking-wider uppercase py-2 text-[#66736A] hover:text-[#0F4D2E] nav-link-anim"
+            className={`text-xs font-semibold tracking-wider uppercase py-2 nav-link-anim ${
+              activePage === 'products' ? 'text-[#0F4D2E] font-bold active' : 'text-[#66736A] hover:text-[#0F4D2E]'
+            }`}
           >
             PRODUK & LAYANAN
           </button>
@@ -149,7 +145,9 @@ export const Navbar: React.FC<NavbarProps> = ({
           </button>
           <button
             onClick={() => handleNavClick('home', true)}
-            className="text-left text-xs font-semibold uppercase tracking-wider px-3.5 py-2.5 border-l-2 border-transparent text-[#17201B] hover:bg-[#F8F9F6]"
+            className={`text-left text-xs font-semibold uppercase tracking-wider px-3.5 py-2.5 border-l-2 ${
+              activePage === 'products' ? 'border-[#0F4D2E] bg-[#EAF4EC] text-[#0F4D2E] font-bold' : 'border-transparent text-[#17201B] hover:bg-[#F8F9F6]'
+            }`}
           >
             PRODUK & LAYANAN
           </button>
