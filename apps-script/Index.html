@@ -82,10 +82,33 @@ function settings(){
  F('backgroundImage','URL background','text',s.backgroundImage,1)+F('promoImage','URL promo / ucapan','text',s.promoImage,1)+F('promoTitle','Judul promo','text',s.promoTitle)+F('promoDescription','Deskripsi promo','text',s.promoDescription)+
  F('chatLabel','Label Chat','text',s.chatLabel)+F('chatUrl','Link Chat Admin','text',s.chatUrl)+F('instagramUrl','Instagram URL','text',s.instagramUrl)+F('facebookUrl','Facebook URL','text',s.facebookUrl)+
  F('topbarText','Teks bar atas','text',s.topbarText)+F('operatingHours','Jam layanan','text',s.operatingHours)+
- '</div><hr style="border:0;border-top:1px solid var(--line);margin:20px 0"><h4 style="margin:0 0 12px">4 Gambar Hero</h4><div class="grid" style="grid-template-columns:1fr 1fr">'+[0,1,2,3].map(i=>'<div class="field"><label>Hero '+(i+1)+'</label><input id="h'+i+'" value="'+esc(h[i]||'')+'"></div>').join('')+'</div></div>'}
-function about(){const a=S.data.pages?.about||{};return '<div class="panel"><div class="panel-head"><div><h3>Tentang Kami</h3><div class="muted">Profil, visi, misi dan legalitas.</div></div><button id="saveAbout" class="btn">SIMPAN</button></div><div class="fields">'+F('aboutTitle','Label','text',a.title)+F('aboutHeading','Heading','text',a.heading)+F('aboutParagraphs','Isi (1 paragraf per baris)','lines',a.paragraphs,1)+F('aboutVision','Visi','textarea',a.vision,1)+F('aboutMission','Misi (1 poin per baris)','lines',a.mission,1)+F('aboutLegality','Legalitas & pengawasan','textarea',a.legality,1)+'</div></div>'}
+ '</div><hr style="border:0;border-top:1px solid var(--line);margin:20px 0"><h4 style="margin:0 0 12px">4 Gambar Hero</h4><div class="grid" style="grid-template-columns:1fr 1fr">'+[0,1,2,3].map(i=>'<div class="field"><label>Hero '+(i+1)+'</label><input id="h'+i+'" value="'+esc(h[i]||'')+'"><div class="upload"><label class="btn light">UPLOAD GAMBAR<input id="uph'+i+'" type="file" accept="image/*"></label></div></div>').join('')+'</div></div>'
+}function about(){const a=S.data.pages?.about||{};return '<div class="panel"><div class="panel-head"><div><h3>Tentang Kami</h3><div class="muted">Profil, visi, misi dan legalitas.</div></div><button id="saveAbout" class="btn">SIMPAN</button></div><div class="fields">'+F('aboutTitle','Label','text',a.title)+F('aboutHeading','Heading','text',a.heading)+F('aboutParagraphs','Isi (1 paragraf per baris)','lines',a.paragraphs,1)+F('aboutVision','Visi','textarea',a.vision,1)+F('aboutMission','Misi (1 poin per baris)','lines',a.mission,1)+F('aboutLegality','Legalitas & pengawasan','textarea',a.legality,1)+'</div></div>'}
 function backup(){return '<div class="panel"><div class="panel-head"><div><h3>Backup & Import</h3><div class="muted">Export seluruh konten atau restore backup.</div></div><div><button id="exp" class="btn light">EXPORT JSON</button> <label class="btn light">IMPORT JSON<input id="imp" type="file" accept=".json" style="display:none"></label></div></div><div class="notice">Backup tidak berisi password administrator.</div></div>'}
-function F(k,l,t,v,full){let cls=full?'full':'';if(t==='check')return '<div class="check '+cls+'"><input id="f_'+k+'" type="checkbox" '+(v?'checked':'')+'><b>'+l+'</b></div>';if(t==='lines')return '<div class="field '+cls+'"><label>'+l+'</label><textarea id="f_'+k+'">'+esc((Array.isArray(v)?v:[]).join('\n'))+'</textarea></div>';if(t==='textarea')return '<div class="field '+cls+'"><label>'+l+'</label><textarea id="f_'+k+'">'+esc(v||'')+'</textarea></div>';return '<div class="field '+cls+'"><label>'+l+'</label><input id="f_'+k+'" type="'+(t==='number'?'number':'text')+'" value="'+esc(v??'')+'"></div>'}
+function F(k,l,t,v,full){
+ let cls=full?'full':'';
+ if(t==='check')return '<div class="check '+cls+'"><input id="f_'+k+'" type="checkbox" '+(v?'checked':'')+'><b>'+l+'</b></div>';
+ if(t==='lines')return '<div class="field '+cls+'"><label>'+l+'</label><textarea id="f_'+k+'">'+esc((Array.isArray(v)?v:[]).join('\\n'))+'</textarea></div>';
+ if(t==='textarea')return '<div class="field '+cls+'"><label>'+l+'</label><textarea id="f_'+k+'">'+esc(v||'')+'</textarea></div>';
+ const basic=k.split('_').pop();
+ const uploadable=['image','photo','avatarImage','logoUrl','backgroundImage','promoImage'].includes(basic);
+ return '<div class="field '+cls+'"><label>'+l+'</label><input id="f_'+k+'" type="'+(t==='number'?'number':'text')+'" value="'+esc(v??'')+'">'+(uploadable?'<div class="upload"><label class="btn light">UPLOAD GAMBAR<input id="up_'+k+'" type="file" accept="image/*"></label></div>':'')+'</div>';
+}
+function wireUploads(){
+ document.querySelectorAll('input[id^="up_"]').forEach(input=>{
+  input.onchange=async()=>{
+   const file=input.files?.[0]; if(!file)return;
+   toast('Mengunggah gambar...');
+   try{
+    const result=await gas('uploadImage',S.token,await fileToBase64(file),file.name,file.type);
+    const key=input.id.slice(3),target=document.getElementById('f_'+key);
+    if(target)target.value=result.url;
+    toast('Gambar berhasil diunggah.');
+   }catch(e){toast(e.message)}
+  };
+ });
+}
+function fileToBase64(file){return new Promise((resolve,reject)=>{const reader=new FileReader();reader.onload=()=>resolve(reader.result);reader.onerror=reject;reader.readAsDataURL(file);});}
 function openEdit(page,id){const s=schemas[page],src=(S.data[page]||[]).find(x=>x.id===id)||Object.assign({id:page+'-'+Date.now()},s.defs);S.edit={page,id:src.id};document.getElementById('mTitle').textContent=(id?'Edit ':'Tambah ')+s.label;document.getElementById('mSub').textContent='ID: '+src.id;document.getElementById('mDelete').classList.toggle('hidden',!id);document.getElementById('mBody').innerHTML='<div class="fields">'+s.fields.map(f=>F('edit_'+f[0],f[1],f[2],src[f[0]],f[3])).join('')+'</div>';document.getElementById('modal').classList.add('open')}
 function getF(k,t){const e=document.getElementById('f_'+k);if(!e)return '';if(t==='check')return e.checked;if(t==='lines')return e.value.split(/\n+/).map(x=>x.trim()).filter(Boolean);if(t==='rich')return e.value.split(/\n\s*\n/g).map(x=>x.trim()).filter(Boolean);if(t==='number')return Number(e.value||0);return e.value.trim()}
 async function saveEdit(){const p=S.edit.page,s=schemas[p],old=(S.data[p]||[]).find(x=>x.id===S.edit.id)||Object.assign({id:S.edit.id},s.defs),r=Object.assign({},old);s.fields.forEach(f=>r[f[0]]=getF('edit_'+f[0],f[2]));await gas('saveRecord',S.token,p,r);S.data[p]=(S.data[p]||[]).filter(x=>x.id!==r.id).concat(r);close();render();toast('Data disimpan.')}
@@ -95,7 +118,9 @@ async function saveSet(){const s=Object.assign({},S.data.settings,{id:'global'})
 async function saveAbout(){const a={id:'about',title:v('aboutTitle'),heading:v('aboutHeading'),paragraphs:v('aboutParagraphs').split(/\n+/).filter(Boolean),vision:v('aboutVision'),mission:v('aboutMission').split(/\n+/).filter(Boolean),legality:v('aboutLegality')};const r=await gas('savePage',S.token,'about',a);S.data.pages.about=r.record;render();toast('Tentang Kami disimpan.')}
 function v(k){return document.getElementById('f_'+k)?.value.trim()||''}
 function bind(){
- navBind();document.querySelectorAll('[data-go]').forEach(b=>b.onclick=()=>{S.page=b.dataset.go;render()});const add=document.getElementById('add');if(add)add.onclick=()=>openEdit(S.page);
+ navBind(); wireUploads();
+ document.querySelectorAll('input[id^="uph"]').forEach(input=>input.onchange=async()=>{const file=input.files?.[0];if(!file)return;toast('Mengunggah hero...');try{const result=await gas('uploadImage',S.token,await fileToBase64(file),file.name,file.type);const index=input.id.slice(3);document.getElementById('h'+index).value=result.url;toast('Hero '+(Number(index)+1)+' siap.')}catch(e){toast(e.message)}});
+document.querySelectorAll('[data-go]').forEach(b=>b.onclick=()=>{S.page=b.dataset.go;render()});const add=document.getElementById('add');if(add)add.onclick=()=>openEdit(S.page);
  document.querySelectorAll('[data-edit]').forEach(b=>b.onclick=()=>openEdit(b.dataset.edit,b.dataset.id));document.querySelectorAll('[data-del]').forEach(b=>b.onclick=async()=>{if(!confirm('Hapus data ini?'))return;await gas('deleteRecord',S.token,b.dataset.del,b.dataset.id);S.data[b.dataset.del]=S.data[b.dataset.del].filter(x=>x.id!==b.dataset.id);render();toast('Data dihapus.')});
  document.getElementById('saveSet')?.addEventListener('click',()=>saveSet().catch(e=>toast(e.message)));document.getElementById('saveAbout')?.addEventListener('click',()=>saveAbout().catch(e=>toast(e.message)));
  document.getElementById('exp')?.addEventListener('click',()=>{const a=document.createElement('a'),u=URL.createObjectURL(new Blob([JSON.stringify(S.data,null,2)],{type:'application/json'}));a.href=u;a.download='bmt-cms-backup.json';a.click();URL.revokeObjectURL(u)});
