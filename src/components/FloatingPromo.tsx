@@ -1,12 +1,13 @@
 import React from 'react';
 import { X, Megaphone } from 'lucide-react';
+import { SITE_SETTINGS } from '../data/content';
 
 interface FloatingPromoProps {
   visible: boolean;
   onClose: () => void;
 }
 
-const PROMO_IMAGE_SRC = '';
+
 
 export const FloatingPromo: React.FC<FloatingPromoProps> = ({ visible, onClose }) => {
   const [imageFailed, setImageFailed] = React.useState(false);
@@ -27,9 +28,9 @@ export const FloatingPromo: React.FC<FloatingPromoProps> = ({ visible, onClose }
         </button>
 
         <div className="relative aspect-[4/3] bg-[#EAF4EC] overflow-hidden border-b border-[#DDE5DF]">
-          {PROMO_IMAGE_SRC && !imageFailed ? (
+          {SITE_SETTINGS.promoImage && !imageFailed ? (
             <img
-              src={PROMO_IMAGE_SRC}
+              src={SITE_SETTINGS.promoImage}
               alt="Promo atau ucapan BMT Al-Muhajirin"
               className="w-full h-full object-cover"
               onError={() => setImageFailed(true)}
@@ -57,10 +58,10 @@ export const FloatingPromo: React.FC<FloatingPromoProps> = ({ visible, onClose }
             INFORMASI
           </p>
           <h2 className="font-headline font-bold text-base sm:text-lg text-[#17201B] mt-1 leading-tight">
-            Promo & Ucapan Hari Besar
+            {SITE_SETTINGS.promoTitle || "Promo & Ucapan Hari Besar"}
           </h2>
           <p className="text-[11px] sm:text-xs text-[#66736A] mt-1.5 leading-relaxed">
-            Kolom ini dapat digunakan untuk promo produk, pengumuman, atau ucapan hari besar Islam.
+            {SITE_SETTINGS.promoDescription || "Kolom ini dapat digunakan untuk promo produk, pengumuman, atau ucapan hari besar Islam."}
           </p>
         </div>
       </div>
