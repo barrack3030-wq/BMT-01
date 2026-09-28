@@ -1,0 +1,47 @@
+const WEB_APP_URL = '<?= webAppUrl ?>';
+
+function showError(message){
+  const el = document.getElementById('message');
+  el.textContent = message || 'Terjadi kesalahan.';
+  el.classList.remove('hidden');
+}
+
+function clearError(){
+  document.getElementById('message').classList.add('hidden');
+}
+
+function setLoading(loading){
+  const btn = document.getElementById('loginBtn');
+  btn.disabled = loading;
+  btn.textContent = loading ? 'MEMERIKSA…' : 'MASUK';
+}
+
+function submitLogin(event){
+  event.preventDefault();
+  clearError();
+
+  const email = document.getElementById('email').value.trim();
+  const password = document.getElementById('password').value;
+  setLoading(true);
+
+  google.script.run
+    .withSuccessHandler(function(result){
+      setLoading(false);
+
+      if (!result || result.success !== true){
+        showError(result && result.message ? result.message : 'Login gagal.');
+        return;
+      }
+
+      window.top.location.href = WEB_APP_URL + '?page=dashboard';
+    })
+    .withFailureHandler(function(error){
+      setLoading(false);
+      showError(error && error.message ? error.message : 'Server tidak dapat memproses login.');
+    })
+    .doLogin(email, password);
+}
+
+document.addEventListener('DOMContentLoaded', function(){
+  document.getElementById('email').focus();
+});
