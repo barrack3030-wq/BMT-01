@@ -191,30 +191,18 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenRegister, productsRef,
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Section heading */}
-          <div className="max-w-3xl mb-10 sm:mb-12">
-            <div className="inline-flex items-center gap-2 text-[10px] sm:text-[11px] font-semibold tracking-[0.18em] uppercase text-[#0F4D2E] mb-3">
+          <div className="max-w-3xl mx-auto mb-10 sm:mb-12 text-center">
+            <div className="inline-flex items-center justify-center gap-2 text-[10px] sm:text-[11px] font-semibold tracking-[0.18em] uppercase text-[#0F4D2E] mb-3">
               <span className="w-8 h-px bg-[#0F4D2E]" />
               <span>Layanan Keuangan Syariah</span>
+              <span className="w-8 h-px bg-[#0F4D2E]" />
             </div>
-            <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4">
-              <div>
-                <h2 className="font-headline font-bold text-3xl sm:text-4xl lg:text-[44px] text-[#17201B] tracking-tight leading-[1.08]">
-                  Produk & Layanan
-                </h2>
-                <p className="text-sm sm:text-base text-[#66736A] mt-3 max-w-2xl leading-relaxed">
-                  Pilihan layanan untuk kebutuhan simpanan, modal usaha, pertanian, dan perencanaan ibadah anggota.
-                </p>
-              </div>
-
-              <div className="hidden lg:flex items-center gap-3 px-4 py-3 bg-white border border-[#DDE5DF] card-shadow-sm shrink-0">
-                <ShieldCheck className="w-5 h-5 text-[#0F4D2E]" />
-                <div>
-                  <p className="text-[10px] font-semibold uppercase tracking-wider text-[#0F4D2E]">
-                    Prinsip Syariah
-                  </p>
-                </div>
-              </div>
-            </div>
+            <h2 className="font-headline font-bold text-3xl sm:text-4xl lg:text-[44px] text-[#17201B] tracking-tight leading-[1.08]">
+              Produk & Layanan
+            </h2>
+            <p className="text-sm sm:text-base text-[#66736A] mt-3 max-w-2xl mx-auto leading-relaxed">
+              Pilihan layanan untuk kebutuhan simpanan, modal usaha, pertanian, dan perencanaan ibadah anggota.
+            </p>
           </div>
 
           {/* Product cards */}
