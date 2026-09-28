@@ -71,7 +71,7 @@ export default function App() {
   const [registerModalOpen, setRegisterModalOpen] = useState(false);
   const [modalDefaultService, setModalDefaultService] = useState<'simpanan' | 'pembiayaan' | 'qurban'>('simpanan');
   const [modalDefaultAmount, setModalDefaultAmount] = useState<number | undefined>(11000000);
-  const [showFloatingPromo, setShowFloatingPromo] = useState(() => readRoute().page === 'home');
+  const [showFloatingPromo, setShowFloatingPromo] = useState(() => readRoute().page === 'home' && SITE_SETTINGS.promoEnabled !== false);
   const productsRef = useRef<HTMLDivElement>(null);
 
   const article = route.articleSlug
@@ -89,6 +89,14 @@ export default function App() {
     });
     return () => { cancelled = true; };
   }, []);
+
+  useEffect(() => {
+    if (route.page === 'home' && !route.articleSlug) {
+      setShowFloatingPromo(SITE_SETTINGS.promoEnabled !== false);
+    } else {
+      setShowFloatingPromo(false);
+    }
+  }, [route.page, route.articleSlug, cmsRevision]);
 
   void cmsRevision;
 
