@@ -360,6 +360,7 @@ export interface SiteSettings {
   promoImage: string;
   promoTitle: string;
   promoDescription: string;
+  promoEnabled: boolean;
   chatLabel: string;
   chatUrl: string;
   instagramUrl: string;
@@ -390,6 +391,7 @@ export const SITE_SETTINGS: SiteSettings = {
   promoImage: '',
   promoTitle: 'Promo & Ucapan Hari Besar',
   promoDescription: 'Kolom ini dapat digunakan untuk promo produk, pengumuman, atau ucapan hari besar Islam.',
+  promoEnabled: true,
   chatLabel: 'Chat Admin',
   chatUrl: '',
   instagramUrl: 'https://www.instagram.com/bmtalmuhajirin_official/',
