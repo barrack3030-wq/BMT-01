@@ -142,7 +142,31 @@ function uploadImage_(data){
   const finalName=base+'-'+Utilities.formatDate(new Date(),'Asia/Makassar','yyyyMMddHHmmss')+'.'+ext;
   const path='public/content/media/'+finalName;
   githubCreateBinaryFile_(path,bytes,'CMS: Add image '+finalName);
-  return {url:'/BMT-01/content/media/'+finalName,path:path,name:finalName};
+
+  const imageUrl='/BMT-01/content/media/'+finalName;
+  const section=String(data.section||'');
+  const itemId=String(data.itemId||'');
+  const field=String(data.field||'image');
+
+  // When an image is uploaded from an item editor, persist the new URL
+  // immediately to the corresponding GitHub JSON item. This prevents
+  // the common case where the file uploads successfully but the branch/
+  // product/article record keeps the previous image URL.
+  if(section && itemId && FILES[section] && section!=='settings' && section!=='about'){
+    const current=githubGetFile_(FILES[section]);
+    const list=Array.isArray(current.data)?current.data:[];
+    const index=list.findIndex(function(row){return String(row.id)===itemId;});
+    if(index<0) throw new Error('Item '+itemId+' tidak ditemukan pada section '+section+'.');
+    list[index][field]=imageUrl;
+    githubUpdateFile_(
+      FILES[section],
+      JSON.stringify(list,null,2)+'\n',
+      'CMS: Update '+section+' image '+itemId,
+      current.sha
+    );
+  }
+
+  return {url:imageUrl,path:path,name:finalName};
 }
 
 function extensionForMime_(mime,name){
