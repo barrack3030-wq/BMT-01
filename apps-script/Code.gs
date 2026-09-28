@@ -1,4 +1,4 @@
-const APP_NAME='BMT Al-Muhajirin CMS',DB_KEY='CMS_SPREADSHEET_ID',PW_KEY='CMS_PASSWORD_HASH',FOLDER_KEY='CMS_MEDIA_FOLDER_ID',SESSION_TTL=21600;
+const APP_NAME='BMT Al-Muhajirin CMS',DB_KEY='CMS_SPREADSHEET_ID',PW_KEY='CMS_PASSWORD_HASH',ADMIN_PASSWORD_KEY='CMS_ADMIN_PASSWORD',FOLDER_KEY='CMS_MEDIA_FOLDER_ID',SESSION_TTL=21600;
 
 function doGet(e){
   const a=e?.parameter?.action||'';
@@ -14,9 +14,11 @@ function setAdminPassword(password){
   PropertiesService.getScriptProperties().setProperty(PW_KEY,hash_(String(password))); return {ok:true};
 }
 function login(password){
-  const expected=PropertiesService.getScriptProperties().getProperty(PW_KEY);
-  if(!expected) throw new Error('Password CMS belum diatur. Jalankan setAdminPassword("password-kuat") sekali di Apps Script Editor.');
-  if(hash_(String(password||''))!==expected) throw new Error('Password salah.');
+  const expected=PropertiesService.getScriptProperties().getProperty(ADMIN_PASSWORD_KEY);
+  if(!expected) throw new Error('Password CMS belum diatur. Tambahkan Script Property CMS_ADMIN_PASSWORD.');
+  const entered=String(password||'');
+  if(entered.length<5) throw new Error('Password minimal 5 karakter.');
+  if(entered!==String(expected)) throw new Error('Password salah.');
   const token=Utilities.getUuid()+Utilities.getUuid();
   CacheService.getScriptCache().put('session:'+token,'1',SESSION_TTL);
   return {ok:true,token,bootstrap:getBootstrapData_()};
