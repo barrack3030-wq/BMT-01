@@ -80,3 +80,28 @@ Setelah commit, buka:
 - FAQ
 
 Setiap perubahan menjadi commit ke branch yang dipilih.
+
+
+## 2026-09-28: CMS menjalankan UI langsung di Apps Script
+
+Versi ini tidak lagi melakukan `fetch()` dari GitHub Pages ke Content Service. Browser dapat terkena masalah CORS/redirect pada Content Service. CMS sekarang menggunakan **Apps Script HTML Service + `google.script.run`**.
+
+File Apps Script:
+- `Code.gs`
+- `Index.html`
+
+### Sinkronkan ke Apps Script
+1. Buka project Apps Script yang menjadi Web App.
+2. Ganti isi `Code.gs` dengan file `apps-script/Code.gs` dari repo ini.
+3. Tambahkan file HTML bernama **Index** dan isi dengan `apps-script/Index.html`.
+4. Pastikan Script Properties tetap:
+   - `CMS_ACCESS_KEY`
+   - `GITHUB_TOKEN`
+   - `GITHUB_OWNER=barrack3030-wq`
+   - `GITHUB_REPO=BMT-01`
+   - `GITHUB_BRANCH=main`
+5. Deploy ulang Web App sebagai **Execute as Me** dan akses **Anyone**. Buat **New version** saat update deployment.
+6. Buka `https://barrack3030-wq.github.io/BMT-01/cms/`. Halaman tersebut akan meneruskan ke Apps Script CMS.
+
+### Endpoint
+Endpoint yang ada di `public/cms/config.js` tetap dipakai sebagai alamat Web App. URL ini sekarang menjadi halaman CMS, bukan API JSON yang dipanggil lintas-domain dari GitHub Pages.
