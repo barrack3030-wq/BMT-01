@@ -221,7 +221,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenRegister, productsRef,
 
           {/* Product cards */}
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5 lg:gap-6">
-            {PRODUCTS_DATA.filter((product) => product.showOnHome === true).map((product, index) => (
+            {PRODUCTS_DATA.filter((product) => product.showOnHome === true).slice(0, 3).map((product, index) => (
               <article
                 key={product.id}
                 className="group bg-white border border-[#DDE5DF] card-shadow card-hover-subtle overflow-hidden flex flex-col"
