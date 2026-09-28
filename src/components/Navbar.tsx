@@ -44,19 +44,12 @@ export const Navbar: React.FC<NavbarProps> = ({
           aria-label="Kembali ke Beranda BMT Al-Muhajirin Toili"
         >
           <img
-            src="https://www.bmtalmuhajirin.id/img/icons/res/mipmap-xxhdpi/ic_launcher.png"
-            alt="Logo BMT Al-Muhajirin"
-            className="w-11 h-11 rounded-full object-contain bg-[#FFF9C4] border border-[#D8D6A1]"
+            src="/BMT-01/images/logo/bmt-al-muhajirin.svg"
+            alt="Logo BMT Al-Muhajirin Toili"
+            className="w-12 h-12 rounded-full object-cover"
             loading="eager"
           />
-          <div>
-            <span className="block font-headline font-bold text-base sm:text-lg tracking-tight text-[#17201B] leading-none group-hover:text-[#0F4D2E] transition-colors">
-              BMT AL-MUHAJIRIN TOILI
-            </span>
-            <span className="block text-[11px] font-medium tracking-wider uppercase text-[#0F4D2E] mt-1">
-              KSPPS Syariah Toili
-            </span>
-          </div>
+          
         </button>
 
         {/* Desktop Navigation Links */}
