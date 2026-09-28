@@ -1,4 +1,4 @@
-export type Page = 'home' | 'profile' | 'news' | 'location' | 'faq';
+export type Page = 'home' | 'products' | 'profile' | 'news' | 'location' | 'faq';
 
 export interface MemberFormData {
   fullName: string;
