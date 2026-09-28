@@ -46,5 +46,19 @@
     "akad": "Akad Wadiah",
     "active": true,
     "order": 3
+  },
+  {
+    "id": "products-1790563176460",
+    "title": "Produk Baru",
+    "imageAlt": "",
+    "badge": "Produk Syariah",
+    "description": "test 2222",
+    "image": "/BMT-01/content/media/images-15-20260928103959.jpg",
+    "order": 1,
+    "active": true,
+    "akad": "test 2222",
+    "features": [
+      "test 2222"
+    ]
   }
 ]
