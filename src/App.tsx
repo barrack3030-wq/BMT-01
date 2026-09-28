@@ -13,7 +13,7 @@ import { FloatingChatAdmin } from './components/FloatingChatAdmin';
 import { FloatingPromo } from './components/FloatingPromo';
 import { ARTICLES_DATA, applyCmsContent, SITE_SETTINGS } from './data/content';
 import { loadRemoteCms } from './services/cms';
-import { loadDirectusCms } from './services/directus';
+import { loadStaticCms } from './services/staticCms';
 import { SITE_BASE_PATH, SITE_URL, slugify } from './utils/seo';
 
 type RouteState = { page: Page; articleSlug?: string };
@@ -79,21 +79,27 @@ export default function App() {
     ? ARTICLES_DATA.find((item) => slugify(item.title) === route.articleSlug)
     : undefined;
 
+  const [cmsRevision, setCmsRevision] = useState(0);
+
   useEffect(() => {
     let cancelled = false;
     (async () => {
-      const directusPayload = await loadDirectusCms();
+      const staticPayload = await loadStaticCms();
       if (cancelled) return;
-      if (directusPayload) {
-        applyCmsContent(directusPayload);
+      if (staticPayload) {
+        applyCmsContent(staticPayload);
+        setCmsRevision((value) => value + 1);
         return;
       }
       const legacyPayload = await loadRemoteCms();
       if (cancelled || !legacyPayload) return;
       applyCmsContent(legacyPayload);
+      setCmsRevision((value) => value + 1);
     })();
     return () => { cancelled = true; };
   }, []);
+
+  void cmsRevision;
 
   useEffect(() => {
     const handlePopState = () => setRoute(readRoute());
