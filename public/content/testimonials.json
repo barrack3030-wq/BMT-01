@@ -1,0 +1,41 @@
+[
+  {
+    "id": "testi-1",
+    "name": "Pak Slamet Riyadi",
+    "role": "Petani Padi Organik",
+    "location": "Desa Singkoyo, Kec. Toili",
+    "memberSince": "Anggota sejak 2021",
+    "productUsed": "Pembiayaan Sarana Tani (Murabahah)",
+    "quote": "Dulu setiap musim tanam kami bingung modal pupuk dan bibit. Alhamdulillah lewat pembiayaan Murabahah BMT Al-Muhajirin, kebutuhan sarana produksi terbeli di awal dengan margin yang jelas dan transparan.",
+    "avatarText": "SR",
+    "avatarImage": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80",
+    "rating": 5,
+    "active": true
+  },
+  {
+    "id": "testi-2",
+    "name": "Ibu Hj. Masnah",
+    "role": "Pedagang Bahan Pokok & Sembako",
+    "location": "Pasar Sentral Toili",
+    "memberSince": "Anggota sejak 2019",
+    "productUsed": "Simpanan Mudharabah & Kas Keliling",
+    "quote": "Petugas BMT jemput setoran langsung ke lapak pasar setiap hari, jadi saya tidak perlu repot meninggalkan dagangan.",
+    "avatarText": "HM",
+    "avatarImage": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=200&q=80",
+    "rating": 5,
+    "active": true
+  },
+  {
+    "id": "testi-3",
+    "name": "Pak Wayan Sudarma",
+    "role": "Peternak Sapi & Pengusaha Pakan",
+    "location": "Mansahang, Kec. Toili Barat",
+    "memberSince": "Anggota sejak 2020",
+    "productUsed": "Pembiayaan Modal Usaha Produktif",
+    "quote": "Bagi kami peternak di Toili Barat, BMT Al-Muhajirin sangat kooperatif. Waktu pengadaan bibit ternak didampingi langsung dan jadwal angsuran disesuaikan dengan siklus usaha.",
+    "avatarText": "WS",
+    "avatarImage": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80",
+    "rating": 5,
+    "active": true
+  }
+]
