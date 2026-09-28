@@ -1,0 +1,50 @@
+[
+  {
+    "id": "simpanan-mudharabah",
+    "badge": "Bagi Hasil s/d 65%",
+    "title": "Simpanan Mudharabah",
+    "description": "Simpanan sukarela dan berjangka dengan skema bagi hasil kemitraan. Dana dikelola pada usaha riil produktif tanpa potongan biaya administrasi bulanan.",
+    "features": [
+      "Nisbah bagi hasil hingga 65% untuk anggota",
+      "Bebas biaya administrasi bulanan",
+      "Penyaluran dana pada sektor riil halal"
+    ],
+    "image": "https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?auto=format&fit=crop&w=800&q=80",
+    "imageAlt": "Anggota simpanan syariah",
+    "akad": "Akad Mudharabah Muthlaqah",
+    "active": true,
+    "order": 1
+  },
+  {
+    "id": "pembiayaan-syariah",
+    "badge": "Margin Tetap",
+    "title": "Pembiayaan Syariah",
+    "description": "Penyediaan modal kerja, barang dagangan, dan sarana pertanian dengan akad jual beli. Nilai margin disepakati di awal dan tetap hingga lunas.",
+    "features": [
+      "Margin harga tetap tanpa perubahan",
+      "Jadwal angsuran disesuaikan dengan siklus panen atau usaha",
+      "Tanpa denda bunga keterlambatan"
+    ],
+    "image": "https://images.unsplash.com/photo-1588964895597-cfccd6e2dbf9?auto=format&fit=crop&w=800&q=80",
+    "imageAlt": "Pelaku usaha toko kelontong di Toili",
+    "akad": "Akad Murabahah",
+    "active": true,
+    "order": 2
+  },
+  {
+    "id": "tabungan-qurban",
+    "badge": "Bebas Biaya Admin",
+    "title": "Tabungan Qurban",
+    "description": "Simpanan terencana untuk pengadaan hewan qurban tahunan. Setoran berkala tanpa potongan saldo hingga waktu pembelian hewan qurban tiba.",
+    "features": [
+      "Nominal setoran bulanan fleksibel",
+      "Nol biaya administrasi dan penarikan",
+      "Kerja sama penyediaan hewan bersama peternak lokal"
+    ],
+    "image": "https://images.unsplash.com/photo-1570042225831-d98fa7577f1e?auto=format&fit=crop&w=800&q=80",
+    "imageAlt": "Peternakan sapi lokal penyedia qurban",
+    "akad": "Akad Wadiah",
+    "active": true,
+    "order": 3
+  }
+]
