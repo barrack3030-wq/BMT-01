@@ -89,7 +89,7 @@ function F(k,l,t,v,full){
  let cls=full?'full':'';
  if(t==='check')return '<div class="check '+cls+'"><input id="f_'+k+'" type="checkbox" '+(v?'checked':'')+'><b>'+l+'</b></div>';
  if(t==='lines')return '<div class="field '+cls+'"><label>'+l+'</label><textarea id="f_'+k+'">'+esc((Array.isArray(v)?v:[]).join('\\n'))+'</textarea></div>';
- if(t==='textarea')return '<div class="field '+cls+'"><label>'+l+'</label><textarea id="f_'+k+'">'+esc(v||'')+'</textarea></div>';
+ if(t==='textarea')return '<div class="field '+cls+'"><label>'+l+'</label><textarea id="f_'+k+'">'+esc(v||'')+'</textarea></div>';\n if(t==='rich')return '<div class="field '+cls+'"><label>'+l+'</label><textarea id="f_'+k+'" style="min-height:260px">'+esc((Array.isArray(v)?v:[]).join('\\n\\n'))+'</textarea><div class="muted" style="margin-top:5px">Pisahkan paragraf dengan satu baris kosong.</div></div>';
  const basic=k.split('_').pop();
  const uploadable=['image','photo','avatarImage','logoUrl','backgroundImage','promoImage'].includes(basic);
  return '<div class="field '+cls+'"><label>'+l+'</label><input id="f_'+k+'" type="'+(t==='number'?'number':'text')+'" value="'+esc(v??'')+'">'+(uploadable?'<div class="upload"><label class="btn light">UPLOAD GAMBAR<input id="up_'+k+'" type="file" accept="image/*"></label></div>':'')+'</div>';
