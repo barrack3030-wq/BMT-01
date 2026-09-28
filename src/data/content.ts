@@ -21,6 +21,7 @@ export interface ProductItem {
   image: string;
   imageAlt: string;
   akad: string;
+  showOnHome?: boolean;
 }
 
 export interface BoardMember {
@@ -172,6 +173,7 @@ export const PRODUCTS_DATA: ProductItem[] = [
     image: 'https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?auto=format&fit=crop&w=800&q=80',
     imageAlt: 'Anggota simpanan syariah',
     akad: 'Akad Mudharabah Muthlaqah',
+    showOnHome: true,
   },
   {
     id: 'pembiayaan-syariah',
@@ -186,6 +188,7 @@ export const PRODUCTS_DATA: ProductItem[] = [
     image: 'https://images.unsplash.com/photo-1588964895597-cfccd6e2dbf9?auto=format&fit=crop&w=800&q=80',
     imageAlt: 'Pelaku usaha toko kelontong di Toili',
     akad: 'Akad Murabahah',
+    showOnHome: true,
   },
   {
     id: 'tabungan-qurban',
@@ -200,6 +203,7 @@ export const PRODUCTS_DATA: ProductItem[] = [
     image: 'https://images.unsplash.com/photo-1570042225831-d98fa7577f1e?auto=format&fit=crop&w=800&q=80',
     imageAlt: 'Peternakan sapi lokal penyedia qurban',
     akad: 'Akad Wadiah',
+    showOnHome: true,
   },
 ];
 
