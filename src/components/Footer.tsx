@@ -20,21 +20,13 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onScrollToProducts }
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 items-start">
           {/* Brand & Identity */}
           <div className="md:col-span-5 space-y-4">
-            <div className="flex items-center gap-3.5">
+            <div className="flex items-center">
               <img
-                src="https://www.bmtalmuhajirin.id/img/icons/res/mipmap-xxhdpi/ic_launcher.png"
-                alt="Logo BMT Al-Muhajirin"
-                className="w-11 h-11 rounded-full object-contain bg-[#FFF9C4] border border-white/20"
+                src="/BMT-01/images/logo/bmt-al-muhajirin.svg"
+                alt="Logo BMT Al-Muhajirin Toili"
+                className="w-14 h-14 rounded-full object-cover"
                 loading="lazy"
               />
-              <div>
-                <h3 className="font-headline font-bold text-lg tracking-tight text-white leading-tight">
-                  BMT AL-MUHAJIRIN TOILI
-                </h3>
-                <p className="text-xs font-medium tracking-wider uppercase text-[#EAF4EC]">
-                  KSPPS Syariah Toili
-                </p>
-              </div>
             </div>
 
             <p className="text-xs text-[#E2E8E4] leading-relaxed max-w-sm">
