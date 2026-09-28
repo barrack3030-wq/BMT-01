@@ -1,0 +1,58 @@
+[
+  {
+    "id": "faq-1",
+    "question": "Apa itu BMT?",
+    "answer": "BMT (Baitul Maal wa Tamwil) adalah koperasi simpan pinjam dan pembiayaan syariah. Baitul Maal mengelola dana sosial, sedangkan Baitul Tamwil mengelola simpanan dan pembiayaan produktif anggota.",
+    "active": true,
+    "order": 1
+  },
+  {
+    "id": "faq-2",
+    "question": "Apa perbedaan simpanan syariah dengan tabungan biasa?",
+    "answer": "Simpanan syariah tidak menggunakan bunga pinjaman (riba). Keuntungan anggota diperoleh melalui nisbah bagi hasil atas pengelolaan modal pada usaha riil halal.",
+    "active": true,
+    "order": 2
+  },
+  {
+    "id": "faq-3",
+    "question": "Apa itu akad Mudharabah?",
+    "answer": "Mudharabah adalah akad kemitraan usaha di mana anggota menyediakan modal dan BMT mengelolanya. Hasil keuntungan usaha dibagi berdasarkan nisbah yang disepakati bersama.",
+    "active": true,
+    "order": 3
+  },
+  {
+    "id": "faq-4",
+    "question": "Apa itu Murabahah?",
+    "answer": "Murabahah adalah akad pembiayaan dengan skema jual beli barang. BMT membeli barang yang dibutuhkan anggota, kemudian menjualnya kepada anggota dengan margin yang disepakati.",
+    "active": true,
+    "order": 4
+  },
+  {
+    "id": "faq-5",
+    "question": "Bagaimana cara menjadi anggota?",
+    "answer": "Pendaftaran dilakukan dengan mengisi formulir keanggotaan, menyerahkan fotokopi KTP, serta menyetor simpanan pokok dan simpanan wajib sesuai ketentuan koperasi.",
+    "active": true,
+    "order": 5
+  },
+  {
+    "id": "faq-6",
+    "question": "Apakah BMT melayani UMKM dan petani?",
+    "answer": "Ya. Pembiayaan modal kerja petani, pedagang pasar, peternak, dan pelaku usaha mikro di Toili merupakan fokus utama layanan BMT.",
+    "active": true,
+    "order": 6
+  },
+  {
+    "id": "faq-7",
+    "question": "Di mana kantor BMT Al-Muhajirin Toili?",
+    "answer": "Kantor Pusat berlokasi di Toili, didukung kantor cabang pelayanan di Luwuk dan Bunta.",
+    "active": true,
+    "order": 7
+  },
+  {
+    "id": "faq-8",
+    "question": "Bagaimana cara mengajukan pembiayaan?",
+    "answer": "Pengajuan dilakukan melalui kantor pusat, kantor cabang, atau petugas lapangan dengan membawa KTP dan rincian kebutuhan usaha untuk diverifikasi.",
+    "active": true,
+    "order": 8
+  }
+]
