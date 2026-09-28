@@ -1,5 +1,6 @@
 import React from 'react';
 import { Page } from '../types';
+import { SITE_SETTINGS } from '../data/content';
 import { MapPin, MessageSquare, ShieldCheck, Instagram, Facebook } from 'lucide-react';
 
 interface FooterProps {
@@ -22,9 +23,10 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onScrollToProducts }
           <div className="md:col-span-5 space-y-4">
             <div className="flex items-center">
               <img
-                src="/BMT-01/images/logo/logo%20BMT.png"
+                src={SITE_SETTINGS.logoUrl}
                 alt="Logo BMT Al-Muhajirin"
-                className="w-14 h-14 object-contain"
+                style={{ width: `${Math.min(Math.max(88, SITE_SETTINGS.logoWidth || 160), 180)}px` }}
+                className="h-auto object-contain"
                 loading="lazy"
               />
             </div>
@@ -42,7 +44,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onScrollToProducts }
 
             <div className="pt-2 flex items-center gap-2.5">
               <a
-                href="https://www.instagram.com/bmtalmuhajirin_official/"
+                href={SITE_SETTINGS.instagramUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram BMT Al-Muhajirin Official"
@@ -53,7 +55,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onScrollToProducts }
               </a>
 
               <a
-                href="https://web.facebook.com/profile.php?id=61573199156163"
+                href={SITE_SETTINGS.facebookUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Facebook BMT Al-Muhajirin"
