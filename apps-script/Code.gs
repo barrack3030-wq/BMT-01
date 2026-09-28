@@ -16,14 +16,16 @@ function doGet(e) {
     if (page === 'dashboard' && isLogin) {
       return renderPage_('Dashboard', {
         webAppUrl: ScriptApp.getService().getUrl() || '',
-        page: 'dashboard'
+        page: 'dashboard',
+        bootError: ''
       });
     }
 
     if (page === 'login' || !isLogin) {
       return renderPage_('Login', {
         webAppUrl: ScriptApp.getService().getUrl() || '',
-        page: 'login'
+        page: 'login',
+        bootError: ''
       });
     }
 
