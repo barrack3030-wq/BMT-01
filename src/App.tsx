@@ -13,6 +13,7 @@ import { FloatingChatAdmin } from './components/FloatingChatAdmin';
 import { FloatingPromo } from './components/FloatingPromo';
 import { ARTICLES_DATA, applyCmsContent, SITE_SETTINGS } from './data/content';
 import { loadRemoteCms } from './services/cms';
+import { loadDirectusCms } from './services/directus';
 import { SITE_BASE_PATH, SITE_URL, slugify } from './utils/seo';
 
 type RouteState = { page: Page; articleSlug?: string };
@@ -80,10 +81,17 @@ export default function App() {
 
   useEffect(() => {
     let cancelled = false;
-    loadRemoteCms().then((payload) => {
-      if (cancelled || !payload) return;
-      applyCmsContent(payload);
-    });
+    (async () => {
+      const directusPayload = await loadDirectusCms();
+      if (cancelled) return;
+      if (directusPayload) {
+        applyCmsContent(directusPayload);
+        return;
+      }
+      const legacyPayload = await loadRemoteCms();
+      if (cancelled || !legacyPayload) return;
+      applyCmsContent(legacyPayload);
+    })();
     return () => { cancelled = true; };
   }, []);
 
