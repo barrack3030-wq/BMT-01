@@ -48,17 +48,17 @@
     "order": 3
   },
   {
-    "imageAlt": "",
-    "badge": "Produk Syariah",
     "features": [
       "test 2222"
     ],
-    "active": true,
-    "akad": "test 2222",
-    "id": "products-1790563176460",
+    "imageAlt": "",
     "description": "test 2222",
+    "id": "products-1790563176460",
     "image": "/BMT-01/content/media/images-16-20260928104105.jpg",
+    "akad": "test 2222",
+    "title": "Produk Baru",
     "order": 4,
-    "title": "Produk Baru"
+    "badge": "Produk Syariah",
+    "active": true
   }
 ]
