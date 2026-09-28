@@ -13,7 +13,8 @@
     "imageAlt": "Anggota simpanan syariah",
     "akad": "Akad Mudharabah Muthlaqah",
     "active": true,
-    "order": 1
+    "order": 1,
+    "showOnHome": true
   },
   {
     "id": "pembiayaan-syariah",
@@ -29,7 +30,8 @@
     "imageAlt": "Pelaku usaha toko kelontong di Toili",
     "akad": "Akad Murabahah",
     "active": true,
-    "order": 2
+    "order": 2,
+    "showOnHome": true
   },
   {
     "id": "tabungan-qurban",
@@ -45,7 +47,8 @@
     "imageAlt": "Peternakan sapi lokal penyedia qurban",
     "akad": "Akad Wadiah",
     "active": true,
-    "order": 3
+    "order": 3,
+    "showOnHome": true
   },
   {
     "title": "Produk Baru",
@@ -59,6 +62,7 @@
     "description": "test 2222",
     "active": true,
     "badge": "Produk Syariah",
-    "id": "products-1790563176460"
+    "id": "products-1790563176460",
+    "showOnHome": false
   }
 ]
