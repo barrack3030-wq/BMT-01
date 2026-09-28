@@ -18,3 +18,9 @@ CMS hijau-putih ini memakai Google Apps Script untuk login/password dan API, Goo
 Identitas, logo + ukuran, 4 hero, background, promo, Chat Admin, Instagram, Facebook, Produk + tambah, Blog/berita + edit, Tentang Kami, visi/misi/legalitas, Pengurus + tambah, Testimoni + foto, Lokasi + tambah cabang, FAQ, backup/import.
 
 Password hanya disimpan sebagai hash di Script Properties dan sesi admin menggunakan CacheService.
+
+## Akses CMS dari website
+Setelah GitHub Pages build, halaman admin tersedia di:
+https://barrack3030-wq.github.io/BMT-01/admin/
+
+Halaman tersebut membaca `window.BMT_CMS_ADMIN_URL` dari `public/cms-config.js` dan membuka Web App Google Apps Script.
