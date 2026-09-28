@@ -22,9 +22,9 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onScrollToProducts }
           <div className="md:col-span-5 space-y-4">
             <div className="flex items-center">
               <img
-                src="/BMT-01/images/logo/bmt-al-muhajirin.svg"
-                alt="Logo BMT Al-Muhajirin Toili"
-                className="w-14 h-14 rounded-full object-cover"
+                src="/BMT-01/images/logo/logo%20BMT.png"
+                alt="Logo BMT Al-Muhajirin"
+                className="w-14 h-14 object-contain"
                 loading="lazy"
               />
             </div>
