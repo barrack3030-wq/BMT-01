@@ -62,7 +62,7 @@ testimonials:{label:'Testimoni',defs:{name:'Nama Anggota',role:'Anggota',locatio
 branches:{label:'Kantor / Cabang',defs:{name:'Kantor Baru',badgeTitle:'Cabang Pelayanan',address:'',hours:'Senin – Jumat : 08.00 – 16.00 WITA',phone:'',whatsapp:'',mapsUrl:'',image:'',mapEmbedQuery:'',active:true,order:1},fields:[['name','Nama kantor','text'],['badgeTitle','Label','text'],['address','Alamat','textarea',1],['hours','Jam layanan','text'],['phone','Telepon','text'],['whatsapp','WhatsApp','text'],['mapsUrl','Google Maps URL','text',1],['image','URL gambar','text',1],['mapEmbedQuery','Query peta','text',1],['order','Urutan','number'],['active','Tampilkan','check']]},
 faq:{label:'FAQ',defs:{question:'Pertanyaan baru',answer:'Jawaban',active:true,order:1},fields:[['question','Pertanyaan','text',1],['answer','Jawaban','textarea',1],['order','Urutan','number'],['active','Tampilkan','check']]}
 };
-function gas(name,...args){return new Promise((ok,no)=>google.script.run.withSuccessHandler(ok).withFailureHandler(e=>no(new Error(e?.message||e))[name](...args))}
+function gas(name,...args){return new Promise((ok,no)=>{const runner=google.script.run.withSuccessHandler(ok).withFailureHandler(e=>no(new Error(e?.message||e)));runner[name](...args)})}
 function esc(v){return String(v??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}
 function toast(t){const e=document.getElementById('toast');e.textContent=t;e.classList.remove('hidden');setTimeout(()=>e.classList.add('hidden'),2300)}
 function sort(a){return [...(a||[])].sort((x,y)=>(Number(x.order)||999)-(Number(y.order)||999))}
