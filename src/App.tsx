@@ -11,7 +11,8 @@ import { LocationPage } from './pages/LocationPage';
 import { FaqPage } from './pages/FaqPage';
 import { FloatingChatAdmin } from './components/FloatingChatAdmin';
 import { FloatingPromo } from './components/FloatingPromo';
-import { ARTICLES_DATA } from './data/content';
+import { ARTICLES_DATA, applyCmsContent, SITE_SETTINGS } from './data/content';
+import { loadRemoteCms } from './services/cms';
 import { SITE_BASE_PATH, SITE_URL, slugify } from './utils/seo';
 
 type RouteState = { page: Page; articleSlug?: string };
@@ -71,11 +72,22 @@ export default function App() {
   const [modalDefaultService, setModalDefaultService] = useState<'simpanan' | 'pembiayaan' | 'qurban'>('simpanan');
   const [modalDefaultAmount, setModalDefaultAmount] = useState<number | undefined>(11000000);
   const [showFloatingPromo, setShowFloatingPromo] = useState(() => readRoute().page === 'home');
+  const [cmsLoaded, setCmsLoaded] = useState(false);
   const productsRef = useRef<HTMLDivElement>(null);
 
   const article = route.articleSlug
     ? ARTICLES_DATA.find((item) => slugify(item.title) === route.articleSlug)
     : undefined;
+
+  useEffect(() => {
+    let cancelled = false;
+    loadRemoteCms().then((payload) => {
+      if (cancelled || !payload) return;
+      applyCmsContent(payload);
+      setCmsLoaded(true);
+    });
+    return () => { cancelled = true; };
+  }, []);
 
   useEffect(() => {
     const handlePopState = () => setRoute(readRoute());
@@ -147,8 +159,8 @@ export default function App() {
     <div className="min-h-screen flex flex-col bg-[#F8F9F6] text-[#17201B] selection:bg-[#0F4D2E] selection:text-white">
       <aside aria-label="Pengumuman Resmi" className="bg-[#083B24] text-white text-[11px] font-normal py-2 px-4 text-center border-b border-[#0F4D2E]">
         <div className="max-w-7xl mx-auto flex items-center justify-center sm:justify-between gap-4">
-          <span className="hidden sm:inline tracking-wider uppercase text-white/80">KANTOR PUSAT TOILI</span>
-          <span className="text-[#EAF4EC] font-medium">Senin – Jumat 08.00 – 16.00 WITA • WhatsApp: +62 821-9876-5432</span>
+          <span className="hidden sm:inline tracking-wider uppercase text-white/80">{SITE_SETTINGS.topbarText}</span>
+          <span className="text-[#EAF4EC] font-medium">{SITE_SETTINGS.operatingHours}</span>
         </div>
       </aside>
 
@@ -159,7 +171,7 @@ export default function App() {
         onScrollToProducts={handleScrollToProducts}
       />
 
-      <main className="flex-1">
+      <main className="flex-1" style={SITE_SETTINGS.backgroundImage ? { backgroundImage: `url("${SITE_SETTINGS.backgroundImage}")`, backgroundSize: "cover", backgroundAttachment: "fixed" } : undefined}>
         <div key={route.articleSlug ?? activePage} className="spa-page-enter">
           {route.articleSlug ? (
             article ? <ArticlePage article={article} /> : <NewsPage onBackToHome={() => navigateToPage('home')} />
