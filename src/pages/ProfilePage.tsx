@@ -1,5 +1,5 @@
 import React from 'react';
-import { BOARD_MEMBERS } from '../data/content';
+import { BOARD_MEMBERS, ABOUT_CONTENT } from '../data/content';
 import { ShieldCheck, Compass, HeartHandshake, Quote, ArrowRight } from 'lucide-react';
 
 interface ProfilePageProps {
@@ -23,7 +23,7 @@ export const ProfilePage: React.FC<ProfilePageProps> = ({ onBackToHome, onOpenRe
             Profil Lembaga
           </h1>
           <p className="text-xs sm:text-sm text-[#66736A] mt-2 max-w-xl leading-relaxed">
-            Sejarah pendirian, visi, misi, dan susunan pengurus KSPPS BMT Al-Muhajirin Toili.
+            Sejarah pendirian, visi, misi, legalitas, dan susunan pengurus BMT Al-Muhajirin Toili.
           </p>
         </div>
 
@@ -47,23 +47,17 @@ export const ProfilePage: React.FC<ProfilePageProps> = ({ onBackToHome, onOpenRe
 
         <div className="relative z-10">
           <span className="text-xs text-[#0F4D2E] font-semibold uppercase tracking-wider">
-            Tentang Kami
+            {ABOUT_CONTENT.title}
           </span>
           <h2 className="font-headline font-bold text-2xl sm:text-3xl text-[#17201B] mt-1 leading-snug">
-            KSPPS BMT Al-Muhajirin Toili
+            {ABOUT_CONTENT.heading}
           </h2>
         </div>
 
         <div className="relative z-10 space-y-4 text-sm sm:text-base text-[#66736A] leading-relaxed max-w-4xl">
-          <p className="font-medium text-[#17201B]">
-            BMT AL-MUHAJIRIN didirikan dengan niat membebaskan masyarakat Toili dari transaksi ribawi, rentenir desa, serta sistem ijon pertanian melalui semangat ta'awun.
-          </p>
-          <p>
-            Lembaga menjalankan dua fungsi utama: Baitul Maal untuk pengelolaan dana sosial keagamaan (Zakat, Infaq, Sedekah, dan Wakaf), serta Baitul Tamwil untuk layanan simpanan dan pembiayaan modal usaha sektor riil.
-          </p>
-          <p>
-            Operasional BMT diawasi secara berkala oleh Dewan Pengawas Syariah (DPS) dengan rujukan fatwa Dewan Syariah Nasional - Majelis Ulama Indonesia (DSN-MUI) dan kepatuhan regulasi perkoperasian.
-          </p>
+          {ABOUT_CONTENT.paragraphs.map((paragraph, index) => (
+            <p key={index} className={index === 0 ? 'font-medium text-[#17201B]' : ''}>{paragraph}</p>
+          ))}
         </div>
 
         <div className="relative z-10 pt-4 flex flex-wrap gap-3 border-t border-[#DDE5DF]">
@@ -90,7 +84,7 @@ export const ProfilePage: React.FC<ProfilePageProps> = ({ onBackToHome, onOpenRe
               Visi Lembaga
             </h3>
             <p className="text-xs sm:text-sm text-[#66736A] leading-relaxed">
-              Menjadi lembaga keuangan syariah yang mandiri, sehat, dan dipercaya dalam menopang perekonomian masyarakat di wilayah Toili.
+              {ABOUT_CONTENT.vision}
             </p>
           </div>
         </div>
@@ -105,18 +99,12 @@ export const ProfilePage: React.FC<ProfilePageProps> = ({ onBackToHome, onOpenRe
               Misi Lembaga
             </h3>
             <ul className="space-y-2 text-xs sm:text-sm text-[#66736A] leading-relaxed">
-              <li className="flex items-start gap-2">
-                <span className="w-1.5 h-1.5 bg-[#0F4D2E] shrink-0 mt-1.5" />
-                <span>Menghimpun dan menyalurkan dana sesuai prinsip syariat Islam.</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="w-1.5 h-1.5 bg-[#0F4D2E] shrink-0 mt-1.5" />
-                <span>Memperkuat permodalan usaha petani, pedagang, dan peternak Toili.</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="w-1.5 h-1.5 bg-[#0F4D2E] shrink-0 mt-1.5" />
-                <span>Menyalurkan dana ZISWAF bagi kebutuhan mustahik.</span>
-              </li>
+              {ABOUT_CONTENT.mission.map((item, index) => (
+                <li key={index} className="flex items-start gap-2">
+                  <span className="w-1.5 h-1.5 bg-[#0F4D2E] shrink-0 mt-1.5" />
+                  <span>{item}</span>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
@@ -131,7 +119,7 @@ export const ProfilePage: React.FC<ProfilePageProps> = ({ onBackToHome, onOpenRe
               Legalitas & Pengawasan
             </h3>
             <p className="text-xs sm:text-sm text-[#66736A] leading-relaxed">
-              Berbadan hukum Koperasi Simpan Pinjam dan Pembiayaan Syariah (KSPPS) resmi, dengan pengawasan syariah oleh Dewan Pengawas Syariah (DPS) berpedoman pada fatwa DSN-MUI.
+              {ABOUT_CONTENT.legality}
             </p>
           </div>
         </div>
