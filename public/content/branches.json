@@ -1,0 +1,44 @@
+[
+  {
+    "id": "toili",
+    "name": "Kantor Pusat Toili",
+    "badgeTitle": "Kantor Pusat",
+    "address": "Jl. Trans Sulawesi, Toili, Kab. Banggai, Sulawesi Tengah",
+    "hours": "Senin – Jumat : 08.00 – 16.00 WITA",
+    "phone": "(0461) 412-880",
+    "whatsapp": "0821-9876-5432",
+    "mapsUrl": "https://maps.google.com/?q=Toili,+Kabupaten+Banggai,+Sulawesi+Tengah",
+    "image": "https://images.unsplash.com/photo-1541888946425-d0fbb186c5f9?auto=format&fit=crop&w=800&q=80",
+    "mapEmbedQuery": "Toili,+Kabupaten+Banggai,+Sulawesi+Tengah",
+    "active": true,
+    "order": 1
+  },
+  {
+    "id": "luwuk",
+    "name": "Cabang Luwuk",
+    "badgeTitle": "Cabang Pelayanan",
+    "address": "Jl. Trans Sulawesi Luwuk, Kab. Banggai, Sulawesi Tengah",
+    "hours": "Senin – Jumat : 08.00 – 16.00 WITA",
+    "phone": "(0461) 324-589",
+    "whatsapp": "0821-9876-5432",
+    "mapsUrl": "https://maps.google.com/?q=Luwuk,+Kabupaten+Banggai,+Sulawesi+Tengah",
+    "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80",
+    "mapEmbedQuery": "Luwuk,+Kabupaten+Banggai,+Sulawesi+Tengah",
+    "active": true,
+    "order": 2
+  },
+  {
+    "id": "bunta",
+    "name": "Cabang Bunta",
+    "badgeTitle": "Cabang Pelayanan",
+    "address": "Bunta, Kab. Banggai, Sulawesi Tengah",
+    "hours": "Senin – Jumat : 08.00 – 16.00 WITA",
+    "phone": "(0461) 812-701",
+    "whatsapp": "0812-4567-8901",
+    "mapsUrl": "https://maps.google.com/?q=Bunta,+Kabupaten+Banggai,+Sulawesi+Tengah",
+    "image": "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80",
+    "mapEmbedQuery": "Bunta,+Kabupaten Banggai,+Sulawesi Tengah",
+    "active": true,
+    "order": 3
+  }
+]
