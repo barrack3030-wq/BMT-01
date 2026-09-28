@@ -202,7 +202,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenRegister, productsRef,
                   Produk & Layanan
                 </h2>
                 <p className="text-sm sm:text-base text-[#66736A] mt-3 max-w-2xl leading-relaxed">
-                  Transparan & sesuai akad untuk kebutuhan layanan anggota.
+                  Transparan & sesuai akad.
                 </p>
               </div>
 
@@ -210,7 +210,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenRegister, productsRef,
                 <ShieldCheck className="w-5 h-5 text-[#0F4D2E] mt-0.5 shrink-0" />
                 <div>
                   <p className="text-[10px] font-semibold uppercase tracking-wider text-[#0F4D2E]">
-                    Prinsip Syariah
+                    Pilihan Layanan
                   </p>
                   <p className="text-[11px] text-[#66736A] mt-1 leading-relaxed">
                     Pilihan layanan untuk kebutuhan simpanan, modal usaha, pertanian, dan perencanaan ibadah anggota.
