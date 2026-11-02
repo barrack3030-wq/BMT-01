@@ -35,6 +35,10 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenRegister, productsRef,
     return () => window.clearInterval(timer);
   }, [heroImages.length]);
 
+  const handleScrollToProducts = () => {
+    productsRef.current?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <div className="w-full flex flex-col">
       {/* ========================================================
