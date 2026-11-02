@@ -49,20 +49,5 @@
     "active": true,
     "order": 3,
     "showOnHome": true
-  },
-  {
-    "title": "Produk Baru",
-    "features": [
-      "test 2222"
-    ],
-    "image": "/BMT-01/content/media/images-16-20260928104105.jpg",
-    "imageAlt": "",
-    "akad": "test 2222",
-    "order": 4,
-    "description": "test 2222",
-    "active": true,
-    "badge": "Produk Syariah",
-    "id": "products-1790563176460",
-    "showOnHome": false
   }
 ]
