@@ -1,7 +1,7 @@
 import React from 'react';
 import { Page } from '../types';
 import { SITE_SETTINGS } from '../data/content';
-import { MapPin, MessageSquare, Instagram, Facebook } from 'lucide-react';
+import { MapPin, MessageSquare, ShieldCheck, Instagram, Facebook } from 'lucide-react';
 
 interface FooterProps {
   onNavigate: (page: Page) => void;
@@ -35,6 +35,12 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onScrollToProducts }
               Koperasi simpan pinjam dan pembiayaan syariah yang melayani simpanan anggota dan permodalan usaha riil di wilayah Toili.
             </p>
 
+            <div className="pt-1">
+              <span className="inline-flex items-center gap-2 px-3 py-1.5 text-[11px] font-medium tracking-wider uppercase bg-[#0F4D2E] text-[#EAF4EC] border border-white/10">
+                <ShieldCheck className="w-3.5 h-3.5 text-white" />
+                Pengawasan Dewan Pengawas Syariah (DPS)
+              </span>
+            </div>
 
             <div className="pt-2 flex items-center gap-2.5">
               <a
