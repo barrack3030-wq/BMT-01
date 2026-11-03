@@ -49,6 +49,6 @@ Push ke `main` menjalankan `.github/workflows/deploy-pages.yml`: `npm install`, 
 
 Setelah build, `scripts/prepare-pages.mjs` menyalin `index.html` menjadi `404.html` dan ke folder rute, supaya URL langsung seperti `/berita/` berfungsi di GitHub Pages.
 
-### Catatan
+### Rute dan sitemap
 
-- Daftar rute di `scripts/prepare-pages.mjs` dan `public/sitemap.xml` ditulis manual. Artikel baru dari CMS tetap bisa dibuka lewat fallback `404.html`, tetapi belum masuk sitemap sampai daftar itu diperbarui.
+Daftar rute artikel dan `sitemap.xml` dibuat otomatis saat build dari `public/content/articles.json` (artikel dengan `published: false` dilewati). Tidak ada daftar yang perlu diedit manual.
