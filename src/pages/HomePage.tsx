@@ -118,12 +118,6 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenRegister, productsRef,
                 <span>HUBUNGI KAMI</span>
               </button>
             </div>
-
-            <div className="pt-5 flex items-center gap-4 text-xs text-white/70 border-t border-white/15 animate-hero-fade delay-footer">
-              <span>Kantor Pusat: Toili, Kab. Banggai</span>
-              <span>•</span>
-              <span>Pengawasan Dewan Pengawas Syariah (DPS)</span>
-            </div>
           </div>
         </div>
       </section>

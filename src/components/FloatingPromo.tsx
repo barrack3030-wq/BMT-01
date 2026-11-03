@@ -1,5 +1,5 @@
 import React from 'react';
-import { X, Megaphone } from 'lucide-react';
+import { X } from 'lucide-react';
 import { SITE_SETTINGS } from '../data/content';
 
 interface FloatingPromoProps {
@@ -12,7 +12,8 @@ interface FloatingPromoProps {
 export const FloatingPromo: React.FC<FloatingPromoProps> = ({ visible, onClose }) => {
   const [imageFailed, setImageFailed] = React.useState(false);
 
-  if (!visible) return null;
+  const hasContent = Boolean(SITE_SETTINGS.promoImage || SITE_SETTINGS.promoTitle || SITE_SETTINGS.promoDescription);
+  if (!visible || !hasContent) return null;
 
   return (
     <div className="fixed z-[55] bottom-24 right-4 sm:bottom-24 sm:right-7 w-[min(88vw,340px)]">
@@ -27,42 +28,28 @@ export const FloatingPromo: React.FC<FloatingPromoProps> = ({ visible, onClose }
           <X className="w-4 h-4" />
         </button>
 
-        <div className="relative aspect-[4/3] bg-[#EAF4EC] overflow-hidden border-b border-[#DDE5DF]">
-          {SITE_SETTINGS.promoImage && !imageFailed ? (
+        {SITE_SETTINGS.promoImage && !imageFailed && (
+          <div className="relative aspect-[4/3] bg-[#EAF4EC] overflow-hidden border-b border-[#DDE5DF]">
             <img
               src={SITE_SETTINGS.promoImage}
-              alt="Promo atau ucapan BMT Al-Muhajirin"
+              alt={SITE_SETTINGS.promoTitle || 'Promo BMT Al-Muhajirin'}
               className="w-full h-full object-cover"
               onError={() => setImageFailed(true)}
             />
-          ) : (
-            <div className="w-full h-full bg-gradient-to-br from-[#083B24] via-[#0F4D2E] to-[#164F35] text-white flex flex-col items-center justify-center p-8 text-center">
-              <div className="w-12 h-12 border border-white/20 bg-white/10 flex items-center justify-center mb-4">
-                <Megaphone className="w-5 h-5" />
-              </div>
-              <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#CFE5D5]">
-                Area Promo
-              </p>
-              <p className="font-headline font-bold text-lg mt-1">
-                Promo / Ucapan Hari Besar
-              </p>
-              <p className="text-[11px] text-white/65 mt-2 leading-relaxed">
-                Gambar promo dapat dipasang pada area ini.
-              </p>
-            </div>
-          )}
-        </div>
+          </div>
+        )}
 
         <div className="p-4 sm:p-5">
-          <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-[#0F4D2E]">
-            INFORMASI
-          </p>
-          <h2 className="font-headline font-bold text-base sm:text-lg text-[#17201B] mt-1 leading-tight">
-            {SITE_SETTINGS.promoTitle || "Promo & Ucapan Hari Besar"}
-          </h2>
-          <p className="text-[11px] sm:text-xs text-[#66736A] mt-1.5 leading-relaxed">
-            {SITE_SETTINGS.promoDescription || "Kolom ini dapat digunakan untuk promo produk, pengumuman, atau ucapan hari besar Islam."}
-          </p>
+          {SITE_SETTINGS.promoTitle && (
+            <h2 className="font-headline font-bold text-base sm:text-lg text-[#17201B] leading-tight">
+              {SITE_SETTINGS.promoTitle}
+            </h2>
+          )}
+          {SITE_SETTINGS.promoDescription && (
+            <p className="text-[11px] sm:text-xs text-[#66736A] mt-1.5 leading-relaxed">
+              {SITE_SETTINGS.promoDescription}
+            </p>
+          )}
         </div>
       </div>
     </div>

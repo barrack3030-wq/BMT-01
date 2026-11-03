@@ -393,9 +393,9 @@ export const SITE_SETTINGS: SiteSettings = {
   ],
   backgroundImage: '',
   promoImage: '',
-  promoTitle: 'Promo & Ucapan Hari Besar',
-  promoDescription: 'Kolom ini dapat digunakan untuk promo produk, pengumuman, atau ucapan hari besar Islam.',
-  promoEnabled: true,
+  promoTitle: '',
+  promoDescription: '',
+  promoEnabled: false,
   chatLabel: 'Chat Admin',
   chatUrl: '',
   instagramUrl: 'https://www.instagram.com/bmtalmuhajirin_official/',
@@ -410,7 +410,6 @@ export const ABOUT_CONTENT: AboutContent = {
   paragraphs: [
     'BMT AL-MUHAJIRIN didirikan dengan niat membebaskan masyarakat Toili dari transaksi ribawi, rentenir desa, serta sistem ijon pertanian melalui semangat ta\'awun.',
     'Lembaga menjalankan dua fungsi utama: Baitul Maal untuk pengelolaan dana sosial keagamaan (Zakat, Infaq, Sedekah, dan Wakaf), serta Baitul Tamwil untuk layanan simpanan dan pembiayaan modal usaha sektor riil.',
-    'Operasional BMT diawasi secara berkala oleh Dewan Pengawas Syariah (DPS) dengan rujukan fatwa DSN-MUI dan kepatuhan regulasi perkoperasian.',
   ],
   vision: 'Menjadi lembaga keuangan syariah yang mandiri, sehat, dan dipercaya dalam menopang perekonomian masyarakat di wilayah Toili.',
   mission: [
@@ -418,7 +417,7 @@ export const ABOUT_CONTENT: AboutContent = {
     'Memperkuat permodalan usaha petani, pedagang, dan peternak Toili.',
     'Menyalurkan dana ZISWAF bagi kebutuhan mustahik.',
   ],
-  legality: 'Berbadan hukum Koperasi Simpan Pinjam dan Pembiayaan Syariah (KSPPS) resmi, dengan pengawasan syariah oleh Dewan Pengawas Syariah (DPS).',
+  legality: 'Berbadan hukum Koperasi Simpan Pinjam dan Pembiayaan Syariah (KSPPS), diawasi secara berkala oleh Dewan Pengawas Syariah (DPS) dengan rujukan fatwa DSN-MUI.',
 };
 
 export function applyCmsContent(payload: any) {
