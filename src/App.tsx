@@ -82,13 +82,19 @@ export default function App() {
     : undefined;
 
   const [cmsRevision, setCmsRevision] = useState(0);
+  const [cmsStatus, setCmsStatus] = useState<'loading' | 'ready' | 'error'>('loading');
 
   useEffect(() => {
     let cancelled = false;
     loadStaticCms().then((payload) => {
-      if (cancelled || !payload) return;
+      if (cancelled) return;
+      if (!payload) {
+        setCmsStatus('error');
+        return;
+      }
       applyCmsContent(payload);
       setCmsRevision((value) => value + 1);
+      setCmsStatus('ready');
     });
     return () => { cancelled = true; };
   }, []);
@@ -172,6 +178,14 @@ export default function App() {
   };
 
   const activePage = route.page;
+
+  if (cmsStatus !== 'ready') {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-[#F8F9F6] px-6 text-center text-sm text-[#66736A]">
+        {cmsStatus === 'error' ? 'Konten tidak dapat dimuat. Silakan muat ulang halaman.' : 'Memuat…'}
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen flex flex-col bg-[#F8F9F6] text-[#17201B] selection:bg-[#0F4D2E] selection:text-white">
