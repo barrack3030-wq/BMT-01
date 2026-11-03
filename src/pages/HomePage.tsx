@@ -118,12 +118,6 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenRegister, productsRef,
                 <span>HUBUNGI KAMI</span>
               </button>
             </div>
-
-            <div className="pt-5 flex items-center gap-4 text-xs text-white/70 border-t border-white/15 animate-hero-fade delay-footer">
-              <span>Kantor Pusat: Toili, Kab. Banggai</span>
-              <span>•</span>
-              <span>Pengawasan Dewan Pengawas Syariah (DPS)</span>
-            </div>
           </div>
         </div>
       </section>
@@ -329,7 +323,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenRegister, productsRef,
 
                 <div className="p-6 sm:p-8">
                   <div className="text-xs font-semibold tracking-wider text-[#0F4D2E]">
-                    {ARTICLES_DATA[0].meta}
+                    {ARTICLES_DATA[0].date}
                   </div>
 
                   <h3 className="font-headline font-bold text-2xl text-[#17201B] mt-2.5 leading-snug group-hover:text-[#0F4D2E] transition-colors">
@@ -368,7 +362,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenRegister, productsRef,
                   <div className="flex flex-col justify-between">
                     <div>
                       <span className="text-[11px] font-semibold text-[#0F4D2E]">
-                        {art.meta}
+                        {art.date}
                       </span>
                       <h4 className="font-headline font-bold text-sm sm:text-base text-[#17201B] mt-1 leading-snug group-hover:text-[#0F4D2E] transition-colors line-clamp-2">
                         {art.title}
