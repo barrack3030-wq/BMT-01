@@ -39,9 +39,7 @@ export async function loadStaticCms(): Promise<StaticCmsPayload | null> {
       products,
       articles: articles.map((article: any) => ({
         ...article,
-        contentParagraphs: Array.isArray(article.contentParagraphs)
-          ? article.contentParagraphs
-          : String(article.body || '').split(/\n\s*\n/g).map((x) => x.trim()).filter(Boolean),
+        contentParagraphs: String(article.body || '').split(/\n\s*\n/g).map((x) => x.trim()).filter(Boolean),
       })),
       board,
       testimonials,
@@ -49,7 +47,7 @@ export async function loadStaticCms(): Promise<StaticCmsPayload | null> {
       faq,
     };
   } catch (error) {
-    console.warn('[BMT] Pages CMS content unavailable; using local fallback.', error);
+    console.warn('[BMT] Konten CMS tidak dapat dimuat.', error);
     return null;
   }
 }
