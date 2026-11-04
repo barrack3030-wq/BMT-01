@@ -1,8 +1,6 @@
 @import "tailwindcss";
 
-* {
-  border-radius: 0 !important;
-}
+/* Allow the rounded, softer surfaces used by the refreshed homepage. */
 
 html {
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
