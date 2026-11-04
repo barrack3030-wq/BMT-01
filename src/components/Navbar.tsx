@@ -34,7 +34,7 @@ export const Navbar: React.FC<NavbarProps> = ({
     ? 'absolute top-[40px] left-0 right-0 z-50 w-full px-3 sm:px-6'
     : 'sticky top-4 z-50 px-4 sm:px-6 w-full max-w-7xl mx-auto';
   const shellClass = isHome
-    ? 'max-w-7xl mx-auto bg-[#062F20]/55 hover:bg-[#062F20]/75 backdrop-blur-xl border border-white/20 shadow-[0_10px_35px_rgba(0,0,0,0.16)] rounded-2xl flex items-center justify-between px-4 sm:px-8 py-3.5 transition-all'
+    ? 'max-w-7xl mx-auto bg-white/82 hover:bg-white/92 backdrop-blur-xl border border-white/70 shadow-[0_10px_35px_rgba(0,0,0,0.12)] rounded-2xl flex items-center justify-between px-4 sm:px-8 py-3.5 transition-all'
     : 'bg-white border border-[#DDE5DF] card-shadow rounded-2xl flex items-center justify-between px-6 sm:px-8 py-3.5 transition-all';
 
   return (
@@ -61,7 +61,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           <button
             onClick={() => handleNavClick('home')}
             className={`text-xs font-semibold tracking-wider uppercase py-2 nav-link-anim ${
-              activePage === 'home' ? (isHome ? 'text-white font-bold active' : 'text-[#0F4D2E] font-bold active') : (isHome ? 'text-white/85 hover:text-white' : 'text-[#66736A] hover:text-[#0F4D2E]')
+              activePage === 'home' ? (isHome ? 'text-[#0F4D2E] font-bold active' : 'text-[#0F4D2E] font-bold active') : (isHome ? 'text-[#315B46] hover:text-[#0F4D2E]' : 'text-[#66736A] hover:text-[#0F4D2E]')
             }`}
           >
             BERANDA
@@ -69,7 +69,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           <button
             onClick={() => handleNavClick('home', true)}
             className={`text-xs font-semibold tracking-wider uppercase py-2 nav-link-anim ${
-              activePage === 'products' ? (isHome ? 'text-white font-bold active' : 'text-[#0F4D2E] font-bold active') : (isHome ? 'text-white/85 hover:text-white' : 'text-[#66736A] hover:text-[#0F4D2E]')
+              activePage === 'products' ? (isHome ? 'text-[#0F4D2E] font-bold active' : 'text-[#0F4D2E] font-bold active') : (isHome ? 'text-[#315B46] hover:text-[#0F4D2E]' : 'text-[#66736A] hover:text-[#0F4D2E]')
             }`}
           >
             PRODUK & LAYANAN
@@ -77,7 +77,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           <button
             onClick={() => handleNavClick('profile')}
             className={`text-xs font-semibold tracking-wider uppercase py-2 nav-link-anim ${
-              activePage === 'profile' ? (isHome ? 'text-white font-bold active' : 'text-[#0F4D2E] font-bold active') : (isHome ? 'text-white/85 hover:text-white' : 'text-[#66736A] hover:text-[#0F4D2E]')
+              activePage === 'profile' ? (isHome ? 'text-[#0F4D2E] font-bold active' : 'text-[#0F4D2E] font-bold active') : (isHome ? 'text-[#315B46] hover:text-[#0F4D2E]' : 'text-[#66736A] hover:text-[#0F4D2E]')
             }`}
           >
             PROFIL
@@ -85,7 +85,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           <button
             onClick={() => handleNavClick('news')}
             className={`text-xs font-semibold tracking-wider uppercase py-2 nav-link-anim ${
-              activePage === 'news' ? (isHome ? 'text-white font-bold active' : 'text-[#0F4D2E] font-bold active') : (isHome ? 'text-white/85 hover:text-white' : 'text-[#66736A] hover:text-[#0F4D2E]')
+              activePage === 'news' ? (isHome ? 'text-[#0F4D2E] font-bold active' : 'text-[#0F4D2E] font-bold active') : (isHome ? 'text-[#315B46] hover:text-[#0F4D2E]' : 'text-[#66736A] hover:text-[#0F4D2E]')
             }`}
           >
             BERITA
@@ -93,7 +93,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           <button
             onClick={() => handleNavClick('location')}
             className={`text-xs font-semibold tracking-wider uppercase py-2 nav-link-anim ${
-              activePage === 'location' ? (isHome ? 'text-white font-bold active' : 'text-[#0F4D2E] font-bold active') : (isHome ? 'text-white/85 hover:text-white' : 'text-[#66736A] hover:text-[#0F4D2E]')
+              activePage === 'location' ? (isHome ? 'text-[#0F4D2E] font-bold active' : 'text-[#0F4D2E] font-bold active') : (isHome ? 'text-[#315B46] hover:text-[#0F4D2E]' : 'text-[#66736A] hover:text-[#0F4D2E]')
             }`}
           >
             LOKASI KANTOR
@@ -101,7 +101,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           <button
             onClick={() => handleNavClick('faq')}
             className={`text-xs font-semibold tracking-wider uppercase py-2 nav-link-anim ${
-              activePage === 'faq' ? (isHome ? 'text-white font-bold active' : 'text-[#0F4D2E] font-bold active') : (isHome ? 'text-white/85 hover:text-white' : 'text-[#66736A] hover:text-[#0F4D2E]')
+              activePage === 'faq' ? (isHome ? 'text-[#0F4D2E] font-bold active' : 'text-[#0F4D2E] font-bold active') : (isHome ? 'text-[#315B46] hover:text-[#0F4D2E]' : 'text-[#66736A] hover:text-[#0F4D2E]')
             }`}
           >
             FAQ
@@ -130,7 +130,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           </button>
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className={`w-9 h-9 border flex items-center justify-center transition-colors rounded-lg ${isHome ? 'bg-white/10 border-white/25 text-white hover:bg-white/20' : 'bg-white border-[#DDE5DF] text-[#17201B] hover:bg-[#F8F9F6]'}`}
+            className={`w-9 h-9 border flex items-center justify-center transition-colors rounded-lg ${isHome ? 'bg-white/70 border-[#DDE5DF] text-[#0F4D2E] hover:bg-white' : 'bg-white border-[#DDE5DF] text-[#17201B] hover:bg-[#F8F9F6]'}`}
             aria-label="Toggle menu navigasi"
           >
             {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
