@@ -96,56 +96,69 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenRegister, productsRef,
 
   return (
     <div className="w-full flex flex-col bg-white">
-      {/* HERO: jawaban singkat pertanyaan 1 */}
-      <section className="relative isolate overflow-hidden bg-[#073B27] text-white">
+      {/* LAYAR PERTAMA: 8 jawaban sekilas */}
+      <section className="relative isolate overflow-hidden bg-[#073B27] text-white" aria-labelledby="glance-title">
         <div className="absolute inset-0 islamic-pattern-dark opacity-40 pointer-events-none" aria-hidden="true" />
         <div className="absolute inset-0 bg-gradient-to-br from-[#052D1E] via-[#073B27] to-[#0F4D2E]/80" aria-hidden="true" />
-        <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 py-16 sm:py-24">
-          <div className="flex items-center gap-3 mb-5 text-[10px] sm:text-xs font-bold tracking-[0.2em] uppercase text-[#E8D39A]">
-            <span>KSPPS Syariah · Toili, Kabupaten Banggai</span>
-            <span className="w-12 h-px bg-[#D8B96D]" />
+        <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 pt-10 sm:pt-12 pb-10 sm:pb-12">
+          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
+            <div className="max-w-3xl">
+              <p className="text-[10px] sm:text-xs font-bold tracking-[0.2em] uppercase text-[#E8D39A]">KSPPS Syariah · Toili, Kabupaten Banggai</p>
+              <h1 id="glance-title" className="mt-3 font-headline font-bold text-[2rem] sm:text-4xl lg:text-5xl leading-[1.08] tracking-[-0.03em]">
+                BMT Al-Muhajirin Toili
+                <span className="block text-[#F1E5C4] text-[1.15rem] sm:text-2xl lg:text-[1.7rem] tracking-normal font-semibold mt-2">
+                  Koperasi simpan pinjam dan pembiayaan syariah, tanpa riba.
+                </span>
+              </h1>
+            </div>
+            <div className="flex flex-wrap gap-3 shrink-0">
+              <a href={headOffice ? waLink(headOffice.whatsapp) : '#kontak'} target="_blank" rel="noopener noreferrer"
+                className="btn-institutional inline-flex items-center gap-2 rounded-full bg-[#D9B96E] hover:bg-[#E7CC8D] text-[#153B2A] px-5 py-3 text-xs font-bold shadow-lg shadow-black/15">
+                <MessageCircle className="w-4 h-4" /> Chat Kantor Pusat
+              </a>
+              <button type="button" onClick={() => onOpenRegister('simpanan')}
+                className="btn-institutional inline-flex items-center gap-2 rounded-full border border-white/65 bg-white/10 hover:bg-white/20 text-white px-5 py-3 text-xs font-semibold backdrop-blur-sm">
+                Daftar Anggota
+              </button>
+            </div>
           </div>
-          <h1 className="font-headline font-bold text-[2.4rem] sm:text-5xl lg:text-[3.8rem] leading-[1.06] tracking-[-0.03em] max-w-4xl">
-            BMT Al-Muhajirin Toili
-            <span className="block text-[#F1E5C4] mt-1">Koperasi simpan pinjam dan pembiayaan syariah.</span>
-          </h1>
-          <p className="mt-6 max-w-2xl text-sm sm:text-lg leading-relaxed text-white/90">
-            Melayani masyarakat, petani, pedagang, dan pelaku UMKM di Toili dengan simpanan dan pembiayaan tanpa riba,
-            serta pengelolaan dana sosial (ZISWAF) lewat Baitul Maal.
-          </p>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <a
-              href="#kontak"
-              className="btn-institutional inline-flex items-center gap-2 rounded-full bg-[#D9B96E] hover:bg-[#E7CC8D] text-[#153B2A] px-6 sm:px-7 py-3.5 text-xs sm:text-sm font-bold shadow-lg shadow-black/15"
-            >
-              Hubungi Petugas Resmi <ArrowRight className="w-4 h-4" />
-            </a>
-            <button
-              type="button"
-              onClick={() => onOpenRegister('simpanan')}
-              className="btn-institutional inline-flex items-center gap-2 rounded-full border border-white/65 bg-white/10 hover:bg-white/20 text-white px-6 sm:px-7 py-3.5 text-xs sm:text-sm font-semibold backdrop-blur-sm"
-            >
-              Daftar Anggota
-            </button>
+
+          <div className="mt-7 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
+            {[
+              { id: 'tentang', icon: Building2, q: 'BMT Al-Muhajirin itu apa?',
+                a: 'Koperasi simpan pinjam dan pembiayaan syariah (KSPPS) di Toili. Baitul Maal mengelola dana sosial, Baitul Tamwil mengelola simpanan dan pembiayaan.' },
+              { id: 'pengelola', icon: Users, q: 'Siapa pengelolanya?',
+                a: board.length ? board.map((m: any) => `${m.role}: ${m.name}`).join(' · ') + '. Diawasi Dewan Pengawas Syariah.' : 'Pengurus koperasi, diawasi Dewan Pengawas Syariah.' },
+              { id: 'lokasi', icon: MapPin, q: 'Di mana kantornya?',
+                a: `${headOffice?.address || 'Toili, Kabupaten Banggai'}. Cabang: ${branches.filter((b: any) => b.id !== headOffice?.id).map((b: any) => b.name.replace('Cabang ', '')).join(' dan ')}. ${headOffice?.hours || ''}` },
+              { id: 'legalitas', icon: Landmark, q: 'Dasar hukum & status?',
+                a: 'Berbadan hukum Koperasi Simpan Pinjam dan Pembiayaan Syariah (KSPPS), diawasi DPS dengan rujukan fatwa DSN-MUI.' },
+              { id: 'keuangan', icon: Wallet, q: 'Bagaimana uang dikelola?',
+                a: 'Simpanan dikelola pada usaha riil halal, hasil dibagi sesuai akad. Zakat, infaq, sedekah, dan wakaf dikelola terpisah lewat Baitul Maal.' },
+              { id: 'produk', icon: Coins, q: 'Produk yang tersedia?',
+                a: products.map((p: any) => `${p.title} (${String(p.akad || '').replace(/^Akad /, '')})`).join(', ') + '.' },
+              { id: 'syariah', icon: BadgeCheck, q: 'Prinsip syariahnya?',
+                a: 'Tanpa bunga (riba), akad jelas, margin tetap dan tanpa denda bunga, dana hanya untuk usaha riil yang halal.' },
+              { id: 'kontak', icon: Phone, q: 'Hubungi petugas resmi',
+                a: headOffice ? `WhatsApp ${headOffice.whatsapp} · Telepon ${headOffice.phone}. Datang langsung pada jam layanan.` : 'Hubungi kantor pusat atau cabang terdekat.' },
+            ].map(({ id, icon: Icon, q, a }, i) => (
+              <a key={id} href={`#${id}`}
+                className="group flex flex-col rounded-2xl border border-white/15 bg-white/[0.07] hover:bg-white/[0.13] backdrop-blur-sm p-4 sm:p-5 transition-colors">
+                <div className="flex items-center gap-3">
+                  <span className="w-9 h-9 shrink-0 rounded-full bg-[#D9B96E]/20 text-[#E8D39A] flex items-center justify-center"><Icon className="w-[18px] h-[18px]" /></span>
+                  <h2 className="font-headline text-[15px] font-bold leading-snug text-white">
+                    <span className="text-[#E8D39A] mr-1.5">{i + 1}.</span>{q}
+                  </h2>
+                </div>
+                <p className="mt-3 text-[13px] leading-relaxed text-white/85 flex-1">{a}</p>
+                <span className="mt-3 inline-flex items-center gap-1 text-[11px] font-bold text-[#E8D39A] group-hover:gap-2 transition-all">
+                  Selengkapnya <ArrowRight className="w-3.5 h-3.5" />
+                </span>
+              </a>
+            ))}
           </div>
         </div>
       </section>
-
-      {/* DAFTAR PERTANYAAN */}
-      <nav aria-label="Daftar pertanyaan" className="relative z-10 -mt-7 mx-4 sm:mx-8 lg:mx-auto lg:w-[calc(100%-4rem)] max-w-7xl rounded-2xl bg-white border border-[#E4EAE5] shadow-[0_12px_36px_rgba(12,55,34,0.10)]">
-        <ol className="grid grid-cols-2 md:grid-cols-4 divide-x divide-y divide-[#E5EBE6]">
-          {QUESTIONS.map((q, i) => (
-            <li key={q.id}>
-              <a href={`#${q.id}`} className="flex items-center gap-3 px-4 sm:px-5 py-4 hover:bg-[#F4F9F5] transition-colors h-full">
-                <span className="w-7 h-7 shrink-0 rounded-full bg-[#EAF4ED] text-[#0F6842] text-[11px] font-bold flex items-center justify-center">{i + 1}</span>
-                <span className="text-xs sm:text-[13px] font-semibold text-[#123D2B] leading-snug">{q.label}</span>
-              </a>
-            </li>
-          ))}
-        </ol>
-      </nav>
-
-      <div className="h-6 sm:h-10 bg-white" aria-hidden="true" />
 
       {/* 1. APA ITU */}
       <Section
