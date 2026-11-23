@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import {
-  ArrowRight, ChevronLeft, ChevronRight, CheckCircle2, Handshake,
+  ArrowRight, ChevronLeft, ChevronRight, Handshake,
   ShieldCheck, Users, Sprout, HeartHandshake, BookOpenCheck, Building2,
   Heart, Headset, Star, Quote
 } from 'lucide-react';
-import { ABOUT_CONTENT, ARTICLES_DATA, TESTIMONIALS_DATA, SITE_SETTINGS } from '../data/content';
+import { ARTICLES_DATA, TESTIMONIALS_DATA, SITE_SETTINGS } from '../data/content';
 import { articlePath, SITE_BASE_PATH } from '../utils/seo';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 
@@ -77,7 +77,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenRegister, productsRef,
   };
 
   const handleScrollToProducts = () => {
-    productsRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    onNavigateToProducts?.();
   };
 
   const featuredArticles = ARTICLES_DATA.filter((article) => article && article.title);
