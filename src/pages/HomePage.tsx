@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import {
   ArrowRight, ChevronLeft, ChevronRight, CheckCircle2, Handshake,
-  ShieldCheck, Users, Sprout, HeartHandshake
+  ShieldCheck, Users, Sprout, HeartHandshake, BookOpenCheck, Building2,
+  Heart, Headset, Star, Quote
 } from 'lucide-react';
-import { ABOUT_CONTENT, ARTICLES_DATA, PRODUCTS_DATA, SITE_SETTINGS } from '../data/content';
+import { ABOUT_CONTENT, ARTICLES_DATA, TESTIMONIALS_DATA, SITE_SETTINGS } from '../data/content';
 import { articlePath, SITE_BASE_PATH } from '../utils/seo';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 
@@ -45,9 +46,8 @@ const heroCopy = [
 ];
 
 export const HomePage: React.FC<HomePageProps> = ({ onOpenRegister, productsRef, onNavigateToNews, onNavigateToProducts }) => {
-  const section2Observer = useIntersectionObserver(0.06);
   const section3Observer = useIntersectionObserver(0.06);
-  const aboutObserver = useIntersectionObserver(0.08);
+  const testimonialObserver = useIntersectionObserver(0.08);
 
   const configuredImages = (SITE_SETTINGS.heroImages || []).filter(Boolean).slice(0, 4);
   const heroImages = configuredImages.length ? configuredImages : fallbackHero;
@@ -83,8 +83,6 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenRegister, productsRef,
   const featuredArticles = ARTICLES_DATA.filter((article) => article && article.title);
   const leadArticle = featuredArticles[0];
   const otherArticles = featuredArticles.slice(1, 4);
-  const aboutText = ABOUT_CONTENT.paragraphs?.[0] || 'BMT Al-Muhajirin hadir untuk mendukung kegiatan ekonomi masyarakat melalui layanan keuangan yang berlandaskan prinsip syariah.';
-  const aboutImage = heroImages[0] || fallbackHero[0];
 
   return (
     <div className="w-full flex flex-col bg-[#FBFCFA]">
@@ -181,114 +179,119 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenRegister, productsRef,
         )}
       </section>
 
-      {/* TRUST STRIP */}
-      <section className="relative z-10 -mt-7 sm:-mt-9 mx-4 sm:mx-8 lg:mx-auto lg:w-[calc(100%-4rem)] max-w-7xl rounded-2xl bg-white border border-[#E4EAE5] shadow-[0_12px_36px_rgba(12,55,34,0.10)]">
-        <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-y md:divide-y-0 divide-[#E5EBE6]">
-          {[
-            { icon: Handshake, title: 'Koperasi Syariah', sub: 'Berlandaskan prinsip syariah' },
-            { icon: ShieldCheck, title: 'Layanan Amanah', sub: 'Mengutamakan kepercayaan' },
-            { icon: Users, title: 'Bersama Anggota', sub: 'Tumbuh melalui kebersamaan' },
-            { icon: Sprout, title: 'Ekonomi Ummat', sub: 'Mendukung sektor riil' },
-          ].map(({ icon: Icon, title, sub }) => (
-            <div key={title} className="flex items-center gap-3 sm:gap-4 px-4 sm:px-6 py-5 sm:py-6">
-              <span className="w-10 h-10 sm:w-12 sm:h-12 shrink-0 rounded-full bg-[#EAF4ED] text-[#0F6842] flex items-center justify-center">
-                <Icon className="w-5 h-5 sm:w-6 sm:h-6" />
-              </span>
-              <span>
-                <strong className="block text-xs sm:text-sm text-[#123D2B]">{title}</strong>
-                <span className="block mt-1 text-[10px] sm:text-xs text-[#718078] leading-snug">{sub}</span>
-              </span>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* ABOUT */}
-      <section
-        ref={aboutObserver.ref as any}
-        className={`py-16 sm:py-20 lg:py-24 section-reveal ${aboutObserver.isVisible ? 'is-visible' : ''}`}
-      >
-        <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 grid lg:grid-cols-2 gap-9 lg:gap-16 items-center">
-          <div className="relative">
-            <div className="absolute -left-3 -top-3 w-24 h-24 rounded-tl-[2rem] border-l-4 border-t-4 border-[#D8B96D]" aria-hidden="true" />
-            <img
-              src={aboutImage}
-              alt="Lingkungan dan kegiatan BMT Al-Muhajirin Toili"
-              className="relative w-full aspect-[5/3.7] object-cover rounded-2xl shadow-xl"
-              loading="lazy"
-            />
-            <div className="absolute -bottom-4 right-4 sm:right-8 rounded-xl bg-[#0F4D2E] text-white px-5 py-3 shadow-lg">
-              <span className="block text-[10px] uppercase tracking-widest text-white/70">BMT Al-Muhajirin</span>
-              <strong className="font-headline text-lg">Toili, Banggai</strong>
-            </div>
-          </div>
-          <div className="pt-3 lg:pt-0">
+      {/* WHY CHOOSE US */}
+      <section className="relative py-20 sm:py-24 lg:py-28 bg-[#FBFCFA]">
+        <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
+          <div className="max-w-3xl mb-12 sm:mb-16">
             <div className="flex items-center gap-3 text-[10px] sm:text-xs font-bold tracking-[0.18em] uppercase text-[#A47E36] mb-4">
-              <span className="w-8 h-px bg-[#C6A45D]" /> Tentang Kami
+              <span className="w-8 h-px bg-[#C6A45D]" /> Mengapa Memilih Kami
             </div>
-            <h2 className="font-headline text-3xl sm:text-4xl lg:text-[2.7rem] font-bold leading-tight text-[#123D2B]">
-              {ABOUT_CONTENT.heading || 'KSPPS BMT Al-Muhajirin Toili'}
+            <h2 className="font-headline text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight tracking-[-0.025em] text-[#123D2B]">
+              Tumbuh Bersama, Membangun Ekonomi yang Lebih Berkah
             </h2>
-            <p className="mt-5 text-sm sm:text-base leading-relaxed text-[#64736A]">{aboutText}</p>
-            <p className="mt-3 text-sm sm:text-base leading-relaxed text-[#64736A]">
-              {ABOUT_CONTENT.paragraphs?.[1] || 'Mengembangkan layanan Baitul Maal dan Baitul Tamwil untuk mendukung kebutuhan anggota dan masyarakat.'}
+            <p className="mt-5 max-w-2xl text-sm sm:text-base leading-relaxed text-[#64736A]">
+              BMT Al-Muhajirin hadir sebagai mitra keuangan syariah yang mendukung pertumbuhan ekonomi umat melalui layanan simpanan dan pembiayaan, dengan semangat kebersamaan dan prinsip muamalah syariah.
             </p>
-            <button
-              onClick={() => window.location.assign(`${SITE_BASE_PATH}/profil/`)}
-              className="mt-7 inline-flex items-center gap-2 rounded-full bg-[#0F4D2E] hover:bg-[#083B24] text-white px-6 py-3 text-xs sm:text-sm font-semibold transition-colors"
-            >
-              Profil BMT <ArrowRight className="w-4 h-4" />
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+            {[
+              { icon: Handshake, title: 'Berlandaskan Syariah', text: 'Mengutamakan prinsip muamalah syariah dalam layanan keuangan.' },
+              { icon: ShieldCheck, title: 'Mengutamakan Kepercayaan', text: 'Membangun hubungan jangka panjang melalui pelayanan yang bertanggung jawab.' },
+              { icon: Users, title: 'Berorientasi pada Anggota', text: 'Menempatkan kebutuhan dan perkembangan anggota sebagai perhatian utama.' },
+              { icon: Sprout, title: 'Mendukung Usaha Produktif', text: 'Mendorong perkembangan usaha dan aktivitas ekonomi masyarakat.' },
+              { icon: Heart, title: 'Semangat Kebersamaan', text: 'Mengembangkan ekonomi umat melalui semangat saling mendukung.' },
+              { icon: Headset, title: 'Pelayanan Bersahabat', text: 'Memberikan informasi produk dan layanan secara komunikatif dan mudah dipahami.' },
+            ].map(({ icon: Icon, title, text }, index) => (
+              <article key={title} className="group bg-white border border-[#E1E9E2] rounded-2xl p-6 sm:p-7 hover:border-[#B9D2C0] hover:shadow-[0_14px_34px_rgba(17,55,34,0.07)] transition-all duration-300">
+                <span className="w-11 h-11 rounded-xl bg-[#EAF4ED] text-[#0F6842] flex items-center justify-center group-hover:bg-[#0F4D2E] group-hover:text-white transition-colors">
+                  <Icon className="w-5 h-5" />
+                </span>
+                <h3 className="mt-5 font-headline text-lg font-bold text-[#123D2B]">{title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-[#68776E]">{text}</p>
+              </article>
+            ))}
+          </div>
+
+          <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 mt-16 sm:mt-20">
+            <section className="rounded-2xl border border-[#E1E9E2] bg-white p-6 sm:p-8 lg:p-9">
+              <div className="flex items-center gap-3 mb-5">
+                <span className="w-10 h-10 rounded-xl bg-[#F5F0E3] text-[#9A7736] flex items-center justify-center"><Star className="w-5 h-5" /></span>
+                <div>
+                  <p className="text-[10px] font-bold tracking-[0.16em] uppercase text-[#A47E36]">Apresiasi & Pencapaian</p>
+                  <h3 className="font-headline text-xl sm:text-2xl font-bold text-[#123D2B]">Penghargaan</h3>
+                </div>
+              </div>
+              <p className="text-sm leading-relaxed text-[#68776E]">
+                Setiap pencapaian menjadi bagian dari perjalanan BMT Al-Muhajirin dalam melayani anggota dan masyarakat. Dokumentasi penghargaan resmi akan ditampilkan pada ruang ini.
+              </p>
+              <div className="mt-6 min-h-32 rounded-xl border border-dashed border-[#D7E2D9] bg-[#F8FBF8] flex flex-col items-center justify-center text-center px-5 py-6">
+                <BookOpenCheck className="w-6 h-6 text-[#7A9A83]" />
+                <span className="mt-3 text-xs font-semibold text-[#45624E]">Galeri penghargaan</span>
+                <span className="mt-1 text-[11px] text-[#829087]">Menunggu dokumentasi dan informasi resmi</span>
+              </div>
+            </section>
+
+            <section className="rounded-2xl border border-[#E1E9E2] bg-white p-6 sm:p-8 lg:p-9">
+              <div className="flex items-center gap-3 mb-5">
+                <span className="w-10 h-10 rounded-xl bg-[#EAF4ED] text-[#0F6842] flex items-center justify-center"><Building2 className="w-5 h-5" /></span>
+                <div>
+                  <p className="text-[10px] font-bold tracking-[0.16em] uppercase text-[#A47E36]">Kolaborasi & Kemitraan</p>
+                  <h3 className="font-headline text-xl sm:text-2xl font-bold text-[#123D2B]">Mitra Bisnis</h3>
+                </div>
+              </div>
+              <p className="text-sm leading-relaxed text-[#68776E]">
+                Kolaborasi menjadi bagian penting dalam memperkuat ekosistem ekonomi dan memperluas manfaat bagi anggota serta masyarakat.
+              </p>
+              <div className="mt-6 min-h-32 rounded-xl border border-dashed border-[#D7E2D9] bg-[#F8FBF8] flex flex-col items-center justify-center text-center px-5 py-6">
+                <Handshake className="w-6 h-6 text-[#7A9A83]" />
+                <span className="mt-3 text-xs font-semibold text-[#45624E]">Jaringan mitra BMT</span>
+                <span className="mt-1 text-[11px] text-[#829087]">Logo dan profil mitra ditampilkan setelah data terverifikasi</span>
+              </div>
+            </section>
+          </div>
+
+          <div className="mt-10 sm:mt-12 flex flex-col sm:flex-row sm:items-center justify-between gap-5 rounded-2xl bg-[#EFF6F0] border border-[#E0EAE1] p-6 sm:p-8">
+            <div>
+              <h3 className="font-headline text-xl sm:text-2xl font-bold text-[#123D2B]">Temukan Layanan yang Sesuai Kebutuhan Anda</h3>
+              <p className="mt-2 text-sm text-[#68776E]">Kenali pilihan simpanan dan pembiayaan syariah BMT Al-Muhajirin.</p>
+            </div>
+            <button onClick={() => onNavigateToProducts?.()} className="shrink-0 inline-flex items-center justify-center gap-2 rounded-full bg-[#0F4D2E] hover:bg-[#083B24] text-white px-6 py-3.5 text-xs sm:text-sm font-bold transition-colors">
+              Produk & Layanan <ArrowRight className="w-4 h-4" />
             </button>
           </div>
         </div>
       </section>
 
-      {/* PRODUCTS */}
+      {/* TESTIMONIALS */}
       <section
-        ref={(el) => {
-          if (productsRef) (productsRef as React.MutableRefObject<HTMLDivElement | null>).current = el;
-          if (section2Observer.ref) (section2Observer.ref as React.MutableRefObject<HTMLDivElement | null>).current = el;
-        }}
-        className={`relative py-16 sm:py-20 bg-[#EFF6F0] section-reveal ${section2Observer.isVisible ? 'is-visible' : ''}`}
+        ref={testimonialObserver.ref as any}
+        className={`relative py-16 sm:py-20 lg:py-24 bg-[#EFF6F0] section-reveal ${testimonialObserver.isVisible ? 'is-visible' : ''}`}
       >
         <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-9">
-            <div>
-              <div className="flex items-center gap-3 text-[10px] sm:text-xs font-bold tracking-[0.18em] uppercase text-[#A47E36] mb-3">
-                <span className="w-8 h-px bg-[#C6A45D]" /> Produk & Layanan
-              </div>
-              <h2 className="font-headline text-3xl sm:text-4xl font-bold text-[#123D2B]">Solusi Keuangan Syariah</h2>
-              <p className="mt-2 text-sm text-[#68776E] max-w-xl">Pilihan layanan simpanan dan pembiayaan sesuai kebutuhan anggota.</p>
+          <div className="max-w-3xl mb-9 sm:mb-11">
+            <div className="flex items-center gap-3 text-[10px] sm:text-xs font-bold tracking-[0.18em] uppercase text-[#A47E36] mb-3">
+              <span className="w-8 h-px bg-[#C6A45D]" /> Cerita Anggota
             </div>
-            <button onClick={() => onNavigateToProducts?.()} className="inline-flex items-center gap-2 text-xs font-bold text-[#0F4D2E] hover:text-[#A47E36] transition-colors">
-              Lihat Semua Layanan <ArrowRight className="w-4 h-4" />
-            </button>
+            <h2 className="font-headline text-3xl sm:text-4xl font-bold text-[#123D2B]">Kepercayaan yang Tumbuh Bersama</h2>
+            <p className="mt-3 text-sm text-[#68776E]">Pengalaman anggota dalam memanfaatkan layanan BMT Al-Muhajirin.</p>
           </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5">
-            {PRODUCTS_DATA.filter((product) => product.showOnHome === true).slice(0, 3).map((product) => (
-              <article key={product.id} className="group overflow-hidden rounded-2xl bg-white border border-[#E0EAE1] shadow-[0_5px_22px_rgba(17,55,34,0.06)] hover:shadow-[0_14px_32px_rgba(17,55,34,0.12)] hover:-translate-y-1 transition-all duration-300">
-                <div className="relative h-48 overflow-hidden bg-[#E4EEE6]">
-                  <img src={product.image} alt={product.imageAlt} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
-                  <span className="absolute left-4 top-4 rounded-full bg-white/95 px-3 py-1.5 text-[10px] font-semibold text-[#0F4D2E] shadow-sm">{product.badge}</span>
-                </div>
-                <div className="p-5 sm:p-6">
-                  <p className="text-[10px] font-bold uppercase tracking-widest text-[#A47E36]">{product.akad}</p>
-                  <h3 className="mt-2 font-headline text-xl font-bold text-[#123D2B]">{product.title}</h3>
-                  <p className="mt-3 text-sm leading-relaxed text-[#68776E]">{product.description}</p>
-                  <ul className="mt-4 space-y-2">
-                    {product.features.slice(0, 2).map((feature, index) => (
-                      <li key={index} className="flex items-start gap-2 text-xs leading-relaxed text-[#46564C]">
-                        <CheckCircle2 className="w-4 h-4 text-[#168052] shrink-0 mt-0.5" /> {feature}
-                      </li>
-                    ))}
-                  </ul>
-                  <button
-                    onClick={() => onOpenRegister(product.id === 'simpanan-mudharabah' ? 'simpanan' : product.id === 'pembiayaan-syariah' ? 'pembiayaan' : 'qurban')}
-                    className="mt-5 inline-flex items-center gap-2 text-xs font-bold text-[#0F4D2E] hover:text-[#A47E36] transition-colors"
-                  >
-                    Pelajari Layanan <ArrowRight className="w-4 h-4" />
-                  </button>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+            {TESTIMONIALS_DATA.filter((item: any) => item && item.active !== false && item.quote).slice(0, 3).map((item) => (
+              <article key={item.id} className="rounded-2xl bg-white border border-[#E0EAE1] p-6 sm:p-7 flex flex-col shadow-[0_5px_22px_rgba(17,55,34,0.04)]">
+                <Quote className="w-7 h-7 text-[#C6A45D]" />
+                <p className="mt-4 text-sm leading-relaxed text-[#526258] flex-1">“{item.quote}”</p>
+                <div className="mt-6 pt-5 border-t border-[#E8EEE9] flex items-center gap-3">
+                  {item.avatarImage ? (
+                    <img src={item.avatarImage} alt="" className="w-11 h-11 rounded-full object-cover bg-[#EAF4ED]" loading="lazy" />
+                  ) : (
+                    <span className="w-11 h-11 rounded-full bg-[#EAF4ED] text-[#0F6842] flex items-center justify-center text-xs font-bold">{item.avatarText || item.name?.slice(0, 2)}</span>
+                  )}
+                  <span className="min-w-0">
+                    <strong className="block text-sm text-[#123D2B]">{item.name}</strong>
+                    <span className="block mt-0.5 text-[11px] text-[#748078]">{item.role}</span>
+                    <span className="block mt-0.5 text-[10px] text-[#9A7736]">{item.location}</span>
+                  </span>
                 </div>
               </article>
             ))}
